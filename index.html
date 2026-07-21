@@ -1,314 +1,105 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050a12">
-  <meta name="color-scheme" content="dark light">
-  <title>BonusBridge — Take your insurance history with you</title>
-  <meta name="description" content="Explore a global knowledge base of cross-border motor insurance history recognition rules for expatriates, brokers and international drivers.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="BonusBridge">
+  <meta name="theme-color" content="#07101b">
+  <title>BonusBridge Bêta — Historique d’assurance à l’international</title>
+  <meta name="description" content="Comparez les assureurs susceptibles de reconnaître votre bonus et votre historique automobile lorsque vous changez de pays.">
   <link rel="canonical" href="https://otherlight77.github.io/BonusBridge/">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
-  <link rel="preload" href="css/tokens.css" as="style">
+  <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/beta.css">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="BonusBridge">
-  <meta property="og:title" content="Take your insurance history with you.">
-  <meta property="og:description" content="Worldwide insurance history recognition for expatriate drivers.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="BonusBridge — Version bêta">
+  <meta property="og:description" content="Conservez votre historique d’assurance lorsque vous changez de pays.">
   <meta property="og:url" content="https://otherlight77.github.io/BonusBridge/">
   <meta property="og:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BonusBridge — Worldwide recognition">
-  <meta name="twitter:description" content="Move countries. Keep your insurance bonus.">
-  <meta name="twitter:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/utilities.css">
-  <link rel="stylesheet" href="css/premium.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "BonusBridge",
-    "url": "https://otherlight77.github.io/BonusBridge/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "description": "International knowledge platform for cross-border motor insurance history recognition rules.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-    "featureList": ["International insurance comparison", "No-claims history recognition", "Document guidance", "Savings estimation"]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BonusBridge","url":"https://otherlight77.github.io/BonusBridge/","applicationCategory":"FinanceApplication","description":"Outil de démonstration sur la reconnaissance internationale des historiques d’assurance automobile."}</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient-grid" aria-hidden="true"></div>
-  <div class="glow glow-a" aria-hidden="true"></div>
-  <div class="glow glow-b" aria-hidden="true"></div>
-
-  <header class="site-header" id="site-header">
-    <a class="logo" href="#home" aria-label="BonusBridge home">
-      <img class="logo-dark" src="assets/icons/logo-dark.svg" width="185" height="40" alt="BonusBridge">
-      <img class="logo-light" src="assets/icons/logo-light.svg" width="185" height="40" alt="">
-    </a>
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-      <a href="#how">How it works</a>
-      <a href="#compare">Compare</a>
-      <a href="#coverage">Countries</a>
-      <a href="#platform">Platform</a>
-      <a href="#faq">Resources</a>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="#accueil" aria-label="BonusBridge — Accueil"><img src="assets/logos/bonusbridge-dark.svg" width="174" height="38" alt="BonusBridge"><span>Bêta</span></a>
+    <nav id="main-nav" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a><a href="#comparateur">Comparateur</a><a href="#assureurs">Assureurs</a><a href="#documents">Documents</a><a href="#espace">Espace personnel</a>
     </nav>
-    <div class="header-actions">
-      <button class="icon-btn search-open" type="button" aria-label="Open search" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg></button>
-      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
-      <button class="login-btn" type="button" data-app-view="overview">Local workspace</button>
-      <a class="button button-sm button-primary" href="#compare">Start a comparison <span>↗</span></a>
-      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-    </div>
+    <div class="header-actions"><button id="language-toggle" class="language" type="button" aria-label="Passer l’interface en anglais">FR / EN</button><a class="button primary desktop-cta" href="#comparateur">Comparer mon assurance</a><button id="menu-toggle" class="menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></div>
   </header>
 
   <main id="main">
-    <section class="hero" id="home">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span></span> INTERNATIONAL INSURANCE RECOGNITION</div>
-        <h1>Move countries.<br><em>Keep your insurance history.</em></h1>
-        <p>Find insurers that recognize your driving experience, your claims history and your no-claims bonus across borders.</p>
-        <div class="hero-actions">
-          <a class="button button-primary button-lg" href="#compare">Start a comparison <span>→</span></a>
-          <a class="button button-ghost button-lg" href="#coverage"><i>◎</i> Explore recognition rules</a>
+    <section class="hero section" id="accueil">
+      <div class="hero-copy">
+        <span class="eyebrow">ASSURANCE AUTO INTERNATIONALE · BÊTA</span>
+        <h1 data-i18n="heroTitle">Conservez votre historique d’assurance lorsque vous changez de pays.</h1>
+        <p data-i18n="heroCopy">BonusBridge compare les assureurs qui peuvent reconnaître votre bonus, votre ancienneté et votre historique de conduite à l’international.</p>
+        <div class="actions"><a class="button primary" href="#comparateur" data-i18n="compareNow">Comparer maintenant</a><a class="button secondary" href="#assureurs" data-i18n="seeInsurers">Voir les assureurs</a></div>
+        <ul class="trust"><li>15 pays référencés</li><li>Données clairement qualifiées</li><li>Stockage local privé</li></ul>
+      </div>
+      <article class="route-card" aria-label="Exemple de comparaison de démonstration">
+        <div class="route-head"><span>EXEMPLE DE PARCOURS</span><strong>DÉMONSTRATION</strong></div>
+        <h2><span>🇫🇷 France</span><i>→</i><span>🇨🇦 Canada</span></h2>
+        <dl><div><dt>Ancienneté</dt><dd>8 années assurées</dd></div><div><dt>Bonus actuel</dt><dd>0,50</dd></div><div><dt>Reconnaissance estimée</dt><dd>70 %</dd></div><div><dt>Score de compatibilité</dt><dd class="score">84/100</dd></div></dl>
+        <p>Données de démonstration — à confirmer auprès de l’assureur.</p>
+      </article>
+    </section>
+
+    <section class="section compact" id="comparateur">
+      <div class="section-heading"><div><span>COMPARATEUR RAPIDE</span><h2>Analysez votre profil en quelques instants.</h2></div><p>Une estimation locale fondée sur les règles de démonstration disponibles. Ce résultat n’est pas une décision d’assureur.</p></div>
+      <form id="comparison-form" class="comparator" novalidate>
+        <div class="form-grid">
+          <label>Pays d’origine<select id="origin-country" name="originCountry" required><option value="">Sélectionner</option></select></label>
+          <label>Pays de destination<select id="destination-country" name="destinationCountry" required><option value="">Sélectionner</option></select></label>
+          <label>Assureur actuel<select id="current-company" name="currentCompany" required><option value="">Sélectionner</option></select></label>
+          <label>Années assurées<input name="insuredYears" type="number" min="0" max="60" value="8" required></label>
+          <label>Coefficient bonus-malus<input name="bonusMalus" type="number" min="0.5" max="3.5" step="0.01" value="0.50" required></label>
+          <label>Nombre de sinistres<input name="claimsCount" type="number" min="0" max="20" value="0" required></label>
+          <label>Type de couverture<select id="coverage-type" name="coverageType" required><option value="">Sélectionner</option></select></label>
+          <fieldset class="document-choice"><legend>Documents disponibles</legend><label><input type="checkbox" name="hasExperienceLetter"> Lettre d’expérience</label><label><input type="checkbox" name="hasInformationStatement"> Relevé d’information</label><label><input type="checkbox" name="hasClaimsHistory"> Historique des sinistres</label></fieldset>
         </div>
-        <div class="proof-row">
-          <p><strong>15+ countries</strong><small>international reference coverage</small></p>
-          <i></i><p><strong>Private workspace</strong><small>stored in this browser</small></p>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal delay-1" aria-label="Global insurance recognition network">
-        <div class="world-orb" data-tilt>
-          <svg viewBox="0 0 600 600" aria-hidden="true">
-            <defs><radialGradient id="orb" cx="35%" cy="25%"><stop stop-color="#194965"/><stop offset=".48" stop-color="#0c2439"/><stop offset="1" stop-color="#06101d"/></radialGradient><filter id="pin-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-            <circle cx="300" cy="300" r="244" fill="url(#orb)" stroke="#5edfd2" stroke-opacity=".18"/>
-            <g fill="none" stroke="#9ad9df" stroke-opacity=".12"><ellipse cx="300" cy="300" rx="244" ry="84"/><ellipse cx="300" cy="300" rx="244" ry="165"/><ellipse cx="300" cy="300" rx="95" ry="244"/><ellipse cx="300" cy="300" rx="180" ry="244"/><path d="M56 300h488M90 194h420M90 406h420"/></g>
-            <g fill="#5f9ca7" fill-opacity=".32"><path d="M90 210 136 142l91-17 49 42-18 55-46 14-28 84-61-26-39-41Z"/><path d="m271 177 67-31 97 34 23 70-43 46-16 107-55 74-47-43 18-85-53-68Z"/><path d="m418 356 88-18 51 67-34 54-82-8-30-48Z"/></g>
-            <g filter="url(#pin-glow)" fill="#55ead7" stroke="#fff" stroke-width="3"><circle cx="190" cy="210" r="7"/><circle cx="319" cy="206" r="7"/><circle cx="378" cy="241" r="7"/><circle cx="471" cy="392" r="7"/></g>
-            <g fill="none" stroke="#52dacd" stroke-width="2" stroke-dasharray="5 9" stroke-opacity=".8"><path d="M190 210Q250 140 319 206"/><path d="M319 206Q360 200 378 241"/><path d="M378 241Q455 300 471 392"/></g>
-          </svg>
-          <div class="orbital-ring ring-one"></div><div class="orbital-ring ring-two"></div>
-        </div>
-        <article class="status-card card-fr glass-card"><span class="flag">🇫🇷</span><p><small>ORIGIN</small><strong>France</strong><em>8 insured years · coefficient 0.50</em></p><i class="demo-mark">DEMO</i></article>
-        <article class="status-card card-ca glass-card"><span class="flag">🇨🇦</span><p><small>DESTINATION</small><strong>Canada</strong><em>Estimated recognition 70%</em></p><i class="demo-mark">DEMO</i></article>
-        <article class="savings-card glass-card hero-score-card"><span>84</span><p><small>COMPATIBILITY SCORE</small><strong>84 / 100</strong><em>4 documents required · demonstration</em></p></article>
-        <div class="secure-chip"><span>◉</span> Private by design · Local calculation</div>
-      </div>
-      <a class="scroll-cue" href="#trust" aria-label="Explore key metrics"><span></span>EXPLORE</a>
+        <details class="advanced"><summary>Options avancées</summary><div class="form-grid advanced-grid">
+          <label>Date du permis<input name="licenceDate" type="date" value="2014-06-12"></label><label>Âge<input name="driverAge" type="number" min="18" max="100" value="34"></label><label>Type de véhicule<select id="vehicle-type" name="vehicleType"></select></label><label>Valeur du véhicule<input name="vehicleValue" type="number" min="500" value="20000"></label><label>Usage<select name="vehicleUse"><option value="private">Privé</option><option value="professional">Professionnel</option></select></label><label>Kilométrage annuel<input name="annualMileage" type="number" min="1000" value="12000"></label><label>Langue des documents<select id="preferred-language" name="preferredLanguage"><option value="fr">Français</option><option value="en">Anglais</option></select></label><label>Traduction officielle<select name="needsOfficialTranslation"><option value="unknown">À déterminer</option><option value="yes">Nécessaire</option><option value="no">Non nécessaire</option></select></label><input name="nonFaultClaimsCount" type="hidden" value="0"><input name="mainDriver" type="hidden" value="on">
+        </div></details>
+        <div class="form-footer"><p id="form-error" role="alert" aria-live="assertive"></p><button class="button primary" type="submit">Analyser mon profil <span>→</span></button></div>
+      </form>
+      <section id="results-panel" class="results" aria-live="polite" aria-labelledby="results-title">
+        <div class="results-header"><div><span>RÉSULTATS</span><h3 id="results-title">Assureurs compatibles</h3></div><p id="results-summary">Complétez le formulaire pour lancer une analyse locale.</p></div>
+        <div id="result-grid" class="insurer-grid"><article class="empty-state"><strong>Votre analyse apparaîtra ici.</strong><p>Les statuts Vérifié, À confirmer et Démonstration restent toujours visibles.</p></article></div>
+      </section>
     </section>
 
-    <section class="trust-bar" id="trust" aria-label="Insurance network">
-      <span>DEMONSTRATION INSURER CATALOGUE</span>
-      <div><strong>AXA</strong><strong>Allianz</strong><strong>Aviva</strong><strong>Zurich</strong><strong>Generali</strong><strong>MAPFRE</strong></div>
-    </section>
-
-    <section class="problem-section section" id="problem">
-      <div class="section-head"><div><span class="section-label">THE CROSS-BORDER GAP</span><h2>Your insurance history should not<br><em>disappear at the border.</em></h2></div><p>A strong driving record does not automatically travel with you. BonusBridge structures the questions, evidence and recognition scenarios to investigate before requesting cover.</p></div>
-      <div class="problem-grid">
-        <article><i>⇄</i><h3>Recognition is not automatic</h3><p>A destination insurer may use a different rating system or require manual underwriting.</p></article>
-        <article><i>▤</i><h3>Evidence varies by insurer</h3><p>Letters, policy certificates, claims records and issue dates may all be assessed differently.</p></article>
-        <article><i>◷</i><h3>Only part may be recognized</h3><p>An insurer may cap the accepted years or convert them into a local rating class.</p></article>
-        <article><i>↗</i><h3>Missing proof can cost more</h3><p>Without acceptable evidence, a driver may be assessed as having limited local history.</p></article>
+    <section class="section compact" id="assureurs">
+      <div class="section-heading"><div><span>CATALOGUE BÊTA</span><h2>Assureurs et partenaires référencés</h2></div><p>Identités fictives créées pour tester BonusBridge. Aucun assureur affiché ici n’est un partenaire officiel.</p></div>
+      <div class="insurer-grid static-insurers">
+        <article class="insurer-card"><img src="assets/logos/insurers/pirez-assurance.svg" alt="Pirez Assurance"><div><span>France · Démonstration</span><h3>Pirez Assurance</h3></div><dl><div><dt>Score exemple</dt><dd>84/100</dd></div><div><dt>Historique</dt><dd>Accepté*</dd></div><div><dt>Années</dt><dd>8 max.</dd></div><div><dt>Traduction</dt><dd>À confirmer</dd></div></dl><span class="badge demo">Démonstration</span><button type="button" data-detail="pirez-assurance">Voir le détail</button></article>
+        <article class="insurer-card"><img src="assets/logos/insurers/jeremy-assurance.svg" alt="Jérémy Assurance"><div><span>Belgique · Démonstration</span><h3>Jérémy Assurance</h3></div><dl><div><dt>Score exemple</dt><dd>79/100</dd></div><div><dt>Historique</dt><dd>Accepté*</dd></div><div><dt>Années</dt><dd>7 max.</dd></div><div><dt>Traduction</dt><dd>Non*</dd></div></dl><span class="badge demo">Démonstration</span><button type="button" data-detail="jeremy-assurance">Voir le détail</button></article>
+        <article class="insurer-card"><img src="assets/logos/insurers/julia-assurance.svg" alt="Julia Assurance"><div><span>Canada · Démonstration</span><h3>Julia Assurance</h3></div><dl><div><dt>Score exemple</dt><dd>76/100</dd></div><div><dt>Historique</dt><dd>À confirmer</dd></div><div><dt>Années</dt><dd>6 max.</dd></div><div><dt>Traduction</dt><dd>Oui*</dd></div></dl><span class="badge demo">Démonstration</span><button type="button" data-detail="julia-assurance">Voir le détail</button></article>
       </div>
-      <div class="recognition-contrast">
-        <article><span>WITHOUT RECOGNITION</span><ul><li>Treated as a new driver</li><li>Potentially higher premium</li><li>Limited coverage options</li><li>Additional proof requested later</li></ul></article>
-        <div aria-hidden="true">→</div>
-        <article class="positive"><span>WITH BONUSBRIDGE</span><ul><li>Compatible scenarios identified</li><li>Required documents prepared</li><li>Recognition level estimated</li><li>Application questions explained</li></ul></article>
-      </div>
+      <div class="logo-strip" aria-label="Autres assureurs de démonstration"><img src="assets/logos/insurers/horizon-assurance.svg" alt="Horizon Assurance"><img src="assets/logos/insurers/nova-insurance.svg" alt="Nova Insurance"><img src="assets/logos/insurers/global-cover.svg" alt="Global Cover"><img src="assets/logos/insurers/bridge-protect.svg" alt="Bridge Protect"><img src="assets/logos/insurers/atlas-assurance.svg" alt="Atlas Assurance"><img src="assets/logos/insurers/europa-insurance.svg" alt="Europa Insurance"></div>
+      <p class="catalog-note">* Valeurs illustratives. Toutes les données de cette section sont des démonstrations à confirmer directement auprès des assureurs.</p>
     </section>
 
-    <section class="metrics section" aria-label="Key platform metrics">
-      <div class="metric-intro reveal"><span class="section-label">GLOBAL COVERAGE</span><h2>One insurance history.<br><em>Worldwide recognition.</em></h2></div>
-      <div class="metric-grid reveal delay-1">
-        <article><span>01</span><strong data-count="15">15</strong><p>initial countries</p><small>Demonstration coverage</small></article>
-        <article><span>02</span><strong data-count="8">8</strong><p>sample rules</p><small>Not officially verified</small></article>
-        <article><span>03</span><strong data-count="6">6</strong><p>sample insurers</p><small>Confirmation is required</small></article>
-        <article><span>04</span><strong data-count="2">0</strong><sup>min</sup><p>to compare</p><small>No account required</small></article>
-      </div>
+    <section class="section split" id="documents">
+      <div><span class="section-label">DOSSIER</span><h2>Les documents généralement demandés.</h2><p>Préparez les justificatifs avant de contacter un assureur. Les exigences varient selon le pays, la compagnie et le produit.</p></div>
+      <div class="document-list"><article><i>✓</i><div><h3>Lettre d’expérience</h3><p>Ancienneté, périodes assurées et sinistres déclarés.</p></div><span>Prioritaire</span></article><article><i>▤</i><div><h3>Relevé d’information</h3><p>Contrats, coefficient et historique récent.</p></div><span>À préparer</span></article><article><i>⌁</i><div><h3>Permis de conduire</h3><p>Document valide du pays d’origine.</p></div><span>Requis</span></article><article><i>文</i><div><h3>Traduction certifiée</h3><p>Seulement si le format est accepté par l’assureur.</p></div><span>À confirmer</span></article></div>
     </section>
 
-    <section class="comparison-section section" id="compare">
-      <div class="section-head reveal"><div><span class="section-label">KNOWLEDGE &amp; RECOGNITION ENGINE</span><h2>Find insurers that value<br><em>your actual experience.</em></h2></div><p>The engine searches documented local rules, required evidence, translation needs and illustrative savings. It is not a live price-comparison service.</p></div>
-      <div class="data-legend" aria-label="Data status legend"><span><i class="verified-dot"></i> Verified: supported by a reviewed source</span><span><i class="demo-dot"></i> Demonstration: illustrative scenario</span><span><i class="pending-dot"></i> To confirm: incomplete or awaiting review</span></div>
-      <div class="comparison-shell reveal delay-1">
-        <form id="comparison-form" class="comparison-form premium-comparator">
-          <div class="form-head"><div><span id="form-step-number">01</span><p><small id="form-step-kicker">YOUR MOVE</small><strong>Build your recognition analysis</strong></p></div><em>Saved locally as you progress</em></div>
-          <div class="form-progress" aria-label="Comparison progress"><i id="form-progress-bar"></i></div>
-          <nav class="form-step-nav" aria-label="Comparison steps">
-            <button class="active" type="button" data-step-target="0"><span>1</span>Your move</button><button type="button" data-step-target="1"><span>2</span>History</button><button type="button" data-step-target="2"><span>3</span>Vehicle</button><button type="button" data-step-target="3"><span>4</span>Documents</button><button type="button" data-step-target="4"><span>5</span>Preferences</button>
-          </nav>
-          <fieldset class="form-step active" data-form-step="0"><legend>Your move</legend>
-            <div class="route-fields"><label>Country of origin<select id="origin-country" name="originCountry" required><option value="">Select a country</option></select></label><button class="swap-route" id="swap-route" type="button" aria-label="Swap origin and destination">⇄</button><label>Destination country<select id="destination-country" name="destinationCountry" required><option value="">Select a country</option></select></label></div>
-            <div class="form-grid two"><label>Current insurer<select id="current-company" name="currentCompany" required><option value="">Select your insurer</option></select></label><label>Driver age<span class="input-unit"><input type="number" name="driverAge" min="18" max="100" value="34" required><em>years</em></span></label></div>
-          </fieldset>
-          <fieldset class="form-step" data-form-step="1"><legend>Your driving history</legend>
-            <div class="form-grid three"><label>Years insured<span class="input-unit"><input type="number" name="insuredYears" min="0" max="60" value="8" required><em>years</em></span></label><label>Licence obtained<input type="date" name="licenceDate" value="2014-06-12" required></label><label>Bonus-malus coefficient<input type="number" name="bonusMalus" min="0.5" max="3.5" step="0.01" value="0.50" required></label><label>At-fault claims<input type="number" name="claimsCount" min="0" max="20" value="0" required></label><label>Non-fault claims<input type="number" name="nonFaultClaimsCount" min="0" max="20" value="0" required></label><label>Last claim date<input type="date" name="lastClaimDate"></label></div>
-            <fieldset class="driver-options"><legend>Driver status</legend><label><input type="checkbox" name="mainDriver" checked><span><i>✓</i> Main driver<small>Primary policyholder</small></span></label><label><input type="checkbox" name="youngDriver"><span><i>✓</i> Young driver<small>Under 25 or recently licensed</small></span></label></fieldset>
-          </fieldset>
-          <fieldset class="form-step" data-form-step="2"><legend>Your vehicle</legend>
-            <div class="form-grid three"><label>Vehicle type<select id="vehicle-type" name="vehicleType" required><option value="">Select a vehicle</option></select></label><label>Estimated vehicle value<span class="input-unit"><input type="number" name="vehicleValue" min="500" max="500000" value="20000" required><em>€</em></span></label><label>Vehicle use<select name="vehicleUse" required><option value="private">Private</option><option value="commute">Private and commuting</option><option value="professional">Professional</option></select></label><label>Annual mileage<span class="input-unit"><input type="number" name="annualMileage" min="1000" max="100000" step="500" value="12000" required><em>km</em></span></label><label>Desired coverage<select id="coverage-type" name="coverageType" required><option value="">Select coverage</option></select></label></div>
-          </fieldset>
-          <fieldset class="form-step" data-form-step="3"><legend>Your documents</legend>
-            <div class="document-options"><label><input type="checkbox" name="hasExperienceLetter"><span>▤<strong>Experience letter</strong><small>Insurance and claims history</small></span></label><label><input type="checkbox" name="hasInformationStatement"><span>✓<strong>Information statement</strong><small>Policy and rating record</small></span></label><label><input type="checkbox" name="hasClaimsHistory"><span>◷<strong>Claims statement</strong><small>Reported claims and dates</small></span></label></div>
-            <div class="form-grid two"><label>Document language<select id="preferred-language" name="preferredLanguage" required><option value="">Select a language</option></select></label><label>Official translation needed?<select name="needsOfficialTranslation" required><option value="unknown">I need guidance</option><option value="yes">Yes</option><option value="no">No</option></select></label></div>
-          </fieldset>
-          <fieldset class="form-step" data-form-step="4"><legend>Your preferences</legend>
-            <div class="form-grid two"><label>Priority<select name="comparisonPriority"><option value="score">Best overall score</option><option value="recognition">Best recognition</option><option value="speed">Fastest process</option><option value="simplicity">Simplest administration</option></select></label><label>Preferred result currency<select name="resultCurrency"><option value="destination">Destination currency</option><option value="EUR">EUR</option><option value="USD">USD</option></select></label></div>
-            <div class="analysis-review"><span>LOCAL ANALYSIS</span><h3 id="comparison-review-route">France → Canada</h3><p id="comparison-review-copy">8 insured years · coefficient 0.50 · comprehensive cover</p><small>No data is uploaded. Rules and estimates run in this browser.</small></div>
-          </fieldset>
-          <div class="form-actions"><button class="button button-ghost" id="form-back" type="button">← Back</button><button class="button button-primary" id="form-next" type="button">Next step →</button><button class="button button-primary submit-compare" type="submit"><span>Run recognition analysis</span><i class="loader"></i><b>→</b></button></div>
-          <p class="form-error" id="form-error" role="alert" tabindex="-1"></p><p class="form-privacy"><span>▣</span> Your details are processed locally and never sold.</p>
-        </form>
-        <aside class="engine-preview">
-          <div class="engine-status"><span><i></i> ENGINE READY</span><em id="engine-progress">0%</em></div>
-          <div class="engine-visual" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="engine-core"><img src="assets/icons/favicon.svg" alt=""></div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span></div>
-          <div class="engine-signals premium-summary"><div><span>⌖</span><p>Route<small id="signal-route">Choose your countries</small></p></div><div><span>▤</span><p>Driving history<small id="signal-evidence">8 insured years</small></p></div><div><span>◎</span><p>Readiness<small id="signal-score">Ready to calculate</small></p></div><div><span>◇</span><p>Vehicle<small id="summary-vehicle">Compact · €20,000</small></p></div><div><span>✓</span><p>Documents<small id="summary-documents">0 of 3 available</small></p></div></div>
-        </aside>
-      </div>
+    <section class="section compact" id="fonctionnement"><div class="section-heading"><div><span>MODE D’EMPLOI</span><h2>Comment ça fonctionne</h2></div></div><div class="steps"><article><b>01</b><h3>Décrivez votre trajet</h3><p>Indiquez le pays quitté et votre destination.</p></article><article><b>02</b><h3>Ajoutez votre historique</h3><p>Renseignez bonus, ancienneté et sinistres.</p></article><article><b>03</b><h3>Comparez les règles</h3><p>Consultez les scénarios et leur statut.</p></article><article><b>04</b><h3>Préparez votre dossier</h3><p>Identifiez les justificatifs à confirmer.</p></article></div></section>
 
-      <div class="results-panel" id="results-panel" aria-live="polite">
-        <div class="results-head"><div><span class="section-label">YOUR BEST MATCHES</span><h3><span id="results-count">0</span> compatible insurers found</h3></div><div><button type="button" id="save-comparison">♡ Save comparison</button><button type="button" id="export-results">↓ Export report</button></div></div>
-        <div class="summary-strip"><div><small>SELECTED ROUTE</small><strong id="result-route">—</strong></div><div><small>BEST RECOGNITION</small><strong id="best-recognition">—</strong></div><div><small>ESTIMATED SAVINGS</small><strong id="total-savings">—</strong></div><div><small>DOCUMENT READINESS</small><strong id="document-readiness">—</strong></div></div>
-        <div class="results-insights"><article><small>BEST SCORE</small><strong id="insight-best-score">—</strong></article><article><small>VERIFIED RULES</small><strong id="insight-verified">0</strong></article><article><small>MISSING DOCUMENTS</small><strong id="insight-missing">—</strong></article><article><small>AVERAGE DELAY</small><strong id="insight-delay">—</strong></article></div>
-        <div class="results-toolbar"><label>Sort results<select id="result-sort"><option value="score">Best score</option><option value="speed">Fastest</option><option value="simplicity">Simplest</option><option value="recognition">Best recognition</option></select></label><label class="filter-check"><input id="filter-no-translation" type="checkbox"> No translation</label><label class="filter-check"><input id="filter-verified" type="checkbox"> Verified only</label><button type="button" id="compare-selected">Compare selected</button></div>
-        <div class="result-documents"><span>▤ Required evidence</span><p>Claims experience letter · current policy certificate · driving licence <em>Exact requirements are listed in each matched rule.</em></p></div>
-        <details class="score-method"><summary>Why this score?</summary><div><span>History recognition <b>30</b></span><span>Recognized years <b>20</b></span><span>Bonus retained <b>20</b></span><span>Documents ready <b>10</b></span><span>No translation <b>5</b></span><span>Processing time <b>5</b></span><span>Coverage <b>5</b></span><span>Language match <b>5</b></span></div><p>The score is a transparent BonusBridge estimate, not an insurer decision or official offer.</p></details>
-        <div class="result-grid" id="result-grid"><p class="empty">Complete the comparison form to calculate local demonstration matches. Results are guidance only and must be confirmed directly with an insurer.</p></div>
-        <div class="comparison-tray" id="comparison-tray" aria-live="polite"><p>Select up to three insurers to compare recognition, evidence and processing side by side.</p><div id="comparison-tray-grid"></div></div>
-      </div>
+    <section class="section compact" id="espace">
+      <div class="section-heading"><div><span>ESPACE PERSONNEL LOCAL</span><h2>Votre dossier, sans compte.</h2></div><p>Vos données restent enregistrées uniquement dans votre navigateur.</p></div>
+      <div class="workspace"><nav aria-label="Espace personnel"><button class="active" data-workspace="profile" type="button">Profil</button><button data-workspace="history" type="button">Dernières comparaisons</button><button data-workspace="favorites" type="button">Favoris</button><button data-workspace="documents" type="button">Documents</button><button data-workspace="settings" type="button">Paramètres</button></nav><div id="workspace-content" class="workspace-content"><article class="profile-card"><img src="assets/logos/bonusbridge-symbol.svg" alt=""><div><span>PROFIL LOCAL</span><h3>Conducteur international</h3><p>Aucune donnée n’est envoyée vers un serveur.</p></div><strong id="profile-count">0 comparaison</strong></article></div></div>
     </section>
 
-    <section class="coverage-section section" id="coverage">
-      <div class="section-head reveal"><div><span class="section-label">GLOBAL RULES MAP</span><h2>Move countries.<br><em>Keep your insurance bonus.</em></h2></div><p>Explore supported markets, recognition maturity and the number of insurers currently mapped.</p></div>
-      <div class="map-layout reveal delay-1">
-        <div class="map-card">
-          <div class="map-toolbar"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m15.5 15.5 4 4"></path></svg><input id="map-search" type="search" placeholder="Search a country" aria-label="Search countries"></label><div><button type="button" id="map-zoom-out" aria-label="Zoom map out">−</button><button type="button" id="map-reset" aria-label="Reset map zoom">◎</button><button type="button" id="map-zoom-in" aria-label="Zoom map in">+</button></div></div>
-          <div class="interactive-map" id="interactive-map">
-            <svg id="country-map" viewBox="0 0 1000 520" role="img" aria-label="Interactive map of supported insurance markets">
-              <path class="continent" d="M54 128 147 65l125 25 41 74-37 63-62 17-34 89-78-26-50-102Z"/><path class="continent" d="m335 201 96-53 91 34 73-36 73 49-30 71-91 21-38 91-69 79-70-49 23-86-66-45Z"/><path class="continent" d="m690 119 101-39 151 62 16 78-68 39-37 103-77-31-4-79-90-50Z"/><path class="continent" d="m803 392 88-25 66 51-34 63-112-4-42-48Z"/>
-              <g id="map-country-shapes"></g><g id="map-routes"></g>
-            </svg>
-            <div id="map-pins"></div>
-            <div class="map-legend"><span><i class="mature"></i>Mature recognition</span><span><i class="growing"></i>Growing network</span><span><i class="mapped"></i>Rules mapped</span></div>
-            <div class="popular-routes" aria-label="Popular demonstration routes"><span>FR → CA</span><span>BE → FR</span><span>GB → CA</span><span>DE → CH</span><span>ES → FR</span></div>
-          </div>
-        </div>
-        <aside class="country-inspector" id="country-inspector"><div class="country-title"><span id="inspector-flag">🇫🇷</span><p><small>SELECTED MARKET</small><strong id="inspector-name">France</strong></p><em id="inspector-status">Demo</em></div><div class="country-score"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle id="country-score-ring" cx="60" cy="60" r="52"></circle></svg><p><strong id="country-score-value">0</strong><small>available rules</small></p></div><dl><div><dt>Insurance system</dt><dd id="inspector-system">Needs verification</dd></div><div><dt>Insurers listed</dt><dd id="inspector-insurers">0</dd></div><div><dt>Languages</dt><dd id="inspector-languages">FR · EN</dd></div><div><dt>Currency</dt><dd id="inspector-currency">EUR</dd></div><div><dt>Common evidence</dt><dd id="inspector-documents">Claims letter</dd></div><div><dt>Associated routes</dt><dd id="inspector-destinations">CA · BE · ES</dd></div><div><dt>Typical process</dt><dd id="inspector-process">Estimate unavailable</dd></div></dl><button class="button button-primary" type="button" id="use-destination">Use as destination <span>→</span></button></aside>
-      </div>
-    </section>
-
-    <section class="how-section section" id="how">
-      <div class="center-head reveal"><span class="section-label">HOW BONUSBRIDGE WORKS</span><h2>Four steps to a stronger application.</h2><p>Turn fragmented underwriting rules into a practical insurance passport before you request cover.</p></div>
-      <ol class="process-line reveal delay-1">
-        <li><span>01</span><i>⌖</i><h3>Tell us where you are moving</h3><p>Define the origin and destination markets.<small>Result: a precise cross-border route.</small></p></li>
-        <li><span>02</span><i>▤</i><h3>Describe your insurance history</h3><p>Add insured years, claims and your current rating.<small>Result: a structured driver profile.</small></p></li>
-        <li><span>03</span><i>◎</i><h3>Compare recognition policies</h3><p>Review matching scenarios, evidence and administrative effort.<small>Result: an explainable shortlist.</small></p></li>
-        <li><span>04</span><i>◇</i><h3>Prepare your insurance passport</h3><p>Track documents, tasks, notes and saved comparisons.<small>Result: a reusable local dossier.</small></p></li>
-      </ol>
-    </section>
-
-    <section class="platform-section section" id="platform">
-      <div class="section-head reveal"><div><span class="section-label">YOUR INSURANCE PASSPORT</span><h2>Everything you need.<br><em>One secure workspace.</em></h2></div><p>Save comparisons, track documents and revisit your best routes from any device.</p></div>
-      <div class="app-shell reveal delay-1">
-        <aside class="app-sidebar">
-          <img src="assets/icons/favicon.svg" width="38" height="38" alt="BonusBridge">
-          <nav aria-label="User workspace"><button class="active" data-app-view="overview" type="button"><span>⌂</span><em>Overview</em></button><button data-app-view="history" type="button"><span>◷</span><em>Comparisons</em></button><button data-app-view="favorites" type="button"><span>♡</span><em>Favorites</em></button><button data-app-view="documents" type="button"><span>▤</span><em>Documents</em></button><button data-app-view="countries" type="button"><span>◎</span><em>Countries</em></button><button data-app-view="saved" type="button"><span>⇄</span><em>Saved</em></button><button data-app-view="profile" type="button"><span>⚙</span><em>Settings</em></button><button data-app-view="admin" type="button"><span>◇</span><em>Data review</em></button></nav>
-        </aside>
-        <div class="app-content">
-          <div class="app-top"><div><small>LOCAL BROWSER WORKSPACE</small><h2>Insurance passport</h2></div><div><button class="search-open" type="button">⌕ Search</button><span class="user-avatar">LOCAL</span></div></div>
-          <section class="app-view active" data-view="overview">
-            <div class="overview-grid"><article class="passport-card"><div class="passport-top"><span>LOCAL INSURANCE PASSPORT</span><img src="assets/icons/favicon.svg" width="36" height="36" alt=""></div><h3 id="passport-name">International driver</h3><p id="passport-history">8 years insured · coefficient 0.50</p><div><span id="passport-origin">FR</span><i></i><span id="passport-destination">CA</span><em id="passport-status">Documents 0/7</em></div></article><article class="workspace-stat"><small>LATEST SAVINGS ESTIMATE</small><strong id="workspace-savings">—</strong><span>illustrative only</span><svg viewBox="0 0 220 70" aria-hidden="true"><path d="M2 60Q35 53 50 42t38 2 39-20 42 6 49-24"/></svg></article><article class="workspace-stat"><small>DOSSIER PROGRESS</small><strong id="workspace-history-count">0</strong><span>local comparisons</span><div class="progress"><i style="width:0%" id="workspace-progress"></i></div></article><article class="recent-card"><div><small>RECENT COMPARISONS</small><button type="button" data-app-view="history">View all →</button></div><div id="recent-comparisons"><p class="empty">No local comparisons yet.</p></div></article><article class="advisor-card"><span>LOCAL RULES ADVISOR</span><h3 id="advisor-title">Run a comparison to receive document guidance.</h3><p id="advisor-copy">This assistant uses only the local demonstration rules bundled with the site. It is not connected to an external service.</p><button type="button" data-scroll="#compare">Run a new comparison →</button></article></div>
-            <div class="dashboard-secondary"><article><span>TASKS TO COMPLETE</span><ul id="dashboard-tasks"><li>Run your first recognition analysis</li><li>Review the document checklist</li><li>Confirm demonstration rules with insurers</li></ul></article><article><span>LOCAL ALERTS</span><p id="dashboard-alert">No external alerts. Your latest activity and missing evidence will appear here.</p><small id="dashboard-activity">No local activity yet</small></article><article><span>DESTINATIONS</span><p>Canada · France · Spain · Australia</p><button type="button" data-scroll="#coverage">Explore the map →</button></article></div>
-          </section>
-          <section class="app-view" data-view="history"><div class="view-head"><div><small>ACTIVITY — STORED IN THIS BROWSER ONLY</small><h3>Comparison history</h3></div><button type="button" id="clear-history">Clear history</button></div><div class="data-list" id="history-list"><p class="empty">No local comparisons yet.</p></div></section>
-          <section class="app-view" data-view="favorites"><div class="view-head"><div><small>LOCAL SHORTLIST</small><h3>Favorite insurers</h3></div></div><div class="company-grid" id="favorite-list"><p class="empty">No local favorites yet.</p></div></section>
-          <section class="app-view" data-view="saved"><div class="view-head"><div><small>LOCAL WORKSPACE</small><h3>Saved comparisons</h3></div><button type="button" data-scroll="#compare">New comparison +</button></div><div class="data-list" id="saved-list"><p class="empty">No saved comparisons yet.</p></div></section>
-          <section class="app-view" data-view="documents"><div class="view-head"><div><small>LOCAL CHECKLIST — NO FILE UPLOAD</small><h3>Insurance documents</h3></div><span id="document-progress">0 of 7 available</span></div><p class="local-notice">Track readiness, language, expiry and notes locally. BonusBridge never uploads these documents.</p><div class="document-checklist" id="document-checklist"></div></section>
-          <section class="app-view" data-view="countries"><div class="view-head"><div><small>KNOWLEDGE COVERAGE</small><h3>Countries and recognition systems</h3></div><button type="button" data-scroll="#coverage">Open map</button></div><div class="dashboard-country-grid" id="dashboard-country-grid"><p class="empty">Country records load from the local knowledge base.</p></div></section>
-          <section class="app-view" data-view="profile"><div class="view-head"><div><small>LOCAL SIMULATION SETTINGS</small><h3>Driver simulation</h3></div><div><button type="button" id="export-profile">Export all JSON</button><label class="import-button">Import JSON<input id="import-profile" type="file" accept="application/json"></label><button type="button" id="clear-local-data">Delete local data</button></div></div><p class="local-notice">These settings and comparisons are stored only in this browser. This is not an account and no authentication is provided.</p><div class="profile-grid"><label>Simulation name<input id="profile-name" value="International Driver"></label><label>Home country<select id="profile-country"></select></label><label>Preferred currency<select id="profile-currency"></select></label><label>Interface language<select id="profile-language"></select></label></div></section>
-          <section class="app-view" data-view="admin">
-            <div class="view-head"><div><small>LOCAL DEMONSTRATION — NO ADMINISTRATOR SECURITY</small><h3>Data review center</h3></div><span class="live-status"><i></i> Browser dataset loaded</span></div>
-            <div class="admin-kpis"><article><small>COUNTRIES</small><strong id="admin-country-count">0</strong><span>Demo markets</span></article><article><small>COMPANIES</small><strong id="admin-company-count">0</strong><span>Demo records</span></article><article><small>RULES</small><strong id="admin-rule-count">0</strong><span>Local scenarios</span></article><article><small>UNVERIFIED</small><strong id="admin-unverified-count">0</strong><span>Require confirmation</span></article></div>
-            <div class="admin-tools"><label>Filter data<input id="admin-filter" type="search" placeholder="Search records"></label><button type="button" id="admin-export">Export rules</button><label class="import-button">Import rules<input id="admin-import" type="file" accept="application/json"></label><span id="admin-update-date"></span></div>
-            <div class="admin-tabs" role="tablist" aria-label="Administration datasets"><button class="active" type="button" data-admin-tab="countries" role="tab">Countries</button><button type="button" data-admin-tab="companies" role="tab">Companies</button><button type="button" data-admin-tab="rules" role="tab">Rules</button><button type="button" data-admin-tab="documents" role="tab">Documents</button><button type="button" data-admin-tab="logs" role="tab">Logs</button><button type="button" data-admin-tab="analytics" role="tab">Analytics</button></div>
-            <div class="admin-table" id="admin-table"></div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <section class="guidance-section section" id="guidance">
-      <div class="section-head"><div><span class="section-label">PREPARE BEFORE YOU MOVE</span><h2>Popular routes and<br><em>essential evidence.</em></h2></div><p>These examples describe what users can research with the local demonstration catalogue. They are not confirmed insurer policies.</p></div>
-      <div class="guidance-grid">
-        <article><span>POPULAR DESTINATIONS</span><h3>Canada · France · Spain · Australia</h3><p>Use the map or comparator to inspect the rules currently available for each route.</p><a href="#coverage">Explore destinations →</a></article>
-        <article><span>COMMON DOCUMENTS</span><h3>Claims letter · policy certificate · driving licence</h3><p>Ask each insurer about issue dates, accepted formats and certified translation requirements.</p><a href="#compare">Check a route →</a></article>
-        <article><span>SAVINGS ESTIMATE</span><h3>Illustrative, never a quote</h3><p>The browser calculation indicates a possible order of magnitude. A real premium requires insurer pricing data and underwriting.</p><a href="#compare">Build an estimate →</a></article>
-      </div>
-    </section>
-
-    <section class="resources-section section" id="resources">
-      <div class="section-head"><div><span class="section-label">KNOWLEDGE BASE</span><h2>Prepare every conversation<br><em>with better questions.</em></h2></div><p>Educational guides help organize the process without claiming to replace insurer underwriting, legal advice or official contract terms.</p></div>
-      <div class="resource-categories" aria-label="Knowledge categories"><span>Recognition guides</span><span>Country guides</span><span>Document guides</span><span>Glossary</span><span>Insurer policies</span><span>Moving checklist</span><span>FAQ</span></div>
-      <div class="resource-grid">
-        <article><span>GUIDE · DEMO CONTENT</span><h3>France to Canada insurance guide</h3><p>Evidence, translation questions and recognition scenarios to investigate.</p><a href="#compare">Explore route →</a></article>
-        <article><span>GUIDE · DEMO CONTENT</span><h3>Canada to France insurance guide</h3><p>Prepare Canadian claims evidence for a French underwriting conversation.</p><a href="#compare">Explore route →</a></article>
-        <article><span>GUIDE · NEEDS VERIFICATION</span><h3>Belgium to Canada insurance guide</h3><p>A research checklist for an emerging route in the local catalogue.</p><a href="#coverage">View coverage →</a></article>
-        <article><span>DOCUMENT GUIDE</span><h3>How to obtain a claims history letter</h3><p>What to request, which dates to check and what to confirm with the destination insurer.</p><a href="#platform">Open checklist →</a></article>
-        <article><span>DOCUMENT GUIDE</span><h3>How to translate insurance documents</h3><p>Confirm accepted translator credentials before paying for a certified translation.</p><a href="#platform">Open checklist →</a></article>
-        <article><span>GLOSSARY</span><h3>What is a no-claims bonus?</h3><p>Understand why rating systems and conversion methods differ across markets.</p><a href="#faq">Read FAQ →</a></article>
-      </div>
-    </section>
-
-    <section class="faq-section section" id="faq">
-      <div class="faq-intro reveal"><span class="section-label">QUESTIONS, ANSWERED</span><h2>Built for a move<br>without surprises.</h2><p>Understand recognition, evidence and what happens next.</p><a href="mailto:hello@bonusbridge.com">Talk to an insurance specialist →</a></div>
-      <div class="faq-list reveal delay-1">
-        <article class="open"><h3><button type="button" aria-expanded="true">Can my foreign insurance history be recognized?<span>−</span></button></h3><div><p>Possibly. Recognition depends on the destination market, insurer, evidence and underwriting decision.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Is recognition automatic?<span>+</span></button></h3><div><p>No. Recognition normally requires evidence and an insurer review; acceptance is never guaranteed by BonusBridge.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Which documents are usually required?<span>+</span></button></h3><div><p>Common requests include a claims experience letter, policy certificate, driving licence and sometimes a driving record or certified translation.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Do I need an official translation?<span>+</span></button></h3><div><p>It depends on the insurer and source language. Confirm accepted translator credentials before ordering a translation.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Does every insurer apply the same rules?<span>+</span></button></h3><div><p>No. Recognition can be product-specific and insurer-specific, even within the same country.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Can my no-claims bonus be transferred?<span>+</span></button></h3><div><p>Some insurers convert foreign experience into a local discount or class; others only use it as supporting evidence.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">How many years may be recognized?<span>+</span></button></h3><div><p>The maximum varies by rule. Results show the recorded cap and mark unverified values clearly.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Are BonusBridge estimates official?<span>+</span></button></h3><div><p>No. Scores and savings are decision-support estimates, not insurer decisions, offers or regulated advice.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Does BonusBridge provide insurance quotes?<span>+</span></button></h3><div><p>Not in this static version. Live quotes require regulated insurer or broker integrations.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Where is my personal data stored?<span>+</span></button></h3><div><p>Comparison data and preferences stay in local browser storage unless you export them yourself.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Can I export my comparison?<span>+</span></button></h3><div><p>Yes. Comparisons and local workspace data can be exported as JSON.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">How often are recognition rules updated?<span>+</span></button></h3><div><p>Each rule carries a status and verification date. Current bundled rules are demonstration data awaiting an operational verification process.</p></div></article>
-      </div>
-    </section>
-
-    <section class="final-cta section reveal">
-      <div class="cta-map" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <span class="section-label">YOUR EXPERIENCE HAS VALUE</span>
-      <h2>Move countries.<br><em>Not backwards.</em></h2>
-      <p>Discover who recognizes your insurance history before you move.</p>
-      <a class="button button-light button-lg" href="#compare">Compare for free <span>↗</span></a>
-      <div><span>✓ No account required</span><span>✓ Private calculation</span><span>✓ Results in two minutes</span></div>
-    </section>
+    <section class="section faq-section" id="faq"><div><span class="section-label">QUESTIONS FRÉQUENTES</span><h2>L’essentiel, simplement.</h2><p>BonusBridge fournit des estimations de démonstration, jamais une décision contractuelle.</p></div><div class="faq-list"><details open><summary>Mon historique étranger peut-il être reconnu ?</summary><p>Possiblement. La décision dépend de l’assureur, du produit, du pays et des justificatifs acceptés.</p></details><details><summary>La reconnaissance est-elle automatique ?</summary><p>Non. Une étude manuelle et des documents sont généralement nécessaires.</p></details><details><summary>Ai-je besoin d’une traduction officielle ?</summary><p>Cela dépend de l’assureur et de la langue. Confirmez le traducteur accepté avant toute dépense.</p></details><details><summary>Les scores BonusBridge sont-ils officiels ?</summary><p>Non. Ils expliquent une compatibilité estimée à partir des données locales disponibles.</p></details><details><summary>BonusBridge fournit-il des devis ?</summary><p>Pas encore. La version bêta ne délivre aucun tarif ni contrat officiel.</p></details><details><summary>Où sont stockées mes données ?</summary><p>Uniquement dans le stockage local de ce navigateur, jusqu’à leur suppression.</p></details></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-main"><div class="footer-brand"><img src="assets/logo-dark.svg" width="190" height="42" alt="BonusBridge"><p>Worldwide recognition for your insurance history.</p><span>One insurance history. Worldwide recognition.</span></div><nav aria-label="Footer navigation"><div><strong>Product</strong><a href="#compare">Comparison engine</a><a href="#coverage">Countries</a><a href="#platform">Insurance passport</a></div><div><strong>Company</strong><a href="#how">How it works</a><a href="#faq">Resources</a><a href="mailto:hello@bonusbridge.com">Contact</a></div><div><strong>Trust</strong><a id="privacy" href="#privacy">Privacy</a><a id="security" href="#security">Security</a><a id="accessibility" href="#accessibility">Accessibility</a></div></nav></div>
-    <div class="footer-bottom"><span>© 2026 BonusBridge. All rights reserved.</span><p>Built for drivers who move.</p><button id="back-top" type="button">Back to top ↑</button></div>
-  </footer>
-
-  <dialog class="search-dialog" id="search-dialog">
-    <form method="dialog"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m15.5 15.5 4 4"></path></svg><input id="global-search" type="search" placeholder="Search countries, insurers or features…" aria-label="Global search" autocomplete="off"><kbd>ESC</kbd></div><div class="search-results" id="search-results"></div><div class="search-hint"><span>↑↓ Navigate</span><span>↵ Open</span><span>Instant search</span></div></form>
-  </dialog>
-  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
-  <div class="offline-pill" id="offline-pill" hidden><i></i> Offline mode</div>
-  <div class="data-disclaimer" role="note"><strong>Demonstration data:</strong> recognition rules, processing times and savings estimates are illustrative and not official insurance advice. Confirm all conditions with the insurer before subscribing.</div>
-  <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/premium.js"></script>
+  <footer><div class="footer-main"><img src="assets/logos/bonusbridge-dark.svg" width="168" height="36" alt="BonusBridge"><p>BonusBridge — Version bêta</p><nav><a href="#comparateur">Comparateur</a><a href="#assureurs">Assureurs</a><a href="#documents">Documents</a><a href="#faq">FAQ</a></nav></div><p class="disclaimer">Les données affichées peuvent être des données de démonstration et doivent être confirmées directement auprès des assureurs. BonusBridge ne fournit pas encore de devis officiel.</p><div class="footer-bottom"><span>© 2026 BonusBridge</span><span>Application statique · Données locales · GitHub Pages</span></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="noscript">JavaScript est désactivé : les informations principales restent disponibles, mais le comparateur interactif nécessite JavaScript.</p></noscript>
+  <script type="module" src="js/beta.js"></script>
 </body>
 </html>

@@ -1,2 +1,2 @@
-/* Compatibility entry point. BonusBridge V3 uses the ES module /js/app.js. */
-if(!document.querySelector('script[src="js/app.js"]'))import('./js/app.js');
+/* Compatibility entry point for the compact BonusBridge beta. */
+if(!document.querySelector('script[src="js/beta.js"]'))import('./js/beta.js');

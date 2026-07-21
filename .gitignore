@@ -1,0 +1,4 @@
+# Local browser-testing runtime; never publish it with the static application.
+casting-automation/
+node_modules/
+

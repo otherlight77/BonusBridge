@@ -1,6 +1,3 @@
-/* Compatibility entry point. BonusBridge V3 styles live in /css. */
+/* Compatibility entry point for the compact BonusBridge beta. */
 @import url("css/tokens.css");
-@import url("css/app.css");
-@import url("css/responsive.css");
-@import url("css/utilities.css");
-@import url("css/premium.css");
+@import url("css/beta.css");

@@ -1,19 +1,9 @@
 {
-  "name":"BonusBridge — Global Insurance Recognition",
+  "name":"BonusBridge — Assurance internationale bêta",
   "short_name":"BonusBridge",
-  "description":"Compare insurers that recognize your international motor insurance history.",
-  "id":"./",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "orientation":"any",
-  "background_color":"#050a12",
-  "theme_color":"#050a12",
-  "lang":"en",
-  "categories":["finance","travel","business"],
-  "icons":[{"src":"assets/icons/app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}],
-  "shortcuts":[
-    {"name":"Compare insurers","url":"./#compare","icons":[{"src":"assets/icons/app-icon.svg","sizes":"any","type":"image/svg+xml"}]},
-    {"name":"Explore countries","url":"./#coverage","icons":[{"src":"assets/icons/app-icon.svg","sizes":"any","type":"image/svg+xml"}]}
-  ]
+  "description":"Comparez la reconnaissance de votre historique d’assurance automobile à l’international.",
+  "id":"./","start_url":"./","scope":"./","display":"standalone","orientation":"any",
+  "background_color":"#07101b","theme_color":"#07101b","lang":"fr","categories":["finance","travel"],
+  "icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}],
+  "shortcuts":[{"name":"Comparer mon assurance","url":"./#comparateur","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]},{"name":"Mon espace local","url":"./#espace","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]}]
 }

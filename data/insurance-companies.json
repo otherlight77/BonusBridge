@@ -1,11 +1,14 @@
 {
-  "schemaVersion":"3.1.0","entity":"insuranceCompany","updatedAt":"2026-07-21",
+  "schemaVersion":"4.0.0","entity":"insuranceCompany","updatedAt":"2026-07-22",
   "records":[
-    {"id":"allianz","name":"Allianz","initials":"AZ","brandColor":"#1769d2","countries":["FR","BE","CA","DE","ES","IT","LU"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.allianz.com/","verified":false,"status":"demo"},
-    {"id":"axa","name":"AXA","initials":"AX","brandColor":"#174ea6","countries":["FR","BE","CA","CH","ES","IT","PT"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.axa.com/","verified":false,"status":"demo"},
-    {"id":"aviva","name":"Aviva","initials":"AV","brandColor":"#f2c900","countries":["CA","GB","IE"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.aviva.com/","verified":false,"status":"demo"},
-    {"id":"zurich","name":"Zurich Insurance","initials":"ZH","brandColor":"#1675cc","countries":["FR","CA","US","GB","CH","DE","AU"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.zurich.com/","verified":false,"status":"demo"},
-    {"id":"generali","name":"Generali","initials":"GE","brandColor":"#c51f2b","countries":["FR","BE","DE","ES","IT","NL","PT"],"digitalOnboarding":false,"internationalDesk":true,"officialUrl":"https://www.generali.com/","verified":false,"status":"demo"},
-    {"id":"qbe","name":"QBE","initials":"QB","brandColor":"#003b71","countries":["AU","NZ","US","GB"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.qbe.com/","verified":false,"status":"demo"}
+    {"id":"pirez-assurance","name":"Pirez Assurance","country":"FR","countries":["FR","CA","BE"],"logo":"./assets/logos/insurers/pirez-assurance.svg","description":"Identité fictive pour tester la reconnaissance transfrontalière.","verified":false,"status":"demo"},
+    {"id":"jeremy-assurance","name":"Jérémy Assurance","country":"BE","countries":["BE","FR","LU"],"logo":"./assets/logos/insurers/jeremy-assurance.svg","description":"Identité fictive pour les parcours européens.","verified":false,"status":"demo"},
+    {"id":"julia-assurance","name":"Julia Assurance","country":"CA","countries":["CA","FR","GB"],"logo":"./assets/logos/insurers/julia-assurance.svg","description":"Identité fictive pour les parcours vers le Canada.","verified":false,"status":"demo"},
+    {"id":"horizon-assurance","name":"Horizon Assurance","country":"FR","countries":["FR","ES","PT"],"logo":"./assets/logos/insurers/horizon-assurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
+    {"id":"nova-insurance","name":"Nova Insurance","country":"GB","countries":["GB","CA","IE"],"logo":"./assets/logos/insurers/nova-insurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
+    {"id":"global-cover","name":"Global Cover","country":"US","countries":["US","CA","AU","NZ"],"logo":"./assets/logos/insurers/global-cover.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
+    {"id":"bridge-protect","name":"Bridge Protect","country":"CH","countries":["CH","DE","FR"],"logo":"./assets/logos/insurers/bridge-protect.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
+    {"id":"atlas-assurance","name":"Atlas Assurance","country":"ES","countries":["ES","FR","IT"],"logo":"./assets/logos/insurers/atlas-assurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
+    {"id":"europa-insurance","name":"Europa Insurance","country":"DE","countries":["DE","NL","BE","CH"],"logo":"./assets/logos/insurers/europa-insurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"}
   ]
 }
