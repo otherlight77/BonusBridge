@@ -1,13 +1,11 @@
-# Composants d'interface
+# Interface component contracts
 
-BonusBridge V2 reste sans framework et utilise des composants DOM pilotés par attributs afin de conserver un chargement immédiat sur GitHub Pages.
+BonusBridge V3 uses framework-free DOM components to keep GitHub Pages delivery immediate.
 
-## Contrats
+- `data-app-view` activates the workspace panel with the matching `data-view` value.
+- `data-admin-tab` switches between operational datasets.
+- `data-map-country` links SVG geography and accessible map controls.
+- `data-favorite` persists insurer shortlists locally.
+- `.reveal` provides optional motion enhancement while content remains visible without JavaScript.
 
-- `data-panel` ouvre une vue du tableau de bord liée à `data-dashboard`.
-- `data-step` et `data-next` pilotent le configurateur progressif.
-- `data-profile-card`, `data-preset` et `data-demo` activent un profil.
-- `data-country` représente un marqueur de destination.
-- `.reveal` active l'apparition progressive via `IntersectionObserver`.
-
-Les composants partagent les tokens de `css/tokens.css` et doivent conserver des états clavier visibles, des libellés accessibles et une solution fonctionnelle sans animation.
+Every interactive component requires a visible keyboard focus, a descriptive accessible name and a functional state when motion is reduced.

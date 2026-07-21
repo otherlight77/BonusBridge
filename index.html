@@ -1,305 +1,265 @@
 <!doctype html>
-<html lang="fr" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090a12">
+  <meta name="theme-color" content="#050a12">
   <meta name="color-scheme" content="dark light">
-  <title>BonusBridge — Intelligence astrale & mobilité internationale</title>
-  <meta name="description" content="BonusBridge réunit profils astraux, mobilité internationale et recommandations personnalisées dans une expérience premium.">
+  <title>BonusBridge — Take your insurance history with you</title>
+  <meta name="description" content="Explore a global knowledge base of cross-border motor insurance history recognition rules for expatriates, brokers and international drivers.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="BonusBridge">
   <link rel="canonical" href="https://otherlight77.github.io/BonusBridge/">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/icons/app-icon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
+  <link rel="preload" href="css/tokens.css" as="style">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="BonusBridge">
-  <meta property="og:title" content="BonusBridge — Votre trajectoire, magnifiée">
-  <meta property="og:description" content="Une expérience personnelle pour comprendre vos affinités et préparer chaque nouveau départ.">
+  <meta property="og:title" content="Take your insurance history with you.">
+  <meta property="og:description" content="Worldwide insurance history recognition for expatriate drivers.">
   <meta property="og:url" content="https://otherlight77.github.io/BonusBridge/">
   <meta property="og:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BonusBridge — Intelligence astrale & mobilité">
-  <meta name="twitter:description" content="Profils, compatibilités et destinations réunis dans un espace personnel.">
+  <meta name="twitter:title" content="BonusBridge — Worldwide recognition">
+  <meta name="twitter:description" content="Move countries. Keep your insurance bonus.">
   <meta name="twitter:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/utilities.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "BonusBridge",
     "url": "https://otherlight77.github.io/BonusBridge/",
-    "applicationCategory": "LifestyleApplication",
+    "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
-    "description": "Plateforme de profils astraux et de mobilité internationale.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    "description": "International knowledge platform for cross-border motor insurance history recognition rules.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "featureList": ["International insurance comparison", "No-claims history recognition", "Document guidance", "Savings estimation"]
   }
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Aller au contenu</a>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="aurora aurora-one" aria-hidden="true"></div>
-  <div class="aurora aurora-two" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
 
-  <header class="topbar glass" id="topbar">
-    <a class="brand" href="#home" aria-label="BonusBridge, accueil">
-      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span>BonusBridge<small>ORBITAL INTELLIGENCE</small></span>
+  <header class="site-header" id="site-header">
+    <a class="logo" href="#home" aria-label="BonusBridge home">
+      <img class="logo-dark" src="assets/icons/logo-dark.svg" width="185" height="40" alt="BonusBridge">
+      <img class="logo-light" src="assets/icons/logo-light.svg" width="185" height="40" alt="">
     </a>
-    <nav class="topnav" aria-label="Navigation principale">
-      <a href="#experience">Expérience</a>
-      <a href="#configurator">Configurateur</a>
-      <a href="#world">Destinations</a>
-      <a href="#dashboard">Espace</a>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#compare">Compare</a>
+      <a href="#coverage">Countries</a>
+      <a href="#platform">Platform</a>
+      <a href="#faq">Resources</a>
     </nav>
-    <div class="top-actions">
-      <button class="icon-button" id="search-trigger" type="button" aria-label="Ouvrir la recherche" title="Rechercher (Ctrl K)">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
-      </button>
-      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">
-        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
-      </button>
-      <button class="avatar-button" id="account-trigger" type="button" aria-label="JL, ouvrir le tableau de bord"><span>JL</span><i></i></button>
-      <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+    <div class="header-actions">
+      <button class="icon-btn search-open" type="button" aria-label="Open search" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg></button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <button class="login-btn" type="button" data-app-view="overview">Local workspace</button>
+      <a class="button button-sm button-primary" href="#compare">Start a comparison <span>↗</span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="home">
-      <div class="hero-stars" aria-hidden="true"></div>
       <div class="hero-copy reveal">
-        <span class="eyebrow"><i></i> BONUSBRIDGE V2 · NOUVELLE ORBITE</span>
-        <h1>Votre trajectoire.<br><span>Enfin révélée.</span></h1>
-        <p>Une intelligence personnelle qui relie votre profil astral, vos affinités et vos prochaines destinations — dans une seule expérience.</p>
+        <div class="eyebrow"><span></span> GLOBAL MOTOR INSURANCE INTELLIGENCE</div>
+        <h1>Take your insurance<br><em>history with you.</em></h1>
+        <p>Move countries without starting from zero. BonusBridge turns fragmented country and insurer recognition policies into a clear knowledge base for international drivers and brokers.</p>
         <div class="hero-actions">
-          <a class="button button-primary magnetic" href="#configurator">Créer mon profil <span>↗</span></a>
-          <button class="button button-ghost" type="button" data-demo="Julia"><i class="play">▶</i> Explorer la démo</button>
+          <a class="button button-primary button-lg" href="#compare">Start a comparison <span>→</span></a>
+          <a class="button button-ghost button-lg" href="#how"><i>▶</i> See how it works</a>
         </div>
-        <div class="trust-strip">
-          <div class="mini-avatars" aria-hidden="true"><span>J</span><span>S</span><span>+</span></div>
-          <p><strong>2 847</strong> trajectoires révélées ce mois</p>
-          <span class="trust-line"></span>
-          <p><i class="live-dot"></i> Calcul local & privé</p>
+        <div class="proof-row">
+          <div class="proof-avatars" aria-hidden="true"><span>AM</span><span>RK</span><span>LC</span><span>+</span></div>
+          <p><strong>Browser-only</strong><small>no account or data upload</small></p>
+          <i></i>
+          <p><strong>Demo catalogue</strong><small>rules require insurer confirmation</small></p>
         </div>
       </div>
 
-      <div class="orbital-stage reveal delay-1" aria-label="Visualisation orbitale interactive">
-        <div class="stage-glow"></div>
-        <div class="orbit orbit-a"><i></i></div>
-        <div class="orbit orbit-b"><i></i></div>
-        <div class="orbit orbit-c"><i></i></div>
-        <div class="hero-globe" data-tilt>
-          <div class="globe-grid"></div>
-          <div class="continent c1"></div><div class="continent c2"></div><div class="continent c3"></div>
-          <span class="map-pin p1"></span><span class="map-pin p2"></span><span class="map-pin p3"></span>
+      <div class="hero-visual reveal delay-1" aria-label="Global insurance recognition network">
+        <div class="world-orb" data-tilt>
+          <svg viewBox="0 0 600 600" aria-hidden="true">
+            <defs><radialGradient id="orb" cx="35%" cy="25%"><stop stop-color="#194965"/><stop offset=".48" stop-color="#0c2439"/><stop offset="1" stop-color="#06101d"/></radialGradient><filter id="pin-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <circle cx="300" cy="300" r="244" fill="url(#orb)" stroke="#5edfd2" stroke-opacity=".18"/>
+            <g fill="none" stroke="#9ad9df" stroke-opacity=".12"><ellipse cx="300" cy="300" rx="244" ry="84"/><ellipse cx="300" cy="300" rx="244" ry="165"/><ellipse cx="300" cy="300" rx="95" ry="244"/><ellipse cx="300" cy="300" rx="180" ry="244"/><path d="M56 300h488M90 194h420M90 406h420"/></g>
+            <g fill="#5f9ca7" fill-opacity=".32"><path d="M90 210 136 142l91-17 49 42-18 55-46 14-28 84-61-26-39-41Z"/><path d="m271 177 67-31 97 34 23 70-43 46-16 107-55 74-47-43 18-85-53-68Z"/><path d="m418 356 88-18 51 67-34 54-82-8-30-48Z"/></g>
+            <g filter="url(#pin-glow)" fill="#55ead7" stroke="#fff" stroke-width="3"><circle cx="190" cy="210" r="7"/><circle cx="319" cy="206" r="7"/><circle cx="378" cy="241" r="7"/><circle cx="471" cy="392" r="7"/></g>
+            <g fill="none" stroke="#52dacd" stroke-width="2" stroke-dasharray="5 9" stroke-opacity=".8"><path d="M190 210Q250 140 319 206"/><path d="M319 206Q360 200 378 241"/><path d="M378 241Q455 300 471 392"/></g>
+          </svg>
+          <div class="orbital-ring ring-one"></div><div class="orbital-ring ring-two"></div>
         </div>
-        <article class="floating-profile julia-card glass-card">
-          <img src="assets/icons/gemini.svg" alt="" width="42" height="42">
-          <div><small>PROFIL ACTIF</small><strong>Julia</strong><span>♊ Gémeaux · Paris</span></div>
-          <em>98%</em>
-        </article>
-        <article class="floating-profile sacha-card glass-card">
-          <img src="assets/icons/libra.svg" alt="" width="42" height="42">
-          <div><small>COMPATIBILITÉ</small><strong>Sacha</strong><span>♎ Balance · Montréal</span></div>
-          <em>94%</em>
-        </article>
-        <div class="insight-pill glass-card"><span>✦</span><p><small>INSIGHT DU JOUR</small>Mercure favorise les nouveaux départs</p></div>
+        <article class="status-card card-fr glass-card"><span class="flag">🇫🇷</span><p><small>ORIGIN</small><strong>France</strong><em>12 years insured</em></p><i class="verified">✓</i></article>
+        <article class="status-card card-ca glass-card"><span class="flag">🇨🇦</span><p><small>DESTINATION</small><strong>Canada</strong><em>Bonus recognized</em></p><i class="verified">✓</i></article>
+        <article class="savings-card glass-card"><span>↘</span><p><small>ESTIMATED SAVINGS</small><strong>€1,840</strong><em>per year</em></p></article>
+        <div class="secure-chip"><span>◉</span> Private by design · Local calculation</div>
       </div>
-
-      <div class="scroll-cue" aria-hidden="true"><span></span> DÉCOUVRIR</div>
+      <a class="scroll-cue" href="#trust" aria-label="Explore key metrics"><span></span>EXPLORE</a>
     </section>
 
-    <section class="metrics section-pad" id="experience" aria-label="Chiffres clés">
-      <div class="section-intro reveal">
-        <span class="kicker">UNE NOUVELLE LECTURE DE VOUS</span>
-        <h2>La précision rencontre<br><span>l’intuition.</span></h2>
-        <p>Vos données deviennent une interface vivante, claire et actionnable.</p>
-      </div>
+    <section class="trust-bar" id="trust" aria-label="Insurance network">
+      <span>DEMONSTRATION INSURER CATALOGUE</span>
+      <div><strong>AXA</strong><strong>Allianz</strong><strong>Aviva</strong><strong>Zurich</strong><strong>Generali</strong><strong>MAPFRE</strong></div>
+    </section>
+
+    <section class="metrics section" aria-label="Key platform metrics">
+      <div class="metric-intro reveal"><span class="section-label">GLOBAL COVERAGE</span><h2>One insurance history.<br><em>Worldwide recognition.</em></h2></div>
       <div class="metric-grid reveal delay-1">
-        <article><span class="metric-icon">◎</span><strong><span data-counter="12">0</span></strong><p>dimensions analysées</p><small>Identité · mobilité · affinités</small></article>
-        <article><span class="metric-icon">⌖</span><strong><span data-counter="45">0</span></strong><p>pays connectés</p><small>Recommandations locales</small></article>
-        <article><span class="metric-icon">✦</span><strong><span data-counter="98">0</span><sup>%</sup></strong><p>profil personnalisé</p><small>Calcul en temps réel</small></article>
-        <article><span class="metric-icon">∞</span><strong><span data-counter="24">0</span><sup>/7</sup></strong><p>disponibilité</p><small>Hors ligne inclus</small></article>
+        <article><span>01</span><strong data-count="15">15</strong><p>initial countries</p><small>Demonstration coverage</small></article>
+        <article><span>02</span><strong data-count="8">8</strong><p>sample rules</p><small>Not officially verified</small></article>
+        <article><span>03</span><strong data-count="6">6</strong><p>sample insurers</p><small>Confirmation is required</small></article>
+        <article><span>04</span><strong data-count="2">0</strong><sup>min</sup><p>to compare</p><small>No account required</small></article>
       </div>
     </section>
 
-    <section class="profiles-showcase section-pad" id="profiles">
-      <div class="section-intro centered reveal">
-        <span class="kicker">DEUX PROFILS · DEUX UNIVERS</span>
-        <h2>Choisissez votre <span>énergie.</span></h2>
-      </div>
-      <div class="profile-showcase-grid">
-        <article class="signature-card gemini-theme reveal" data-profile-card="Julia" tabindex="0">
-          <div class="card-shine"></div>
-          <div class="signature-top"><span>01 — AIR</span><button type="button" class="favorite" aria-label="Ajouter Julia aux favoris">♡</button></div>
-          <img class="zodiac-emblem" src="assets/icons/gemini.svg" alt="Symbole animé des Gémeaux">
-          <div class="signature-copy"><small>♊ GÉMEAUX</small><h3>Julia</h3><p>Curieuse · Mobile · Lumineuse</p></div>
-          <div class="palette" role="img" aria-label="Palette bleu ciel, or et blanc"><i></i><i></i><i></i></div>
-          <button class="text-link" type="button" data-demo="Julia">Ouvrir le profil <span>↗</span></button>
-        </article>
-        <article class="signature-card libra-theme reveal delay-1" data-profile-card="Sacha" tabindex="0">
-          <div class="card-shine"></div>
-          <div class="signature-top"><span>02 — AIR</span><button type="button" class="favorite" aria-label="Ajouter Sacha aux favoris">♡</button></div>
-          <img class="zodiac-emblem" src="assets/icons/libra.svg" alt="Symbole animé de la Balance">
-          <div class="signature-copy"><small>♎ BALANCE</small><h3>Sacha</h3><p>Harmonieux · Créatif · Magnétique</p></div>
-          <div class="palette" role="img" aria-label="Palette rose gold, violet et blanc"><i></i><i></i><i></i></div>
-          <button class="text-link" type="button" data-demo="Sacha">Ouvrir le profil <span>↗</span></button>
-        </article>
-      </div>
-    </section>
-
-    <section class="configurator section-pad" id="configurator">
-      <div class="config-shell reveal">
-        <div class="config-heading">
-          <div><span class="kicker">CONFIGURATEUR ASTRAL</span><h2>Composez votre <span>signature.</span></h2></div>
-          <div class="privacy-badge"><i>✓</i><span>Calcul sur votre appareil<small>Aucune donnée envoyée</small></span></div>
-        </div>
-        <div class="config-layout">
-          <form id="astro-form" class="astro-form">
-            <div class="stepper" aria-label="Progression"><button type="button" class="active" data-form-step="1"><i>1</i><span>Identité</span></button><span></span><button type="button" data-form-step="2"><i>2</i><span>Naissance</span></button><span></span><button type="button" data-form-step="3"><i>3</i><span>Préférences</span></button></div>
-            <div class="form-step active" data-step="1">
-              <div class="field-grid two">
-                <label>Prénom<input name="firstName" id="first-name" autocomplete="given-name" placeholder="Votre prénom" required></label>
-                <label>Nom<input name="lastName" autocomplete="family-name" placeholder="Votre nom" required></label>
-              </div>
-              <div class="preset-row"><span>Ou partir d’un profil</span><button type="button" data-preset="Julia"><img src="assets/icons/gemini.svg" alt="">Julia</button><button type="button" data-preset="Sacha"><img src="assets/icons/libra.svg" alt="">Sacha</button></div>
-              <button class="button button-primary next-step" type="button" data-next="2">Continuer <span>→</span></button>
-            </div>
-            <div class="form-step" data-step="2" hidden>
-              <div class="field-grid two">
-                <label>Date de naissance<input type="date" name="birthDate" id="birth-date" required></label>
-                <label>Heure de naissance<input type="time" name="birthTime" id="birth-time" value="12:00" required></label>
-                <label>Pays<select name="country" id="birth-country" required><option value="">Choisir</option></select></label>
-                <label>Ville<input name="city" id="birth-city" list="city-list" placeholder="Ex. Paris" required><datalist id="city-list"></datalist></label>
-                <label>Signe solaire<select name="sign" id="sun-sign"><option value="auto">Calcul automatique</option></select></label>
-                <label>Ascendant<select name="ascendant" id="ascendant"><option value="auto">Estimation automatique</option></select></label>
-              </div>
-              <div class="form-nav"><button class="button button-ghost" type="button" data-back="1">Retour</button><button class="button button-primary" type="button" data-next="3">Continuer <span>→</span></button></div>
-            </div>
-            <div class="form-step" data-step="3" hidden>
-              <fieldset class="preference-field"><legend>Vos intentions</legend><div class="choice-grid"><label><input type="checkbox" name="preferences" value="Mobilité" checked><span>✈</span>Mobilité</label><label><input type="checkbox" name="preferences" value="Relations"><span>♡</span>Relations</label><label><input type="checkbox" name="preferences" value="Carrière"><span>↗</span>Carrière</label><label><input type="checkbox" name="preferences" value="Créativité"><span>✦</span>Créativité</label></div></fieldset>
-              <label class="range-field">Niveau de détail <output id="detail-output">Équilibré</output><input type="range" name="detail" id="detail-range" min="1" max="3" value="2"></label>
-              <div class="form-nav"><button class="button button-ghost" type="button" data-back="2">Retour</button><button class="button button-primary generate-button" type="submit"><span>Générer ma signature</span><i></i></button></div>
-            </div>
-          </form>
-
-          <div class="astro-preview" id="astro-preview">
-            <div class="preview-toolbar"><span><i></i> APERÇU EN DIRECT</span><div><button type="button" id="wheel-zoom-out" aria-label="Dézoomer">−</button><button type="button" id="wheel-reset" aria-label="Réinitialiser">◎</button><button type="button" id="wheel-zoom-in" aria-label="Zoomer">+</button></div></div>
-            <div class="zodiac-wheel-wrap" id="wheel-wrap">
-              <svg class="zodiac-wheel" id="zodiac-wheel" viewBox="0 0 500 500" role="img" aria-label="Roue astrologique interactive">
-                <defs><filter id="wheel-glow"><feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><radialGradient id="wheel-core"><stop offset="0" stop-color="#8ea6ff" stop-opacity=".65"></stop><stop offset="1" stop-color="#232a55" stop-opacity=".1"></stop></radialGradient></defs>
-                <circle cx="250" cy="250" r="220" class="wheel-bg"></circle><circle cx="250" cy="250" r="184" class="wheel-ring"></circle><circle cx="250" cy="250" r="116" class="wheel-ring inner"></circle><circle cx="250" cy="250" r="73" fill="url(#wheel-core)" class="wheel-core"></circle>
-                <g id="zodiac-segments"></g><g id="zodiac-labels"></g>
-                <g class="wheel-pointer" filter="url(#wheel-glow)"><path d="M250 250 250 54"></path><circle cx="250" cy="250" r="8"></circle></g>
-                <text x="250" y="244" class="wheel-sign" id="wheel-sign">✦</text><text x="250" y="270" class="wheel-name" id="wheel-name">VOTRE PROFIL</text>
-              </svg>
-              <span class="drag-hint">Glissez pour tourner</span>
-            </div>
-            <div class="preview-insights" id="preview-insights"><div><small>SIGNE SOLAIRE</small><strong id="preview-sign">À calculer</strong></div><div><small>ASCENDANT</small><strong id="preview-ascendant">À calculer</strong></div><div><small>ÉLÉMENT</small><strong id="preview-element">—</strong></div></div>
+    <section class="comparison-section section" id="compare">
+      <div class="section-head reveal"><div><span class="section-label">KNOWLEDGE &amp; RECOGNITION ENGINE</span><h2>Find insurers that value<br><em>your actual experience.</em></h2></div><p>The engine searches documented local rules, required evidence, translation needs and illustrative savings. It is not a live price-comparison service.</p></div>
+      <div class="data-legend" aria-label="Data status legend"><span><i class="verified-dot"></i> Verified: supported by a reviewed source</span><span><i class="demo-dot"></i> Demonstration: illustrative scenario</span><span><i class="pending-dot"></i> To confirm: incomplete or awaiting review</span></div>
+      <div class="comparison-shell reveal delay-1">
+        <form id="comparison-form" class="comparison-form">
+          <div class="form-head"><div><span>01</span><p><small>YOUR MOVE</small><strong>Build your comparison</strong></p></div><em>About 2 minutes</em></div>
+          <div class="route-fields">
+            <label>Country of origin<select id="origin-country" name="originCountry" required><option value="">Select a country</option></select></label>
+            <button class="swap-route" id="swap-route" type="button" aria-label="Swap origin and destination">⇄</button>
+            <label>Destination country<select id="destination-country" name="destinationCountry" required><option value="">Select a country</option></select></label>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="world-section section-pad" id="world">
-      <div class="section-intro split reveal"><div><span class="kicker">ATLAS DES AFFINITÉS</span><h2>Le monde devient<br><span>votre terrain d’énergie.</span></h2></div><p>Sélectionnez une destination et découvrez son indice d’affinité avec le profil actif.</p></div>
-      <div class="world-layout reveal delay-1">
-        <div class="map-card glass-card">
-          <div class="map-toolbar"><span><i></i> CARTE INTERACTIVE</span><button type="button" id="map-reset">Recentrer</button></div>
-          <div class="world-map" id="world-map" role="group" aria-label="Carte des destinations disponibles">
-            <svg viewBox="0 0 1000 520" aria-hidden="true"><path class="land" d="M77 132 166 71l111 18 38 72-40 64-69 15-32 76-75-32-39-89Zm280 80 95-53 82 32 70-31 56 42-23 64-92 23-34 83-67 73-57-43 26-78-60-47Zm332-88 90-40 143 55 22 78-65 34-38 99-75-25-8-76-76-49Zm118 273 78-26 62 45-25 58-103-2-40-43Z"></path><path class="route-line" d="M478 191 Q385 128 269 168 M478 191 Q650 100 803 173 M478 191 Q704 326 863 422"></path></svg>
-            <div id="map-markers"></div>
+          <div class="form-grid three">
+            <label>Current insurer<select id="current-company" name="currentCompany" required><option value="">Select your insurer</option></select></label>
+            <label>Years insured<span class="input-unit"><input type="number" name="insuredYears" min="0" max="60" value="8" required><em>years</em></span></label>
+            <label>Licence obtained<input type="date" name="licenceDate" value="2014-06-12" required></label>
+            <label>Bonus-malus coefficient<input type="number" name="bonusMalus" min="0.5" max="3.5" step="0.01" value="0.50" required></label>
+            <label>Driver age<span class="input-unit"><input type="number" name="driverAge" min="18" max="100" value="34" required><em>years</em></span></label>
+            <label>Number of claims<input type="number" name="claimsCount" min="0" max="20" value="0" required></label>
+            <label>Vehicle type<select id="vehicle-type" name="vehicleType" required><option value="">Select a vehicle</option></select></label>
+            <label>Desired coverage<select id="coverage-type" name="coverageType" required><option value="">Select coverage</option></select></label>
+            <label>Preferred language<select id="preferred-language" name="preferredLanguage" required><option value="">Select a language</option></select></label>
           </div>
-        </div>
-        <aside class="destination-panel">
-          <div class="destination-header"><div><span id="destination-flag">🇫🇷</span><p><small>DESTINATION ACTIVE</small><strong id="destination-name">France</strong></p></div><em id="destination-score">96%</em></div>
-          <div class="score-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle id="score-progress" cx="60" cy="60" r="52"></circle></svg><div><strong id="score-value">96</strong><span>affinité</span></div></div>
-          <p id="destination-copy">Un territoire d’expression fluide, propice aux connexions et aux nouveaux projets.</p>
-          <div class="destination-tags" id="destination-tags"><span>Créativité</span><span>Réseau</span><span>Équilibre</span></div>
-          <button class="button button-primary" type="button" id="compare-destination">Ajouter à la comparaison <span>+</span></button>
+          <fieldset class="driver-options"><legend>Driver details</legend><label><input type="checkbox" name="mainDriver" checked><span><i>✓</i> Main driver<small>You are the primary policyholder</small></span></label><label><input type="checkbox" name="youngDriver"><span><i>✓</i> Young driver<small>Under 25 or recently licensed</small></span></label></fieldset>
+          <button class="button button-primary submit-compare" type="submit"><span>Find compatible insurers</span><i class="loader"></i><b>→</b></button>
+          <p class="form-error" id="form-error" role="alert" tabindex="-1"></p>
+          <p class="form-privacy"><span>▣</span> Your details are processed locally and never sold.</p>
+        </form>
+        <aside class="engine-preview">
+          <div class="engine-status"><span><i></i> ENGINE READY</span><em id="engine-progress">0%</em></div>
+          <div class="engine-visual" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="engine-core"><img src="assets/icons/favicon.svg" alt=""></div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span></div>
+          <div class="engine-signals"><div><span>⌖</span><p>Route compatibility<small id="signal-route">Choose your countries</small></p></div><div><span>▤</span><p>Evidence strength<small id="signal-evidence">8 insured years</small></p></div><div><span>◎</span><p>Recognition potential<small id="signal-score">Ready to calculate</small></p></div></div>
         </aside>
       </div>
+
+      <div class="results-panel" id="results-panel" aria-live="polite">
+        <div class="results-head"><div><span class="section-label">YOUR BEST MATCHES</span><h3><span id="results-count">0</span> compatible insurers found</h3></div><div><button type="button" id="save-comparison">♡ Save comparison</button><button type="button" id="export-results">↓ Export report</button></div></div>
+        <div class="summary-strip"><div><small>SELECTED ROUTE</small><strong id="result-route">—</strong></div><div><small>BEST RECOGNITION</small><strong id="best-recognition">—</strong></div><div><small>ESTIMATED SAVINGS</small><strong id="total-savings">—</strong></div><div><small>DOCUMENT READINESS</small><strong id="document-readiness">—</strong></div></div>
+        <div class="result-documents"><span>▤ Required evidence</span><p>Claims experience letter · current policy certificate · driving licence <em>Exact requirements are listed in each matched rule.</em></p></div>
+        <div class="result-grid" id="result-grid"><p class="empty">Complete the comparison form to calculate local demonstration matches. Results are guidance only and must be confirmed directly with an insurer.</p></div>
+      </div>
     </section>
 
-    <section class="timeline-section section-pad">
-      <div class="section-intro centered reveal"><span class="kicker">VOTRE PARCOURS</span><h2>De la donnée à la <span>décision.</span></h2></div>
-      <ol class="timeline reveal">
-        <li><i>01</i><span>◇</span><h3>Créez</h3><p>Vos informations restent locales.</p></li>
-        <li><i>02</i><span>◎</span><h3>Explorez</h3><p>Votre roue devient interactive.</p></li>
-        <li><i>03</i><span>⌖</span><h3>Comparez</h3><p>Les pays selon vos affinités.</p></li>
-        <li><i>04</i><span>✦</span><h3>Décidez</h3><p>Des recommandations actionnables.</p></li>
+    <section class="coverage-section section" id="coverage">
+      <div class="section-head reveal"><div><span class="section-label">GLOBAL RULES MAP</span><h2>Move countries.<br><em>Keep your insurance bonus.</em></h2></div><p>Explore supported markets, recognition maturity and the number of insurers currently mapped.</p></div>
+      <div class="map-layout reveal delay-1">
+        <div class="map-card">
+          <div class="map-toolbar"><label><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m15.5 15.5 4 4"></path></svg><input id="map-search" type="search" placeholder="Search a country" aria-label="Search countries"></label><div><button type="button" id="map-zoom-out" aria-label="Zoom map out">−</button><button type="button" id="map-reset" aria-label="Reset map zoom">◎</button><button type="button" id="map-zoom-in" aria-label="Zoom map in">+</button></div></div>
+          <div class="interactive-map" id="interactive-map">
+            <svg id="country-map" viewBox="0 0 1000 520" role="img" aria-label="Interactive map of supported insurance markets">
+              <path class="continent" d="M54 128 147 65l125 25 41 74-37 63-62 17-34 89-78-26-50-102Z"/><path class="continent" d="m335 201 96-53 91 34 73-36 73 49-30 71-91 21-38 91-69 79-70-49 23-86-66-45Z"/><path class="continent" d="m690 119 101-39 151 62 16 78-68 39-37 103-77-31-4-79-90-50Z"/><path class="continent" d="m803 392 88-25 66 51-34 63-112-4-42-48Z"/>
+              <g id="map-country-shapes"></g><g id="map-routes"></g>
+            </svg>
+            <div id="map-pins"></div>
+            <div class="map-legend"><span><i class="mature"></i>Mature recognition</span><span><i class="growing"></i>Growing network</span><span><i class="mapped"></i>Rules mapped</span></div>
+          </div>
+        </div>
+        <aside class="country-inspector" id="country-inspector"><div class="country-title"><span id="inspector-flag">🇫🇷</span><p><small>SELECTED MARKET</small><strong id="inspector-name">France</strong></p><em id="inspector-status">Demo</em></div><div class="country-score"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle id="country-score-ring" cx="60" cy="60" r="52"></circle></svg><p><strong id="country-score-value">0</strong><small>available rules</small></p></div><dl><div><dt>Insurers listed</dt><dd id="inspector-insurers">0</dd></div><div><dt>Languages</dt><dd id="inspector-languages">FR · EN</dd></div><div><dt>Typical process</dt><dd id="inspector-process">Estimate unavailable</dd></div></dl><button class="button button-primary" type="button" id="use-destination">Use as destination <span>→</span></button></aside>
+      </div>
+    </section>
+
+    <section class="how-section section" id="how">
+      <div class="center-head reveal"><span class="section-label">FROM HISTORY TO RECOGNITION</span><h2>A clear path across borders.</h2><p>We turn fragmented underwriting rules into a simple, actionable comparison.</p></div>
+      <ol class="process-line reveal delay-1">
+        <li><span>01</span><i>⌖</i><h3>Define your move</h3><p>Select where you are insured and where you are going.</p></li>
+        <li><span>02</span><i>▤</i><h3>Describe your history</h3><p>Add years insured, bonus and licence information.</p></li>
+        <li><span>03</span><i>◎</i><h3>Review the evidence</h3><p>Compare documented rules, required evidence, questions and illustrative savings.</p></li>
       </ol>
     </section>
 
-    <section class="dashboard-section section-pad" id="dashboard">
-      <div class="dashboard-shell reveal">
-        <aside class="dash-sidebar">
-          <a class="brand compact" href="#home" aria-label="BonusBridge"><span class="brand-symbol"><i></i><i></i><i></i></span></a>
-          <nav aria-label="Tableau de bord">
-            <button class="active" type="button" data-panel="overview" aria-label="Accueil"><span>⌂</span><em>Accueil</em></button>
-            <button type="button" data-panel="profiles"><span>♙</span><em>Mes profils</em></button>
-            <button type="button" data-panel="compare"><span>⇄</span><em>Comparateur</em></button>
-            <button type="button" data-panel="history"><span>◷</span><em>Historique</em></button>
-            <button type="button" data-panel="favorites"><span>♡</span><em>Favoris</em></button>
-            <button type="button" data-panel="settings"><span>⚙</span><em>Paramètres</em></button>
-            <button type="button" data-panel="admin"><span>◇</span><em>Admin</em></button>
-          </nav>
+    <section class="platform-section section" id="platform">
+      <div class="section-head reveal"><div><span class="section-label">YOUR INSURANCE PASSPORT</span><h2>Everything you need.<br><em>One secure workspace.</em></h2></div><p>Save comparisons, track documents and revisit your best routes from any device.</p></div>
+      <div class="app-shell reveal delay-1">
+        <aside class="app-sidebar">
+          <img src="assets/icons/favicon.svg" width="38" height="38" alt="BonusBridge">
+          <nav aria-label="User workspace"><button class="active" data-app-view="overview" type="button"><span>⌂</span><em>Overview</em></button><button data-app-view="history" type="button"><span>◷</span><em>History</em></button><button data-app-view="favorites" type="button"><span>♡</span><em>Favorites</em></button><button data-app-view="saved" type="button"><span>▤</span><em>Saved comparisons</em></button><button data-app-view="profile" type="button"><span>♙</span><em>Driver profile</em></button><button data-app-view="admin" type="button"><span>◇</span><em>Admin</em></button></nav>
         </aside>
-        <div class="dash-main">
-          <div class="dash-head"><div><small>BONSOIR</small><h2>Votre espace orbital.</h2></div><div class="dash-actions"><button type="button" id="import-json">Importer JSON</button><input type="file" id="json-file" accept="application/json" hidden><button type="button" id="export-excel">Export Excel</button><button type="button" id="export-pdf">Export PDF</button></div></div>
-          <div class="dash-panel active" data-dashboard="overview">
-            <div class="dashboard-grid">
-              <article class="dash-feature"><span class="kicker">PROFIL DU JOUR</span><div class="dash-profile"><img src="assets/icons/gemini.svg" alt=""><div><h3 id="dash-name">Julia</h3><p id="dash-sign">♊ Gémeaux · Ascendant Balance</p></div><em>98%</em></div><blockquote>« Votre curiosité ouvre une fenêtre rare. Favorisez les échanges qui élargissent votre horizon. »</blockquote><button type="button" data-panel="profiles">Voir le profil complet →</button></article>
-              <article class="energy-card"><small>ÉNERGIE GLOBALE</small><div class="energy-orb"><strong>87</strong><span>/100</span></div><p>Une journée idéale pour initier.</p></article>
-              <article class="activity-card"><small>ACTIVITÉ RÉCENTE</small><div id="activity-list"></div></article>
-              <article class="recommendation-card"><small>RECOMMANDATION IA · APERÇU</small><h3 id="recommendation-title">Cap sur Montréal</h3><p id="recommendation-copy">Votre signature Air résonne avec une ville ouverte, créative et internationale.</p><div><span>Mobilité</span><span>Confiance 92%</span></div></article>
-            </div>
-          </div>
-          <div class="dash-panel" data-dashboard="profiles" hidden><div class="panel-heading"><div><small>COLLECTION</small><h3>Mes profils</h3></div><button class="button button-primary small" type="button" data-scroll="#configurator">Nouveau profil +</button></div><div class="profile-list" id="profile-list"></div></div>
-          <div class="dash-panel" data-dashboard="compare" hidden><div class="panel-heading"><div><small>MULTI-SÉLECTION</small><h3>Comparateur de destinations</h3></div><span id="compare-count">0 sélection</span></div><div class="filter-bar"><input id="country-search" type="search" placeholder="Rechercher un pays…" aria-label="Rechercher un pays"><select id="score-filter" aria-label="Filtrer par score"><option value="0">Toutes les affinités</option><option value="90">90% et plus</option><option value="80">80% et plus</option></select></div><div class="comparison-grid" id="comparison-grid"></div></div>
-          <div class="dash-panel" data-dashboard="history" hidden><div class="panel-heading"><div><small>CHRONOLOGIE</small><h3>Historique</h3></div><button type="button" id="clear-history">Effacer</button></div><div class="history-list" id="history-list"></div></div>
-          <div class="dash-panel" data-dashboard="favorites" hidden><div class="panel-heading"><div><small>SÉLECTION</small><h3>Favoris</h3></div></div><div class="favorites-list" id="favorites-list"></div></div>
-          <div class="dash-panel" data-dashboard="settings" hidden><div class="panel-heading"><div><small>PRÉFÉRENCES</small><h3>Paramètres</h3></div></div><div class="settings-grid"><label><span>Notifications<small>Recevoir les insights importants</small></span><input type="checkbox" id="notification-setting" role="switch"></label><label><span>Mode hors ligne<small>Application installable et mise en cache</small></span><input type="checkbox" checked disabled role="switch"></label><label><span>Animations réduites<small>Limiter les mouvements d’interface</small></span><input type="checkbox" id="motion-setting" role="switch"></label><button type="button" id="install-app">Installer BonusBridge</button></div></div>
-          <div class="dash-panel" data-dashboard="admin" hidden><div class="panel-heading"><div><small>ADMINISTRATION</small><h3>Centre de contrôle</h3></div><span class="secure-label">● Session locale</span></div><div class="admin-stats"><article><small>PROFILS</small><strong id="admin-profile-count">2</strong><span>+12% ce mois</span></article><article><small>SESSIONS</small><strong>8 492</strong><span>+24% ce mois</span></article><article><small>CONVERSION</small><strong>18,4%</strong><span>+3,2 pts</span></article><article><small>SANTÉ PWA</small><strong>99,9%</strong><span>Opérationnelle</span></article></div><div class="admin-layout"><article><div class="chart-head"><span>Analytics · 7 jours</span><em>Vue simulée</em></div><div class="bar-chart" aria-label="Graphique des visites"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:72%"></i><i style="--h:65%"></i><i style="--h:88%"></i><i style="--h:94%"></i></div></article><article class="log-card"><div class="chart-head"><span>Logs système</span><i></i></div><ul><li><time>20:42</time><span>DEPLOY</span>Version v2 initialisée</li><li><time>20:41</time><span>PROFILE</span>Calcul local terminé</li><li><time>20:40</time><span>PWA</span>Cache synchronisé</li><li><time>20:38</time><span>AI</span>Scoring disponible</li></ul></article></div></div>
+        <div class="app-content">
+          <div class="app-top"><div><small>LOCAL BROWSER WORKSPACE</small><h2>Insurance passport</h2></div><div><button class="search-open" type="button">⌕ Search</button><span class="user-avatar">LOCAL</span></div></div>
+          <section class="app-view active" data-view="overview">
+            <div class="overview-grid"><article class="passport-card"><div class="passport-top"><span>LOCAL SIMULATION PASSPORT</span><img src="assets/favicon.svg" width="36" height="36" alt=""></div><h3>International driver</h3><p>Sample values — replace them in a comparison</p><div><span>FR</span><i></i><span>CA</span><em>Demonstration only</em></div></article><article class="workspace-stat"><small>LATEST SAVINGS ESTIMATE</small><strong id="workspace-savings">—</strong><span>illustrative only</span><svg viewBox="0 0 220 70" aria-hidden="true"><path d="M2 60Q35 53 50 42t38 2 39-20 42 6 49-24"/></svg></article><article class="workspace-stat"><small>LOCAL HISTORY</small><strong id="workspace-history-count">0</strong><span>browser records</span><div class="progress"><i style="width:0%" id="workspace-progress"></i></div></article><article class="recent-card"><div><small>RECENT COMPARISONS</small><button type="button" data-app-view="history">View all →</button></div><div id="recent-comparisons"><p class="empty">No local comparisons yet.</p></div></article><article class="advisor-card"><span>LOCAL RULES ADVISOR</span><h3 id="advisor-title">Run a comparison to receive document guidance.</h3><p id="advisor-copy">This assistant uses only the local demonstration rules bundled with the site. It is not connected to an external service.</p><button type="button" data-scroll="#compare">Run a new comparison →</button></article></div>
+          </section>
+          <section class="app-view" data-view="history"><div class="view-head"><div><small>ACTIVITY — STORED IN THIS BROWSER ONLY</small><h3>Comparison history</h3></div><button type="button" id="clear-history">Clear history</button></div><div class="data-list" id="history-list"><p class="empty">No local comparisons yet.</p></div></section>
+          <section class="app-view" data-view="favorites"><div class="view-head"><div><small>LOCAL SHORTLIST</small><h3>Favorite insurers</h3></div></div><div class="company-grid" id="favorite-list"><p class="empty">No local favorites yet.</p></div></section>
+          <section class="app-view" data-view="saved"><div class="view-head"><div><small>LOCAL WORKSPACE</small><h3>Saved comparisons</h3></div><button type="button" data-scroll="#compare">New comparison +</button></div><div class="data-list" id="saved-list"><p class="empty">No saved comparisons yet.</p></div></section>
+          <section class="app-view" data-view="profile"><div class="view-head"><div><small>LOCAL SIMULATION SETTINGS</small><h3>Driver simulation</h3></div><div><button type="button" id="export-profile">Export all JSON</button><label class="import-button">Import JSON<input id="import-profile" type="file" accept="application/json"></label><button type="button" id="clear-local-data">Delete local data</button></div></div><p class="local-notice">These settings and comparisons are stored only in this browser. This is not an account and no authentication is provided.</p><div class="profile-grid"><label>Simulation name<input id="profile-name" value="International Driver"></label><label>Home country<select id="profile-country"></select></label><label>Preferred currency<select id="profile-currency"></select></label><label>Interface language<select id="profile-language"></select></label></div></section>
+          <section class="app-view" data-view="admin">
+            <div class="view-head"><div><small>LOCAL DEMONSTRATION — NO ADMINISTRATOR SECURITY</small><h3>Data review center</h3></div><span class="live-status"><i></i> Browser dataset loaded</span></div>
+            <div class="admin-kpis"><article><small>COUNTRIES</small><strong id="admin-country-count">0</strong><span>Demo markets</span></article><article><small>COMPANIES</small><strong id="admin-company-count">0</strong><span>Demo records</span></article><article><small>RULES</small><strong id="admin-rule-count">0</strong><span>Local scenarios</span></article><article><small>UNVERIFIED</small><strong id="admin-unverified-count">0</strong><span>Require confirmation</span></article></div>
+            <div class="admin-tools"><label>Filter data<input id="admin-filter" type="search" placeholder="Search records"></label><button type="button" id="admin-export">Export rules</button><label class="import-button">Import rules<input id="admin-import" type="file" accept="application/json"></label><span id="admin-update-date"></span></div>
+            <div class="admin-tabs" role="tablist" aria-label="Administration datasets"><button class="active" type="button" data-admin-tab="countries" role="tab">Countries</button><button type="button" data-admin-tab="companies" role="tab">Companies</button><button type="button" data-admin-tab="rules" role="tab">Rules</button><button type="button" data-admin-tab="documents" role="tab">Documents</button><button type="button" data-admin-tab="logs" role="tab">Logs</button><button type="button" data-admin-tab="analytics" role="tab">Analytics</button></div>
+            <div class="admin-table" id="admin-table"></div>
+          </section>
         </div>
       </div>
     </section>
 
-    <section class="faq section-pad" id="faq">
-      <div class="section-intro split reveal"><div><span class="kicker">QUESTIONS FRÉQUENTES</span><h2>Clair, privé,<br><span>sans friction.</span></h2></div><p>Tout ce qu’il faut savoir sur la nouvelle expérience BonusBridge.</p></div>
-      <div class="faq-list reveal">
-        <article class="open"><h3><button type="button" aria-expanded="true">Comment mon signe est-il calculé ?<span>−</span></button></h3><div><p>Le signe solaire est calculé à partir de votre date de naissance. L’ascendant proposé est une estimation locale basée sur l’heure et la ville ; une future API astronomique pourra fournir un calcul éphéméride complet.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Mes données quittent-elles mon appareil ?<span>+</span></button></h3><div><p>Non. Cette version fonctionne entièrement dans votre navigateur et stocke vos profils dans le stockage local de votre appareil.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Puis-je utiliser BonusBridge hors ligne ?<span>+</span></button></h3><div><p>Oui. Une fois la première visite effectuée, la PWA met en cache les ressources essentielles et reste disponible sans réseau.</p></div></article>
-        <article><h3><button type="button" aria-expanded="false">Comment exporter ou transférer mes profils ?<span>+</span></button></h3><div><p>Le tableau de bord propose un export imprimable en PDF, un export compatible Excel et un import JSON pour restaurer vos données.</p></div></article>
+    <section class="guidance-section section" id="guidance">
+      <div class="section-head"><div><span class="section-label">PREPARE BEFORE YOU MOVE</span><h2>Popular routes and<br><em>essential evidence.</em></h2></div><p>These examples describe what users can research with the local demonstration catalogue. They are not confirmed insurer policies.</p></div>
+      <div class="guidance-grid">
+        <article><span>POPULAR DESTINATIONS</span><h3>Canada · France · Spain · Australia</h3><p>Use the map or comparator to inspect the rules currently available for each route.</p><a href="#coverage">Explore destinations →</a></article>
+        <article><span>COMMON DOCUMENTS</span><h3>Claims letter · policy certificate · driving licence</h3><p>Ask each insurer about issue dates, accepted formats and certified translation requirements.</p><a href="#compare">Check a route →</a></article>
+        <article><span>SAVINGS ESTIMATE</span><h3>Illustrative, never a quote</h3><p>The browser calculation indicates a possible order of magnitude. A real premium requires insurer pricing data and underwriting.</p><a href="#compare">Build an estimate →</a></article>
       </div>
     </section>
 
-    <section class="final-cta section-pad reveal">
-      <div class="cta-orbit" aria-hidden="true"></div>
-      <span class="kicker">VOTRE PROCHAINE ORBITE COMMENCE ICI</span>
-      <h2>Le monde vous attend.<br><span>Découvrez comment.</span></h2>
-      <p>Créez votre signature en moins de deux minutes.</p>
-      <a class="button button-light magnetic" href="#configurator">Commencer gratuitement <span>↗</span></a>
-      <div><span>✓ Sans compte</span><span>✓ Données privées</span><span>✓ Accessible hors ligne</span></div>
+    <section class="faq-section section" id="faq">
+      <div class="faq-intro reveal"><span class="section-label">QUESTIONS, ANSWERED</span><h2>Built for a move<br>without surprises.</h2><p>Understand recognition, evidence and what happens next.</p><a href="mailto:hello@bonusbridge.com">Talk to an insurance specialist →</a></div>
+      <div class="faq-list reveal delay-1">
+        <article class="open"><h3><button type="button" aria-expanded="true">What is an internationally recognized insurance history?<span>−</span></button></h3><div><p>It is evidence of your insured years, claims and no-claims status that a new insurer accepts when calculating your premium abroad. Acceptance varies by company and country.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Which documents are usually required?<span>+</span></button></h3><div><p>Most insurers request a claims experience letter, policy certificate, driving licence and sometimes a certified translation. BonusBridge lists the exact evidence for each match.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Does every insurer recognize my full bonus?<span>+</span></button></h3><div><p>No. Some recognize the full percentage, some convert insured years into a local tier, and others cap recognition. Results make these differences explicit.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Is my information sent to insurers?<span>+</span></button></h3><div><p>No. This version calculates matches in your browser. Nothing is submitted unless you deliberately contact an insurer outside the platform.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Can I use BonusBridge offline?<span>+</span></button></h3><div><p>Yes. After the first visit, the core interface and reference datasets are cached for offline access through the installable web app.</p></div></article>
+      </div>
+    </section>
+
+    <section class="final-cta section reveal">
+      <div class="cta-map" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <span class="section-label">YOUR EXPERIENCE HAS VALUE</span>
+      <h2>Move countries.<br><em>Not backwards.</em></h2>
+      <p>Discover who recognizes your insurance history before you move.</p>
+      <a class="button button-light button-lg" href="#compare">Compare for free <span>↗</span></a>
+      <div><span>✓ No account required</span><span>✓ Private calculation</span><span>✓ Results in two minutes</span></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-main"><div><a class="brand" href="#home"><span class="brand-symbol"><i></i><i></i><i></i></span><span>BonusBridge<small>ORBITAL INTELLIGENCE</small></span></a><p>L’intelligence personnelle pour vos trajectoires internationales.</p></div><nav aria-label="Liens du pied de page"><div><strong>Produit</strong><a href="#configurator">Configurateur</a><a href="#world">Destinations</a><a href="#dashboard">Tableau de bord</a></div><div><strong>Ressources</strong><a href="#faq">FAQ</a><a href="README.md">Documentation</a><a href="sitemap.xml">Plan du site</a></div><div><strong>Légal</strong><a href="#privacy">Confidentialité</a><a href="#accessibility">Accessibilité</a><a href="mailto:bonjour@bonusbridge.fr">Contact</a></div></nav></div>
-    <div class="footer-bottom"><span>© 2026 BonusBridge</span><span>Conçu entre Paris et les étoiles ✦</span><button type="button" id="back-to-top">Retour en haut ↑</button></div>
+  <footer class="site-footer">
+    <div class="footer-main"><div class="footer-brand"><img src="assets/logo-dark.svg" width="190" height="42" alt="BonusBridge"><p>Worldwide recognition for your insurance history.</p><span>One insurance history. Worldwide recognition.</span></div><nav aria-label="Footer navigation"><div><strong>Product</strong><a href="#compare">Comparison engine</a><a href="#coverage">Countries</a><a href="#platform">Insurance passport</a></div><div><strong>Company</strong><a href="#how">How it works</a><a href="#faq">Resources</a><a href="mailto:hello@bonusbridge.com">Contact</a></div><div><strong>Trust</strong><a id="privacy" href="#privacy">Privacy</a><a id="security" href="#security">Security</a><a id="accessibility" href="#accessibility">Accessibility</a></div></nav></div>
+    <div class="footer-bottom"><span>© 2026 BonusBridge. All rights reserved.</span><p>Built for drivers who move.</p><button id="back-top" type="button">Back to top ↑</button></div>
   </footer>
 
   <dialog class="search-dialog" id="search-dialog">
-    <form method="dialog"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input id="global-search" type="search" placeholder="Rechercher une destination, un profil, une fonction…" autocomplete="off" aria-label="Recherche globale"><kbd>ESC</kbd></div><div class="search-results" id="search-results"></div><div class="search-foot"><span>↑↓ Naviguer</span><span>↵ Ouvrir</span><span>Recherche instantanée</span></div></form>
+    <form method="dialog"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="m15.5 15.5 4 4"></path></svg><input id="global-search" type="search" placeholder="Search countries, insurers or features…" aria-label="Global search" autocomplete="off"><kbd>ESC</kbd></div><div class="search-results" id="search-results"></div><div class="search-hint"><span>↑↓ Navigate</span><span>↵ Open</span><span>Instant search</span></div></form>
   </dialog>
-
   <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
-  <div class="offline-badge" id="offline-badge" hidden><i></i> Mode hors ligne</div>
+  <div class="offline-pill" id="offline-pill" hidden><i></i> Offline mode</div>
+  <div class="data-disclaimer" role="note"><strong>Demonstration data:</strong> recognition rules, processing times and savings estimates are illustrative and not official insurance advice. Confirm all conditions with the insurer before subscribing.</div>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>

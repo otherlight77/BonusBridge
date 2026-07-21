@@ -1,3 +1,3 @@
-# Icônes
+# Icons
 
-Les icônes applicatives V2 sont centralisées dans `assets/icons/`. Ce dossier historique est conservé pour compatibilité avec l'architecture initiale.
+The V3 identity assets live in `assets/`. The mark combines a bridge, globe grid and protective shield using lightweight SVG only.

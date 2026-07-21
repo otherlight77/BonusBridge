@@ -1,8 +1,1 @@
-{
-  "enabled": false,
-  "endpoint": "/api/v1/recommendations",
-  "timeoutMs": 8000,
-  "fallback": "local-scoring",
-  "capabilities": ["destination-scoring", "profile-summary", "next-best-action"],
-  "privacy": {"sendBirthData": false, "requireConsent": true}
-}
+{"version":"3.1.0","mode":"local-rules","externalApiConfigured":false,"disclaimer":"This browser assistant uses local demonstration rules and is not connected to an external artificial-intelligence service."}

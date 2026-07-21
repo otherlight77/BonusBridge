@@ -1,0 +1,7 @@
+{
+  "schemaVersion":"3.1.0","entity":"sampleComparison","status":"demo","verified":false,
+  "records":[
+    {"id":"sample-fr-ca","originCountry":"FR","destinationCountry":"CA","currentCompany":"axa","insuredYears":8,"bonusMalus":0.50,"licenceDate":"2014-06-12","driverAge":34,"vehicleType":"compact","youngDriver":false,"mainDriver":true,"claimsCount":0,"coverageType":"comprehensive","preferredLanguage":"en","status":"demo"},
+    {"id":"sample-be-fr","originCountry":"BE","destinationCountry":"FR","currentCompany":"allianz","insuredYears":12,"bonusMalus":0.54,"licenceDate":"2010-02-18","driverAge":42,"vehicleType":"sedan","youngDriver":false,"mainDriver":true,"claimsCount":1,"coverageType":"extended-third-party","preferredLanguage":"fr","status":"demo"}
+  ]
+}

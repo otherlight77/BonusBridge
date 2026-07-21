@@ -1,4 +1,0 @@
-[
-  {"id":"julia","firstName":"Julia","lastName":"Martin","birthDate":"1995-06-08","birthTime":"09:42","country":"France","city":"Paris","sign":"Gémeaux","ascendant":"Balance","element":"Air","symbol":"♊","icon":"assets/icons/gemini.svg","palette":["#72d6ff","#e1bf70","#ffffff"],"preferences":["Mobilité","Créativité"],"score":98},
-  {"id":"sacha","firstName":"Sacha","lastName":"Leroy","birthDate":"1992-10-02","birthTime":"18:15","country":"Canada","city":"Montréal","sign":"Balance","ascendant":"Verseau","element":"Air","symbol":"♎","icon":"assets/icons/libra.svg","palette":["#d39b9e","#8c62b5","#ffffff"],"preferences":["Relations","Créativité"],"score":94}
-]

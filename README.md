@@ -1,105 +1,122 @@
-# BonusBridge V2 — Orbital Intelligence
+# BonusBridge V3 — Global Insurance Recognition
 
-BonusBridge V2 est une expérience SaaS statique premium qui relie profils astraux, affinités personnelles et mobilité internationale. L'application fonctionne entièrement dans le navigateur, sans framework, sans npm et sans transmission obligatoire de données.
+**Take your insurance history with you.**
 
-[Accéder à BonusBridge](https://otherlight77.github.io/BonusBridge/)
+BonusBridge is a browser-native knowledge platform for cross-border motor insurance history recognition. It is designed for expatriate drivers and brokers who need to understand whether experience earned in one country may be recognized in another. It is not merely a price comparator: its core product is a scalable rule base covering countries, insurers, accepted evidence, translations and recognition limits.
 
-## Aperçu
+> **Data notice:** every bundled recognition rule is marked `"verified": false` and `"status": "demo"`. Results, processing times and savings are illustrative and must be confirmed directly with an insurer. BonusBridge does not currently provide regulated insurance advice.
 
-### Desktop
+[Open the public site](https://otherlight77.github.io/BonusBridge/)
 
-![BonusBridge V2 sur desktop](images/screenshots/bonusbridge-v2-desktop.png)
+## Core capabilities
 
-### Responsive
+- international route selection with origin and destination countries;
+- current insurer, insured years, bonus-malus coefficient, licence date and driver age;
+- main-driver, young-driver, claims, vehicle, coverage and language inputs;
+- ranked demonstration results with maximum recognized years and retained bonus estimates;
+- required document and certified translation guidance;
+- estimated savings, process difficulty and transparent global score;
+- interactive SVG market map with search and zoom;
+- local comparison history, favorites, saved comparisons and driver settings;
+- local data-review views with filtering, duplicate checking, editing, import and export;
+- deterministic local rules advisor with no external service connection;
+- installable PWA with offline reference data.
 
-![BonusBridge V2 sur mobile](images/screenshots/bonusbridge-v2-mobile.png)
+## Local development
 
-## Fonctionnalités
-
-- interface premium responsive avec thèmes sombre et clair, glassmorphism et micro-interactions ;
-- profils préconfigurés Julia (Gémeaux) et Sacha (Balance) ;
-- configurateur progressif : identité, naissance, pays, ville, signe, ascendant et préférences ;
-- calcul local du signe solaire et estimation d'ascendant ;
-- roue astrologique SVG interactive avec zoom, rotation et effets lumineux ;
-- carte de neuf destinations avec scoring, filtres et comparaison multiple ;
-- tableau de bord : accueil, profils, comparateur, historique, favoris, paramètres et admin ;
-- recherche instantanée accessible avec `Ctrl+K` ou `Cmd+K` ;
-- sauvegarde locale, import JSON, export Excel et impression PDF ;
-- PWA installable, cache hors ligne et état réseau ;
-- notifications navigateur optionnelles ;
-- architecture IA découplée avec scoring local et client API désactivé par défaut ;
-- SEO complet : Schema.org, OpenGraph, Twitter Cards, sitemap et robots.
-
-> L'ascendant affiché est une estimation d'interface. L'architecture permet de brancher ultérieurement une API d'éphémérides pour un calcul astronomique certifié.
-
-## Utilisation locale
-
-Aucune dépendance n'est nécessaire. Avec Node.js :
+No package manager, build step or external library is required.
 
 ```powershell
 node scripts/serve.mjs
 ```
 
-Ouvrez ensuite <http://127.0.0.1:4173/>. Un serveur HTTP est recommandé pour tester les modules JavaScript et le service worker ; ouvrir directement `index.html` ne permet pas toutes les fonctions PWA.
+Open <http://127.0.0.1:4173/>. An HTTP server is required for ES modules, JSON datasets and service-worker validation.
 
-## Déploiement GitHub Pages
+Run the repository validator with:
 
-Le workflow officiel `.github/workflows/deploy-pages.yml` publie la racine du dépôt à chaque push sur `main` et peut être lancé manuellement avec `workflow_dispatch`. Il ne nécessite ni build, ni npm, ni framework.
+```powershell
+node scripts/validate.mjs
+```
 
-URL publique : <https://otherlight77.github.io/BonusBridge/>
+## Data architecture
 
-## Architecture
+Every dataset uses a versioned envelope with an entity name and a `records` array. Recognition rules expose explicit indexes so the storage layer can move from static JSON to a database containing thousands of records without changing the matching contract.
+
+| Dataset | Purpose |
+|---|---|
+| `countries.json` | markets, currencies, languages, readiness and map geometry |
+| `insurance-companies.json` | insurer capabilities and available markets |
+| `recognition-rules.json` | route-specific recognition policies and evidence |
+| `required-documents.json` | normalized document catalog |
+| `languages.json` | supported language metadata |
+| `currencies.json` | display and calculation metadata |
+| `sample-comparisons.json` | reproducible demonstration fixtures |
+| `vehicle-types.json` | normalized vehicle categories and estimate factors |
+| `coverage-types.json` | normalized requested coverage categories |
+
+## Recommendation architecture
+
+The `/ai` directory remains provider-neutral:
+
+- `matching.js` selects direct policies or conservative fallback routes;
+- `scoring.js` calculates an explainable demonstration score and savings estimate;
+- `recommendations.js` ranks results and builds summaries;
+- `advisor.js` recommends the next evidence action.
+
+No secret, remote model or insurer API is used in the browser. A future service can implement the same input and output contract behind a consent-aware API.
+
+## Repository structure
 
 ```text
 BonusBridge/
-├── .github/workflows/deploy-pages.yml  # Déploiement Pages (inchangé)
-├── ai/                                 # API, scoring et recommandations
-├── assets/                             # Identité, icônes SVG et carte sociale
-├── components/                         # Contrats des composants DOM
-├── css/                                # Tokens, styles applicatifs, responsive
-├── data/                               # Profils et destinations structurés
-├── icons/                              # Compatibilité de l'arborescence initiale
-├── images/screenshots/                 # Captures validées
-├── js/                                 # Application, calcul, stockage et PWA
-├── scripts/serve.mjs                   # Serveur local sans dépendance
-├── index.html                          # Coque sémantique de la SPA
-├── manifest.webmanifest                # Métadonnées PWA
-├── sw.js                               # Cache et fonctionnement hors ligne
-├── robots.txt                          # Directives d'indexation
-└── sitemap.xml                         # URL canonique
+├── .github/workflows/       # GitHub Pages deployment
+├── ai/                      # Matching, scoring and advisory logic
+├── assets/                  # Logo family, favicon and social card
+├── components/              # Framework-free interface contracts
+├── css/                     # Tokens, application and responsive styles
+├── data/                    # Versioned insurance reference datasets
+├── icons/                   # Identity documentation
+├── images/                  # Image usage documentation
+├── js/                      # Application, catalog, storage and PWA modules
+├── scripts/                 # Local server and repository validator
+├── index.html               # Semantic application shell
+├── manifest.webmanifest     # Installable app metadata
+├── sw.js                    # Offline application cache
+├── robots.txt               # Search crawler rules
+└── sitemap.xml              # Canonical public URL
 ```
 
-## Données et confidentialité
+## Privacy and accessibility
 
-Les profils créés sont enregistrés dans `localStorage`. L'import et les exports restent locaux. Le client IA est désactivé et aucune clé ni donnée personnelle n'est envoyée. Toute activation future d'une API devra passer par un backend, un consentement explicite et une politique de conservation.
+Comparisons, favorites, local rule edits and simulation preferences stay in browser storage. Users can export, import or delete that local data. The application does not send personal information to an insurer or third party and does not simulate authentication.
 
-## Accessibilité et performance
+The interface provides semantic landmarks, visible focus states, keyboard-operable controls, accessible names, reduced-motion support and contrast designed for WCAG AA.
 
-- structure sémantique, lien d'évitement, libellés ARIA et focus visibles ;
-- navigation clavier du configurateur, de la recherche, de la FAQ et du tableau de bord ;
-- contraste conçu pour viser WCAG AA ;
-- prise en charge de `prefers-reduced-motion` et réglage manuel ;
-- SVG légers, absence de police ou bibliothèque externe, chargement modulaire ;
-- révélations via `IntersectionObserver` et cache applicatif versionné.
+## Deployment
 
-Audit Lighthouse local du 21 juillet 2026 :
+The existing GitHub Pages workflow publishes the repository root on pushes to `main`. BonusBridge requires no npm install, framework or production build.
 
-| Profil | Performance | Accessibilité | Bonnes pratiques | SEO |
-|---|---:|---:|---:|---:|
-| Desktop | 100 | 100 | 100 | 100 |
-| Mobile | 99 | 100 | 100 | 100 |
+Public URL: <https://otherlight77.github.io/BonusBridge/>
 
 ## Roadmap
 
-- [x] Expérience V2 responsive et profils Julia/Sacha
-- [x] Configurateur, roue interactive, carte et tableau de bord
-- [x] PWA, import/export, recherche, favoris et admin local
-- [ ] API d'éphémérides haute précision
-- [ ] Authentification chiffrée et synchronisation multi-appareils
-- [ ] Moteur IA serveur avec consentement et explicabilité
-- [ ] Analytics réels respectueux de la vie privée
-- [ ] Internationalisation français/anglais
+- [x] V3 global comparison experience and identity system
+- [x] Versioned insurance datasets and explainable matching engine
+- [x] Interactive map, workspace, administration and offline mode
+- [ ] Backend accounts and encrypted cross-device sync
+- [ ] Underwriter portal for verified policy maintenance
+- [ ] Consent-based quote handoff to insurer APIs
+- [ ] Additional markets and localized interfaces
 
-## Licence
+## Features requiring a real backend or API
 
-Projet BonusBridge. Tous droits réservés.
+- verified, continuously maintained insurer recognition policies;
+- live quotations, application submission and insurer handoff;
+- authenticated accounts and encrypted multi-device synchronization;
+- regulated-advice workflows, consent logs and audit trails;
+- real administrator security, shared editing, analytics and operational logs;
+- transactional notifications and status updates.
+
+## License
+
+BonusBridge. All rights reserved.

@@ -1,0 +1,10 @@
+{
+  "schemaVersion":"3.1.0","entity":"requiredDocument","records":[
+    {"id":"claims-letter","name":"Claims experience letter","category":"insurance","validityMonths":3,"translationEligible":true,"description":"Official record of insured years and reported claims."},
+    {"id":"policy-certificate","name":"Current policy certificate","category":"insurance","validityMonths":12,"translationEligible":true,"description":"Evidence of active or recently ended cover."},
+    {"id":"driving-licence","name":"Driving licence","category":"identity","validityMonths":null,"translationEligible":true,"description":"Valid licence issued by the origin country."},
+    {"id":"driving-record","name":"Official driving record","category":"government","validityMonths":3,"translationEligible":true,"description":"Government-issued driving and offence history."},
+    {"id":"certified-translation","name":"Certified translation","category":"translation","validityMonths":null,"translationEligible":false,"description":"Translation produced by a provider accepted by the insurer."},
+    {"id":"proof-address","name":"Proof of destination address","category":"identity","validityMonths":3,"translationEligible":false,"description":"Recent accepted evidence of the destination address."}
+  ]
+}

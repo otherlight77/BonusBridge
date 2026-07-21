@@ -1,0 +1,1 @@
+{"schemaVersion":"3.1.0","entity":"vehicleType","records":[{"id":"compact","name":"Compact car","factor":0.85},{"id":"sedan","name":"Sedan","factor":1},{"id":"suv","name":"SUV","factor":1.15},{"id":"electric","name":"Electric vehicle","factor":1.08},{"id":"premium","name":"Premium vehicle","factor":1.42},{"id":"utility","name":"Utility vehicle","factor":1.12}]}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion":"3.1.0","entity":"insuranceCompany","updatedAt":"2026-07-21",
+  "records":[
+    {"id":"allianz","name":"Allianz","initials":"AZ","brandColor":"#1769d2","countries":["FR","BE","CA","DE","ES","IT","LU"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.allianz.com/","verified":false,"status":"demo"},
+    {"id":"axa","name":"AXA","initials":"AX","brandColor":"#174ea6","countries":["FR","BE","CA","CH","ES","IT","PT"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.axa.com/","verified":false,"status":"demo"},
+    {"id":"aviva","name":"Aviva","initials":"AV","brandColor":"#f2c900","countries":["CA","GB","IE"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.aviva.com/","verified":false,"status":"demo"},
+    {"id":"zurich","name":"Zurich Insurance","initials":"ZH","brandColor":"#1675cc","countries":["FR","CA","US","GB","CH","DE","AU"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.zurich.com/","verified":false,"status":"demo"},
+    {"id":"generali","name":"Generali","initials":"GE","brandColor":"#c51f2b","countries":["FR","BE","DE","ES","IT","NL","PT"],"digitalOnboarding":false,"internationalDesk":true,"officialUrl":"https://www.generali.com/","verified":false,"status":"demo"},
+    {"id":"qbe","name":"QBE","initials":"QB","brandColor":"#003b71","countries":["AU","NZ","US","GB"],"digitalOnboarding":true,"internationalDesk":true,"officialUrl":"https://www.qbe.com/","verified":false,"status":"demo"}
+  ]
+}

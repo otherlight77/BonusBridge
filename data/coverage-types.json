@@ -1,0 +1,1 @@
+{"schemaVersion":"3.1.0","entity":"coverageType","records":[{"id":"third-party","name":"Third-party liability","factor":0.72},{"id":"extended-third-party","name":"Extended third-party","factor":0.88},{"id":"comprehensive","name":"Comprehensive","factor":1},{"id":"premium-comprehensive","name":"Premium comprehensive","factor":1.22}]}

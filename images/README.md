@@ -1,3 +1,3 @@
 # Images
 
-Les captures produit générées lors des validations visuelles sont conservées dans `images/screenshots/`. Les visuels de l'interface sont actuellement vectoriels ou générés en CSS afin de limiter le poids du site.
+Interface artwork is SVG or CSS-generated to minimize transfer size. Product captures should only be added when they match the current verified interface and contain no unsupported claims.

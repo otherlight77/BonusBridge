@@ -1,0 +1,1 @@
+export function toggleFavorite(state,id,persist){state.favorites=state.favorites.includes(id)?state.favorites.filter(item=>item!==id):[...state.favorites,id];persist(state);return state.favorites.includes(id)}

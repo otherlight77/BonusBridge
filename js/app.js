@@ -1,348 +1,70 @@
-import { defaultCountries as countries, presetProfiles, searchIndex, zodiac } from './data.js';
-import { buildProfile, buildWheel, getSunSign, estimateAscendant } from './astro.js';
-import { loadState, saveState, addHistory, exportExcel } from './store.js';
-import { createRecommendation } from '../ai/recommendations.js';
-import { setupPWA, installPWA, requestNotifications } from './pwa.js';
+import{loadCatalog,createSearchIndex}from'./data.js';
+import{loadState,saveState,clearState,addHistory,exportableState,mergeImportedState}from'./store.js';
+import{prepareComparison}from'./comparator.js';
+import{ruleCountForCountry,routePath}from'./map.js';
+import{escapeHTML,statusLabel,announce}from'./ui.js';
+import{clearHistory}from'./history.js';
+import{toggleFavorite as updateFavorite}from'./favorites.js';
+import{exportJSON,importJSON}from'./export.js';
+import{findMatches}from'../ai/matching.js';
+import{recommendInsurers,summarizeMatches}from'../ai/recommendations.js';
+import{createAdvice}from'../ai/advisor.js';
+import{setupPWA}from'./pwa.js';
 
-const $ = (selector, scope = document) => scope.querySelector(selector);
-const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
-const state = loadState();
-let activeProfile = presetProfiles[0];
-let activeCountry = countries[0];
-let wheelScale = 1;
-let wheelRotation = 0;
-let installAvailable = false;
+const $=(selector,scope=document)=>scope.querySelector(selector);
+const $$=(selector,scope=document)=>[...scope.querySelectorAll(selector)];
+const state=loadState();
+let catalog=null,latestInput=null,latestMatches=[],selectedCountry='FR',mapScale=1;
 
-const toast = (message, icon = '✓') => {
-  const node = document.createElement('div');
-  node.className = 'toast';
-  node.innerHTML = `<i>${icon}</i><span>${message}</span>`;
-  $('#toast-region').append(node);
-  setTimeout(() => { node.style.opacity = '0'; node.style.transform = 'translateY(8px)'; }, 3200);
-  setTimeout(() => node.remove(), 3550);
-};
+function toast(message,icon='✓'){const node=document.createElement('div'),mark=document.createElement('i'),copy=document.createElement('span');node.className='toast';mark.textContent=icon;copy.textContent=message;node.append(mark,copy);$('#toast-region').append(node);setTimeout(()=>{node.style.opacity='0';node.style.transform='translateY(8px)'},3000);setTimeout(()=>node.remove(),3350)}
+const country=id=>catalog.countries.find(item=>item.id===id);
+const company=id=>catalog.companies.find(item=>item.id===id);
+const currencySymbol=id=>catalog.currencies.find(item=>item.id===id)?.symbol||'€';
 
-function setupTheme() {
-  const preferred = state.theme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-  document.documentElement.dataset.theme = preferred;
-  document.body.classList.toggle('reduce-motion', Boolean(state.reduceMotion));
-  const button = $('#theme-toggle');
-  const syncLabel = () => button.setAttribute('aria-label', document.documentElement.dataset.theme === 'dark' ? 'Activer le thème clair' : 'Activer le thème sombre');
-  syncLabel();
-  button.addEventListener('click', () => {
-    state.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = state.theme;
-    document.querySelector('meta[name="theme-color"]').content = state.theme === 'dark' ? '#090a12' : '#f5f6fa';
-    saveState(state); syncLabel();
-  });
-}
+function setupTheme(){document.documentElement.dataset.theme=state.theme||'dark';const button=$('#theme-toggle');const sync=()=>button.setAttribute('aria-label',document.documentElement.dataset.theme==='dark'?'Switch to light theme':'Switch to dark theme');sync();button.addEventListener('click',()=>{state.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=state.theme;document.querySelector('meta[name="theme-color"]').content=state.theme==='dark'?'#050a12':'#f4f8fb';saveState(state);sync()})}
 
-function setupNavigation() {
-  const topbar = $('#topbar');
-  const menu = $('#mobile-menu');
-  const nav = $('.topnav');
-  const updateHeader = () => topbar.classList.toggle('scrolled', scrollY > 30);
-  addEventListener('scroll', updateHeader, { passive: true }); updateHeader();
-  menu.addEventListener('click', () => {
-    const open = menu.getAttribute('aria-expanded') === 'true';
-    menu.setAttribute('aria-expanded', String(!open)); menu.classList.toggle('open', !open); nav.classList.toggle('open', !open);
-  });
-  $$('a', nav).forEach(link => link.addEventListener('click', () => { menu.setAttribute('aria-expanded', 'false'); menu.classList.remove('open'); nav.classList.remove('open'); }));
-  $('#account-trigger').addEventListener('click', () => $('#dashboard').scrollIntoView({ behavior: 'smooth' }));
-  $('#back-to-top').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
-  $$('[data-scroll]').forEach(button => button.addEventListener('click', () => $(button.dataset.scroll)?.scrollIntoView({ behavior: 'smooth' })));
-}
+function setupNavigation(){const header=$('#site-header'),menu=$('#menu-btn'),nav=$('#main-nav');const sync=()=>header.classList.toggle('scrolled',scrollY>30);addEventListener('scroll',sync,{passive:true});sync();menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));menu.classList.toggle('open',!open);nav.classList.toggle('open',!open)});$$('a',nav).forEach(link=>link.addEventListener('click',()=>{menu.classList.remove('open');nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));$('#back-top').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));$$('[data-scroll]').forEach(button=>button.addEventListener('click',()=>$(button.dataset.scroll)?.scrollIntoView({behavior:'smooth'})))}
 
-function setupMotion() {
-  const reveals = $$('.reveal');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-    }), { threshold: .1, rootMargin: '0px 0px -45px' });
-    reveals.forEach(element => observer.observe(element));
-  } else reveals.forEach(element => element.classList.add('visible'));
+function setupMotion(){const reveals=$$('.reveal');reveals.forEach(element=>element.classList.add('visible'));if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.1});reveals.forEach(element=>observer.observe(element));const counters=$$('[data-count]');const animate=element=>{const target=Number(element.dataset.count),start=performance.now();const tick=now=>{const progress=Math.min((now-start)/900,1);element.textContent=Math.floor(target*(1-Math.pow(1-progress,4))).toLocaleString('en-GB');if(progress<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)};const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){animate(entry.target);countObserver.unobserve(entry.target)}}),{threshold:.7});counters.forEach(item=>countObserver.observe(item))}const visual=$('.hero-visual'),orb=$('[data-tilt]');if(visual&&orb&&matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){visual.addEventListener('pointermove',event=>{const rect=visual.getBoundingClientRect(),x=(event.clientX-rect.left)/rect.width-.5,y=(event.clientY-rect.top)/rect.height-.5;orb.style.transform=`rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-3px)`});visual.addEventListener('pointerleave',()=>orb.style.transform='')}}
 
-  const counters = $$('[data-counter]');
-  const animate = element => {
-    const target = Number(element.dataset.counter);
-    const started = performance.now();
-    const tick = now => {
-      const progress = Math.min((now - started) / 1300, 1);
-      element.textContent = Math.floor(target * (1 - Math.pow(1 - progress, 4)));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const counterObserver = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { animate(entry.target); counterObserver.unobserve(entry.target); } }), { threshold: .7 });
-  counters.forEach(counter => counterObserver.observe(counter));
+function fillSelect(select,records,{value='id',label='name',prefix}={}){records.forEach(record=>select.add(new Option(`${prefix?prefix(record)+'  ':''}${record[label]}`,record[value])))}
 
-  const tilt = $('[data-tilt]');
-  const stage = $('.orbital-stage');
-  if (matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    stage.addEventListener('pointermove', event => {
-      const rect = stage.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      tilt.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-4px)`;
-    });
-    stage.addEventListener('pointerleave', () => tilt.style.transform = '');
-  }
-}
+function setupForm(){fillSelect($('#origin-country'),catalog.countries,{prefix:item=>item.flag});fillSelect($('#destination-country'),catalog.countries,{prefix:item=>item.flag});fillSelect($('#current-company'),catalog.companies);fillSelect($('#vehicle-type'),catalog.vehicles);fillSelect($('#coverage-type'),catalog.coverages);fillSelect($('#preferred-language'),catalog.languages,{label:'nativeName'});$('#origin-country').value='FR';$('#destination-country').value='CA';$('#current-company').value='axa';$('#vehicle-type').value='compact';$('#coverage-type').value='comprehensive';$('#preferred-language').value='en';const form=$('#comparison-form'),errorNode=$('#form-error');const updatePreview=()=>{const origin=country($('#origin-country').value),destination=country($('#destination-country').value),years=form.elements.insuredYears.value;$('#signal-route').textContent=origin&&destination?`${origin.name} → ${destination.name}`:'Choose your countries';$('#signal-evidence').textContent=`${years||0} insured years`;const progress=(origin?25:0)+(destination?25:0)+(form.elements.currentCompany.value?20:0)+(form.elements.coverageType.value?15:0)+(form.elements.preferredLanguage.value?15:0);$('#engine-progress').textContent=`${progress}%`;$('#signal-score').textContent=progress===100?'Ready to calculate':'Complete the comparison'};form.addEventListener('input',updatePreview);$('#swap-route').addEventListener('click',()=>{const origin=$('#origin-country').value;$('#origin-country').value=$('#destination-country').value;$('#destination-country').value=origin;updatePreview()});form.addEventListener('submit',event=>{event.preventDefault();const prepared=prepareComparison(form);if(!form.checkValidity()){form.reportValidity();return}if(prepared.errors.length){announce(errorNode,prepared.errors.join(' '));return}errorNode.textContent='';const button=$('.submit-compare');button.classList.add('loading');button.disabled=true;setTimeout(()=>{latestInput=prepared.input;latestMatches=recommendInsurers(findMatches(latestInput,catalog),6);renderResults(latestInput,latestMatches);button.classList.remove('loading');button.disabled=false;const route=`${country(latestInput.originCountry).name} → ${country(latestInput.destinationCountry).name}`;addHistory(state,'Comparison completed',route,latestMatches[0]?.score||0,latestInput);renderWorkspace();renderMap();$('#results-panel').scrollIntoView({behavior:'smooth',block:'start'})},450)});updatePreview();$('#use-destination').addEventListener('click',()=>{$('#destination-country').value=selectedCountry;$('#compare').scrollIntoView({behavior:'smooth'});updatePreview();toast(`${country(selectedCountry).name} selected as destination`,country(selectedCountry).flag)})}
 
-function fillFormOptions() {
-  const country = $('#birth-country');
-  const sign = $('#sun-sign');
-  const ascendant = $('#ascendant');
-  const cities = $('#city-list');
-  countries.forEach(item => {
-    country.add(new Option(`${item.flag}  ${item.name}`, item.name));
-    item.cities.forEach(city => { const option = document.createElement('option'); option.value = city; cities.append(option); });
-  });
-  zodiac.forEach(item => {
-    sign.add(new Option(`${item.symbol}  ${item.name}`, item.name));
-    ascendant.add(new Option(`${item.symbol}  ${item.name}`, item.name));
-  });
-}
+function difficultyBars(level){return`<span class="difficulty" aria-label="${level} difficulty">${[1,2,3,4].map(index=>`<i class="${index<=({Easy:1,Moderate:2,Advanced:3,Complex:4}[level]||2)?'on':''}"></i>`).join('')}</span>`}
 
-function showFormStep(step) {
-  $$('.form-step').forEach(panel => { const active = Number(panel.dataset.step) === step; panel.hidden = !active; panel.classList.toggle('active', active); });
-  $$('[data-form-step]').forEach(button => button.classList.toggle('active', Number(button.dataset.formStep) <= step));
-}
+function renderResults(input,matches){const panel=$('#results-panel'),summary=summarizeMatches(matches),origin=country(input.originCountry),destination=country(input.destinationCountry),symbol=currencySymbol(destination.currency);$('#results-count').textContent=matches.length;$('#result-route').textContent=`${origin.flag} ${origin.name} → ${destination.flag} ${destination.name}`;$('#best-recognition').textContent=matches.length?`${summary.bestRecognition}% retained`:'No rule';$('#total-savings').textContent=matches.length?`${symbol}${summary.totalSavings.toLocaleString('en-GB')} / year`:'Not available';$('#document-readiness').textContent=matches.length?`${summary.documentReadiness}% ready`:'Needs review';if(!matches.length){$('#result-grid').innerHTML='<article class="empty-result"><h4>No documented local rule for this route</h4><p>This does not mean that recognition is impossible. Contact destination insurers and ask whether they accept a foreign claims experience letter, how they convert insured years, and whether certified translations are required.</p></article>'}else{$('#result-grid').innerHTML=matches.map((match,index)=>`<article class="insurer-card ${index===0?'best':''}">${index===0?'<span class="best-tag">BEST AVAILABLE MATCH</span>':''}<div class="insurer-brand"><span class="insurer-logo" style="--brand:${escapeHTML(match.company.brandColor)}">${escapeHTML(match.company.initials)}</span><div><h4>${escapeHTML(match.company.name)}</h4><small>${destination.flag} ${escapeHTML(destination.name)} · ${match.company.internationalDesk?'International desk listed':'Local underwriting'}</small></div><strong class="score-badge" aria-label="Compatibility score ${match.score} out of 100">${match.score}</strong></div><div class="recognition-value">${match.recognized?'✓ Foreign history accepted':'× Foreign history not accepted'} · up to ${match.recognizedYears} years</div><div class="card-details"><div><span>Estimated bonus retained</span><strong>${match.recognizedBonus}%</strong></div><div><span>Translation</span><strong>${match.translationRequired?'Required':'Not required'}</strong></div><div><span>Accepted languages</span><strong>${match.acceptedLanguages.map(id=>id.toUpperCase()).join(', ')||'Ask insurer'}</strong></div><div><span>Estimated processing</span><strong>${match.processingDays?`${match.processingDays} days`:'Ask insurer'}</strong></div><div><span>Difficulty</span>${difficultyBars(match.difficulty)}</div><div><span>Data status</span><strong class="data-status">${statusLabel(match)}</strong></div></div><details class="result-evidence"><summary>Documents and provenance</summary><ul>${match.documents.map(document=>`<li>${escapeHTML(document.name)}</li>`).join('')}</ul><p>Last verified: ${match.lastVerified||'not verified'}.</p><p>${escapeHTML(match.rule.notes||'Confirm conditions directly with the insurer.')}</p><a href="${escapeHTML(match.officialSourceUrl)}" target="_blank" rel="noopener noreferrer">Open insurer source ↗</a></details><div class="card-saving"><p><small>ILLUSTRATIVE SAVINGS</small><strong>${symbol}${match.savings.toLocaleString('en-GB')}</strong></p><button class="favorite-company ${state.favorites.includes(match.company.id)?'active':''}" type="button" data-favorite="${match.company.id}" aria-label="Favorite ${escapeHTML(match.company.name)}">${state.favorites.includes(match.company.id)?'♥':'♡'}</button></div></article>`).join('');$$('[data-favorite]',panel).forEach(button=>button.addEventListener('click',()=>toggleFavorite(button.dataset.favorite,button)))}const advice=createAdvice(input,matches,catalog.countries);$('#advisor-title').textContent=advice.title;$('#advisor-copy').textContent=advice.copy}
 
-function validateStep(step) {
-  const panel = $(`.form-step[data-step="${step}"]`);
-  const fields = $$('input[required],select[required]', panel);
-  const invalid = fields.find(field => !field.checkValidity());
-  if (invalid) { invalid.reportValidity(); invalid.focus(); return false; }
-  return true;
-}
+function toggleFavorite(id,button){const active=updateFavorite(state,id,saveState);if(button){button.classList.toggle('active',active);button.textContent=active?'♥':'♡'}renderFavorites();toast(active?'Added to favorites':'Removed from favorites',active?'♥':'−')}
 
-function applyPreset(name, open = false) {
-  const profile = presetProfiles.find(item => item.firstName === name);
-  if (!profile) return;
-  activeProfile = profile;
-  const form = $('#astro-form');
-  form.elements.firstName.value = profile.firstName;
-  form.elements.lastName.value = profile.lastName;
-  form.elements.birthDate.value = profile.birthDate;
-  form.elements.birthTime.value = profile.birthTime;
-  form.elements.country.value = profile.country;
-  form.elements.city.value = profile.city;
-  form.elements.sign.value = profile.sign;
-  form.elements.ascendant.value = profile.ascendant;
-  $$('input[name="preferences"]', form).forEach(input => input.checked = profile.preferences.includes(input.value));
-  updatePreview(profile);
-  updateDashboard(profile);
-  if (open) { $('#configurator').scrollIntoView({ behavior: 'smooth' }); showFormStep(2); }
-  toast(`Profil ${name} chargé`, profile.symbol);
-}
+function setupResultActions(){$('#save-comparison').addEventListener('click',()=>{if(!latestInput)return toast('Run a comparison first','!');const origin=country(latestInput.originCountry),destination=country(latestInput.destinationCountry);state.savedComparisons.unshift({id:crypto.randomUUID?.()||String(Date.now()),input:latestInput,route:`${origin.name} → ${destination.name}`,bestScore:latestMatches[0]?.score||0,savings:latestMatches[0]?.savings||0,at:new Date().toISOString()});state.savedComparisons=state.savedComparisons.slice(0,20);saveState(state);renderSaved();toast('Comparison saved locally','♡')});$('#export-results').addEventListener('click',()=>{if(!latestInput)return toast('Run a comparison first','!');exportJSON('bonusbridge-comparison.json',{schemaVersion:'3.1.0',status:'demo',input:latestInput,results:latestMatches,exportedAt:new Date().toISOString()});toast('Comparison JSON exported','↓')})}
 
-function updatePreview(profile) {
-  $('#preview-sign').textContent = `${profile.symbol} ${profile.sign}`;
-  $('#preview-ascendant').textContent = profile.ascendant;
-  $('#preview-element').textContent = profile.element;
-  $('#wheel-sign').textContent = profile.symbol;
-  $('#wheel-name').textContent = profile.firstName.toUpperCase();
-  const index = zodiac.findIndex(item => item.name === profile.sign);
-  wheelRotation = index >= 0 ? -index * 30 : 0;
-  applyWheelTransform();
-}
+function renderMap(){const shapes=$('#map-country-shapes'),pins=$('#map-pins'),routes=$('#map-routes');shapes.innerHTML=catalog.countries.map(item=>`<path class="country-shape ${item.id===selectedCountry?'active':''}" data-map-country="${item.id}" d="${item.map.path}" tabindex="0"><title>${item.name}: ${ruleCountForCountry(item.id,catalog.rules)} demonstration rules</title></path>`).join('');pins.innerHTML=catalog.countries.map(item=>{const count=ruleCountForCountry(item.id,catalog.rules);return`<button class="map-pin ${item.id===selectedCountry?'active':''}" style="left:${item.map.x}%;top:${item.map.y}%" type="button" data-map-country="${item.id}" aria-label="Inspect ${item.name}, ${count} available rules"><i></i><span>${item.name} · ${count}</span></button>`}).join('');const origin=country($('#origin-country')?.value||'FR'),destination=country($('#destination-country')?.value||selectedCountry);routes.innerHTML=origin&&destination&&origin.id!==destination.id?`<path class="map-route active-route" d="${routePath(origin,destination)}"/>`:'';$$('[data-map-country]').forEach(control=>{control.addEventListener('click',()=>selectMapCountry(control.dataset.mapCountry));control.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();selectMapCountry(control.dataset.mapCountry)}})})}
 
-function setupConfigurator() {
-  buildWheel($('#zodiac-wheel'));
-  fillFormOptions();
-  $$('[data-next]').forEach(button => button.addEventListener('click', () => { const current = Number(button.closest('.form-step').dataset.step); if (validateStep(current)) showFormStep(Number(button.dataset.next)); }));
-  $$('[data-back]').forEach(button => button.addEventListener('click', () => showFormStep(Number(button.dataset.back))));
-  $$('[data-form-step]').forEach(button => button.addEventListener('click', () => showFormStep(Number(button.dataset.formStep))));
-  $$('[data-preset]').forEach(button => button.addEventListener('click', () => applyPreset(button.dataset.preset)));
-  $$('[data-demo]').forEach(button => button.addEventListener('click', () => applyPreset(button.dataset.demo, true)));
+function selectMapCountry(id){const item=country(id);if(!item)return;selectedCountry=id;$('#inspector-flag').textContent=item.flag;$('#inspector-name').textContent=item.name;$('#inspector-status').textContent='Demo';$('#country-score-value').textContent=ruleCountForCountry(id,catalog.rules);$('#country-score-ring').style.strokeDashoffset=327*(1-Math.min(100,ruleCountForCountry(id,catalog.rules)*12)/100);$('#inspector-insurers').textContent=item.mappedInsurers;$('#inspector-languages').textContent=item.languages.map(code=>code.toUpperCase()).join(' · ');$('#inspector-process').textContent=`${item.processDays[0]}–${item.processDays[1]} days (est.)`;$$('[data-map-country]').forEach(control=>control.classList.toggle('active',control.dataset.mapCountry===id))}
 
-  $('#detail-range').addEventListener('input', event => $('#detail-output').value = ['Essentiel','Équilibré','Approfondi'][event.target.value - 1]);
-  const liveCalculation = () => {
-    const sign = $('#sun-sign').value === 'auto' ? getSunSign($('#birth-date').value) : zodiac.find(item => item.name === $('#sun-sign').value);
-    const rising = $('#ascendant').value === 'auto' ? estimateAscendant($('#birth-date').value, $('#birth-time').value, $('#birth-city').value) : zodiac.find(item => item.name === $('#ascendant').value);
-    if (sign && rising) updatePreview({ firstName: $('#first-name').value || 'Votre profil', sign: sign.name, symbol: sign.symbol, element: sign.element, ascendant: rising.name });
-  };
-  ['birth-date','birth-time','birth-city','sun-sign','ascendant'].forEach(id => $(`#${id}`).addEventListener('input', liveCalculation));
+function setupMap(){renderMap();selectMapCountry('FR');const applyZoom=()=>{$('#country-map').style.transform=`scale(${mapScale})`};$('#map-zoom-in').addEventListener('click',()=>{mapScale=Math.min(1.45,mapScale+.1);applyZoom()});$('#map-zoom-out').addEventListener('click',()=>{mapScale=Math.max(.75,mapScale-.1);applyZoom()});$('#map-reset').addEventListener('click',()=>{mapScale=1;applyZoom();selectMapCountry('FR')});$('#map-search').addEventListener('input',event=>{const query=event.target.value.toLowerCase();$$('.map-pin').forEach(pin=>pin.hidden=!country(pin.dataset.mapCountry).name.toLowerCase().includes(query));const match=catalog.countries.find(item=>item.name.toLowerCase().startsWith(query));if(query&&match)selectMapCountry(match.id)})}
 
-  $('#astro-form').addEventListener('submit', event => {
-    event.preventDefault();
-    if (!event.currentTarget.checkValidity()) return event.currentTarget.reportValidity();
-    const button = $('.generate-button'); button.classList.add('loading'); button.disabled = true;
-    setTimeout(() => {
-      const profile = buildProfile(event.currentTarget);
-      activeProfile = profile;
-      state.profiles.unshift(profile); state.profiles = state.profiles.slice(0, 12);
-      addHistory(state, `Signature de ${profile.firstName} générée`, 'profile');
-      updatePreview(profile); updateDashboard(profile); renderProfiles(); renderHistory();
-      button.classList.remove('loading'); button.disabled = false;
-      toast(`Signature de ${profile.firstName} créée`, profile.symbol);
-      $('#dashboard').scrollIntoView({ behavior: 'smooth' });
-    }, 650);
-  });
-}
+function setupWorkspace(){fillSelect($('#profile-country'),catalog.countries,{prefix:item=>item.flag});fillSelect($('#profile-currency'),catalog.currencies,{label:'name'});fillSelect($('#profile-language'),catalog.languages,{label:'nativeName'});$('#profile-name').value=state.profile.name;$('#profile-country').value=state.profile.country;$('#profile-currency').value=state.profile.currency;$('#profile-language').value=state.profile.language;['profile-name','profile-country','profile-currency','profile-language'].forEach(id=>$(`#${id}`).addEventListener('change',()=>{state.profile={name:$('#profile-name').value,country:$('#profile-country').value,currency:$('#profile-currency').value,language:$('#profile-language').value};saveState(state);toast('Local simulation settings updated')}));$$('[data-app-view]').forEach(button=>button.addEventListener('click',()=>openView(button.dataset.appView)));$('#clear-history').addEventListener('click',()=>{clearHistory(state,saveState);renderWorkspace();toast('Local history cleared')});$('#export-profile').addEventListener('click',()=>exportJSON('bonusbridge-local-data.json',exportableState(state)));$('#import-profile').addEventListener('change',async event=>{try{mergeImportedState(state,await importJSON(event.target.files[0]));renderWorkspace();toast('Local data imported','↓')}catch(error){toast(error.message,'!')}finally{event.target.value=''}});$('#clear-local-data').addEventListener('click',()=>{clearState();Object.assign(state,loadState());renderWorkspace();toast('All local BonusBridge data deleted','−')});document.documentElement.classList.add('app-enhanced');openView('overview');renderWorkspace()}
 
-function applyWheelTransform() { $('#zodiac-wheel').style.transform = `scale(${wheelScale}) rotate(${wheelRotation}deg)`; }
-function setupWheelControls() {
-  $('#wheel-zoom-in').addEventListener('click', () => { wheelScale = Math.min(1.35, wheelScale + .1); applyWheelTransform(); });
-  $('#wheel-zoom-out').addEventListener('click', () => { wheelScale = Math.max(.72, wheelScale - .1); applyWheelTransform(); });
-  $('#wheel-reset').addEventListener('click', () => { wheelScale = 1; wheelRotation = 0; applyWheelTransform(); });
-  const wrap = $('#wheel-wrap'); let dragging = false; let startX = 0; let startRotation = 0;
-  wrap.addEventListener('pointerdown', event => { dragging = true; startX = event.clientX; startRotation = wheelRotation; wrap.setPointerCapture(event.pointerId); });
-  wrap.addEventListener('pointermove', event => { if (dragging) { wheelRotation = startRotation + (event.clientX - startX) * .45; applyWheelTransform(); } });
-  wrap.addEventListener('pointerup', () => dragging = false);
-  wrap.addEventListener('wheel', event => { event.preventDefault(); wheelScale = Math.max(.72, Math.min(1.35, wheelScale + (event.deltaY < 0 ? .05 : -.05))); applyWheelTransform(); }, { passive: false });
-}
+function openView(view){$$('.app-sidebar [data-app-view]').forEach(button=>button.classList.toggle('active',button.dataset.appView===view));$$('.app-view').forEach(panel=>panel.classList.toggle('active',panel.dataset.view===view));if(view==='admin')renderAdmin('countries');const rect=$('#platform').getBoundingClientRect();if(rect.top<0||rect.top>innerHeight)$('#platform').scrollIntoView({behavior:'smooth',block:'start'})}
 
-function renderMap() {
-  const markers = $('#map-markers');
-  markers.innerHTML = countries.map(country => `<button class="map-marker ${country.id === activeCountry.id ? 'active' : ''}" style="left:${country.x}%;top:${country.y}%" type="button" data-country="${country.id}" aria-label="Sélectionner ${country.name}"><i></i><span>${country.name}</span></button>`).join('');
-  $$('[data-country]', markers).forEach(button => button.addEventListener('click', () => selectCountry(button.dataset.country)));
-}
+function renderWorkspace(){renderRecent();renderHistory();renderFavorites();renderSaved();$('#admin-country-count').textContent=catalog.countries.length;$('#admin-company-count').textContent=catalog.companies.length;$('#admin-rule-count').textContent=catalog.rules.length;$('#admin-unverified-count').textContent=catalog.rules.filter(rule=>!rule.verified).length;$('#workspace-history-count').textContent=state.history.length;$('#workspace-progress').style.width=`${Math.min(100,state.history.length*10)}%`;$('#workspace-savings').textContent=state.savedComparisons[0]?.savings?`€${state.savedComparisons[0].savings.toLocaleString('en-GB')}`:'—'}
+function renderRecent(){const items=state.history.slice(0,3);$('#recent-comparisons').className='recent-list';$('#recent-comparisons').innerHTML=items.length?items.map(item=>`<article class="recent-item"><span>⇄</span><p>${escapeHTML(item.route)}<small>${new Date(item.at).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</small></p><strong>${item.score}%</strong></article>`).join(''):'<p class="empty">No local comparisons yet.</p>'}
+function renderHistory(){$('#history-list').innerHTML=state.history.length?state.history.map(item=>`<article class="data-row"><span>⇄</span><p>${item.label}<small>${item.route}</small></p><time datetime="${item.at}">${new Date(item.at).toLocaleString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</time></article>`).join(''):'<p class="empty">No comparisons yet. Your activity will appear here.</p>'}
+function renderFavorites(){const items=state.favorites.map(id=>company(id)).filter(Boolean);$('#favorite-list').innerHTML=items.length?items.map(item=>`<article class="favorite-tile"><span style="--brand:${escapeHTML(item.brandColor)}">${escapeHTML(item.initials)}</span><h4>${escapeHTML(item.name)}</h4><p>${item.countries.length} listed markets · ${statusLabel(item)}</p></article>`).join(''):'<p class="empty">Favorite insurers from your results to build a local shortlist.</p>'}
+function renderSaved(){$('#saved-list').innerHTML=state.savedComparisons.length?state.savedComparisons.map(item=>`<article class="data-row"><span>▤</span><p>${item.route}<small>Best score ${item.bestScore}% · Estimated savings €${item.savings.toLocaleString('en-GB')}</small></p><time datetime="${item.at}">${new Date(item.at).toLocaleDateString('en-GB',{day:'2-digit',month:'short'})}</time></article>`).join(''):'<p class="empty">No saved comparisons yet.</p>'}
 
-function selectCountry(id) {
-  activeCountry = countries.find(country => country.id === id) || countries[0];
-  $('#destination-flag').textContent = activeCountry.flag;
-  $('#destination-name').textContent = activeCountry.name;
-  $('#destination-score').textContent = `${activeCountry.score}%`;
-  $('#score-value').textContent = activeCountry.score;
-  $('#score-progress').style.strokeDashoffset = 326.7 * (1 - activeCountry.score / 100);
-  $('#destination-copy').textContent = activeCountry.copy;
-  $('#destination-tags').innerHTML = activeCountry.tags.map(tag => `<span>${tag}</span>`).join('');
-  $$('.map-marker').forEach(marker => marker.classList.toggle('active', marker.dataset.country === id));
-}
+let activeAdminTab='countries';
+function setupAdmin(){const tabs=$$('[data-admin-tab]');tabs.forEach(button=>button.addEventListener('click',()=>{tabs.forEach(item=>item.classList.toggle('active',item===button));activeAdminTab=button.dataset.adminTab;renderAdmin(activeAdminTab)}));$('#admin-filter').addEventListener('input',()=>renderAdmin(activeAdminTab));$('#admin-export').addEventListener('click',()=>exportJSON('bonusbridge-rules-demo.json',{schemaVersion:'3.1.0',entity:'recognitionRule',records:catalog.rules}));$('#admin-import').addEventListener('change',async event=>{try{const payload=await importJSON(event.target.files[0]);if(!Array.isArray(payload.records))throw new Error('Imported rules must contain a records array.');const ids=payload.records.map(item=>item.id);if(new Set(ids).size!==ids.length)throw new Error('Duplicate rule IDs detected.');const required=['id','originCountry','destinationCountry','insurerId','recognized','maximumYearsRecognized','retainedBonusPercent','acceptedDocuments','translationRequired','acceptedLanguages','estimatedProcessingDays','officialSourceUrl','verified','status','lastVerified','notes'];if(payload.records.some(rule=>required.some(key=>!(key in rule))))throw new Error('One or more imported rules are incomplete.');if(payload.records.some(rule=>!/^https:\/\//.test(rule.officialSourceUrl)))throw new Error('Every official source must use an HTTPS URL.');catalog.rules=payload.records;renderWorkspace();renderAdmin('rules');toast('Rules imported for this browser session','↓')}catch(error){toast(error.message,'!')}finally{event.target.value=''}});$('#admin-update-date').textContent=`Dataset updated ${new Date().toLocaleDateString('en-GB')}`;renderAdmin('countries')}
+function renderAdmin(tab){const query=$('#admin-filter')?.value.toLowerCase()||'';const columns={countries:['name','region','status','verified'],companies:['name','countries','status','verified'],rules:['id','originCountry','destinationCountry','retainedBonusPercent','verified'],documents:['name','category','validityMonths','translationEligible']}[tab];if(columns){let source={countries:catalog.countries,companies:catalog.companies,rules:catalog.rules,documents:catalog.documents}[tab];source=source.filter(record=>JSON.stringify(record).toLowerCase().includes(query));const format=value=>escapeHTML(Array.isArray(value)?value.join(', '):value===true?'Yes':value===false?'No':value??'—');$('#admin-table').innerHTML=`<table><thead><tr>${columns.map(column=>`<th>${escapeHTML(column.replace(/([A-Z])/g,' $1').toUpperCase())}</th>`).join('')}<th>ACTION</th></tr></thead><tbody>${source.map(record=>`<tr>${columns.map(column=>`<td>${format(record[column])}</td>`).join('')}<td>${tab==='rules'?`<button type="button" data-edit-rule="${escapeHTML(record.id)}">Edit locally</button>`:escapeHTML(statusLabel(record))}</td></tr>`).join('')}</tbody></table>`;$$('[data-edit-rule]').forEach(button=>button.addEventListener('click',()=>editLocalRule(button.dataset.editRule)))}else if(tab==='logs'){$('#admin-table').innerHTML='<div class="data-list"><article class="data-row"><span>✓</span><p>Local datasets loaded<small>No remote administration service is connected.</small></p><time>Session</time></article><article class="data-row"><span>!</span><p>Official verification pending<small>Every bundled recognition rule is marked as demonstration data.</small></p><time>Review</time></article></div>'}else{$('#admin-table').innerHTML=`<div class="analytics-bars" aria-label="Local record distribution"><i style="height:${Math.min(100,catalog.countries.length*5)}%"></i><i style="height:${Math.min(100,catalog.companies.length*10)}%"></i><i style="height:${Math.min(100,catalog.rules.length*8)}%"></i></div>`}}
+function editLocalRule(id){const rule=catalog.rules.find(item=>item.id===id);if(!rule)return;const value=prompt('Retained bonus percentage for this local demonstration rule:',String(rule.retainedBonusPercent));if(value===null)return;const number=Number(value);if(!Number.isFinite(number)||number<0||number>100)return toast('Enter a percentage from 0 to 100','!');rule.retainedBonusPercent=number;rule.verified=false;rule.status='demo';rule.lastVerified=null;state.localRuleEdits=[...state.localRuleEdits.filter(item=>item.id!==id),{id,retainedBonusPercent:number,editedAt:new Date().toISOString()}];saveState(state);renderAdmin('rules');toast('Rule edited locally','✓')}
 
-function setupMap() {
-  renderMap(); selectCountry('france');
-  $('#map-reset').addEventListener('click', () => selectCountry('france'));
-  $('#compare-destination').addEventListener('click', () => {
-    if (!state.comparison.includes(activeCountry.id)) state.comparison.push(activeCountry.id);
-    saveState(state); renderComparison();
-    toast(`${activeCountry.name} ajoutée à la comparaison`, activeCountry.flag);
-  });
-}
+function setupFAQ(){$$('.faq-list button').forEach(button=>button.addEventListener('click',()=>{const article=button.closest('article'),open=article.classList.contains('open');$$('.faq-list article').forEach(item=>{item.classList.remove('open');const control=$('button',item);control.setAttribute('aria-expanded','false');$('span',control).textContent='+'});if(!open){article.classList.add('open');button.setAttribute('aria-expanded','true');$('span',button).textContent='−'}}))}
 
-function updateDashboard(profile) {
-  $('#dash-name').textContent = profile.firstName;
-  $('#dash-sign').textContent = `${profile.symbol} ${profile.sign} · Ascendant ${profile.ascendant}`;
-  const recommendation = createRecommendation(profile, countries);
-  $('#recommendation-title').textContent = recommendation.title;
-  $('#recommendation-copy').textContent = recommendation.copy;
-  $('#admin-profile-count').textContent = presetProfiles.length + state.profiles.length;
-}
+function setupSearch(){const dialog=$('#search-dialog'),input=$('#global-search'),index=createSearchIndex(catalog);const render=query=>{const matches=index.filter(item=>`${item.title} ${item.description}`.toLowerCase().includes(query.toLowerCase())).slice(0,10);$('#search-results').innerHTML=matches.length?matches.map((item,position)=>`<div class="search-result ${position===0?'active':''}" tabindex="0" data-search="${index.indexOf(item)}"><span>${item.icon}</span><p>${item.title}<small>${item.description}</small></p></div>`).join(''):'<div class="search-result"><p>No results<small>Try a country, insurer or feature.</small></p></div>';$$('[data-search]').forEach(result=>result.addEventListener('click',()=>activate(index[Number(result.dataset.search)])))};const open=()=>{dialog.showModal();input.value='';render('');setTimeout(()=>input.focus(),20)};const activate=item=>{dialog.close();if(item.target)$(item.target)?.scrollIntoView({behavior:'smooth'});if(item.view){openView(item.view);$('#platform').scrollIntoView({behavior:'smooth'})}if(item.country){selectMapCountry(item.country);$('#coverage').scrollIntoView({behavior:'smooth'})}if(item.company){state.favorites=[...new Set([...state.favorites,item.company])];saveState(state);renderFavorites();toast(`${company(item.company).name} added to favorites`,'♥')}};$$('.search-open').forEach(button=>button.addEventListener('click',open));input.addEventListener('input',event=>render(event.target.value));addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();open()}});dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()})}
 
-function renderActivity() {
-  const entries = state.history.slice(0, 5);
-  const fallback = [{label:'Profil Julia consulté',at:new Date().toISOString()},{label:'Canada ajouté aux favoris',at:new Date(Date.now()-3600000).toISOString()},{label:'Comparaison exportée',at:new Date(Date.now()-86400000).toISOString()}];
-  $('#activity-list').innerHTML = (entries.length ? entries : fallback).map(item => `<div class="activity-item"><strong>${item.label}</strong><span>${new Date(item.at).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</span></div>`).join('');
-}
+function setupPwaStatus(){setupPWA({onNetworkChange:offline=>{$('#offline-pill').hidden=!offline;if(offline)toast('Offline mode enabled','◌')}})}
 
-function iconForProfile(profile) {
-  if (profile.icon) return `<img src="${profile.icon}" alt="">`;
-  return `<span style="font-size:30px;text-align:center">${profile.symbol}</span>`;
-}
-
-function renderProfiles() {
-  const all = [...state.profiles, ...presetProfiles];
-  $('#profile-list').innerHTML = all.map(profile => `<article class="saved-profile">${iconForProfile(profile)}<div><h4>${profile.firstName} ${profile.lastName || ''}</h4><p>${profile.symbol} ${profile.sign} · ${profile.city || profile.country}</p></div><button type="button" data-open-profile="${profile.id}" aria-label="Ouvrir ${profile.firstName}">↗</button></article>`).join('');
-  $$('[data-open-profile]').forEach(button => button.addEventListener('click', () => {
-    const profile = all.find(item => item.id === button.dataset.openProfile); if (profile) { activeProfile = profile; updatePreview(profile); updateDashboard(profile); toast(`${profile.firstName} est maintenant actif`, profile.symbol); }
-  }));
-}
-
-function renderComparison() {
-  const query = ($('#country-search')?.value || '').toLowerCase();
-  const minimum = Number($('#score-filter')?.value || 0);
-  const visible = countries.filter(country => country.name.toLowerCase().includes(query) && country.score >= minimum);
-  $('#comparison-grid').innerHTML = visible.map(country => `<label class="compare-card ${state.comparison.includes(country.id) ? 'selected' : ''}"><header><span>${country.flag}</span><input type="checkbox" value="${country.id}" ${state.comparison.includes(country.id) ? 'checked' : ''} aria-label="Comparer ${country.name}"></header><h4>${country.name}</h4><p>${country.tags.join(' · ')}</p><strong>${country.score}%</strong></label>`).join('');
-  $('#compare-count').textContent = `${state.comparison.length} sélection${state.comparison.length > 1 ? 's' : ''}`;
-  $$('#comparison-grid input').forEach(input => input.addEventListener('change', () => {
-    state.comparison = input.checked ? [...new Set([...state.comparison,input.value])] : state.comparison.filter(id => id !== input.value);
-    saveState(state); renderComparison();
-  }));
-}
-
-function renderHistory() {
-  $('#history-list').innerHTML = state.history.length ? state.history.map(item => `<article class="history-entry"><i>${item.type === 'profile' ? '✦' : '⌖'}</i><p>${item.label}<small>Action enregistrée localement</small></p><time datetime="${item.at}">${new Date(item.at).toLocaleString('fr-FR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}</time></article>`).join('') : '<p class="empty-state">Aucune activité enregistrée pour le moment.</p>';
-  renderActivity();
-}
-
-function renderFavorites() {
-  const items = state.favorites.map(id => id === 'Julia' || id === 'Sacha' ? { icon: id === 'Julia' ? '♊' : '♎', name:id,meta:'Profil astral' } : (() => { const country = countries.find(item => item.id === id); return country ? {icon:country.flag,name:country.name,meta:`Affinité ${country.score}%`} : null; })()).filter(Boolean);
-  $('#favorites-list').innerHTML = items.length ? items.map(item => `<article class="favorite-item"><span>${item.icon}</span><p>${item.name}<small>${item.meta}</small></p></article>`).join('') : '<p class="empty-state">Utilisez le cœur sur un profil pour le retrouver ici.</p>';
-}
-
-function openPanel(name) {
-  $$('[data-panel]').forEach(button => { if (button.closest('.dash-sidebar')) button.classList.toggle('active', button.dataset.panel === name); });
-  $$('[data-dashboard]').forEach(panel => { const active = panel.dataset.dashboard === name; panel.hidden = !active; panel.classList.toggle('active', active); });
-  if (name === 'profiles') renderProfiles(); if (name === 'compare') renderComparison(); if (name === 'history') renderHistory(); if (name === 'favorites') renderFavorites();
-}
-
-function setupDashboard() {
-  $$('[data-panel]').forEach(button => button.addEventListener('click', () => openPanel(button.dataset.panel)));
-  $('#country-search').addEventListener('input', renderComparison); $('#score-filter').addEventListener('change', renderComparison);
-  $('#clear-history').addEventListener('click', () => { state.history = []; saveState(state); renderHistory(); toast('Historique effacé'); });
-  $('#export-pdf').addEventListener('click', () => { addHistory(state,'Rapport PDF préparé','export'); toast('Fenêtre d’impression ouverte — choisissez “Enregistrer en PDF”','↓'); setTimeout(() => print(),300); });
-  $('#export-excel').addEventListener('click', () => { exportExcel(state,countries); addHistory(state,'Comparaison Excel exportée','export'); toast('Export Excel téléchargé','↓'); });
-  $('#import-json').addEventListener('click', () => $('#json-file').click());
-  $('#json-file').addEventListener('change', event => {
-    const file = event.target.files[0]; if (!file) return;
-    const reader = new FileReader(); reader.onload = () => { try { const imported = JSON.parse(reader.result); const profiles = Array.isArray(imported) ? imported : imported.profiles; if (!Array.isArray(profiles)) throw new Error(); state.profiles = [...profiles,...state.profiles].slice(0,20); saveState(state); renderProfiles(); toast(`${profiles.length} profil(s) importé(s)`); } catch { toast('Fichier JSON non valide','!'); } }; reader.readAsText(file);
-  });
-  $('#motion-setting').checked = Boolean(state.reduceMotion);
-  $('#motion-setting').addEventListener('change', event => { state.reduceMotion = event.target.checked; document.body.classList.toggle('reduce-motion',state.reduceMotion); saveState(state); });
-  $('#notification-setting').addEventListener('change', async event => { if (!event.target.checked) return; const result = await requestNotifications(); if (result === 'granted') toast('Notifications activées'); else { event.target.checked = false; toast(result === 'unsupported' ? 'Notifications non prises en charge' : 'Autorisation non accordée','!'); } });
-  $('#install-app').addEventListener('click', async () => { if (!installAvailable) return toast('Utilisez le menu du navigateur pour installer l’application','↗'); const installed = await installPWA(); toast(installed ? 'BonusBridge installé' : 'Installation annulée', installed ? '✓' : '!'); });
-  renderProfiles(); renderComparison(); renderHistory(); renderFavorites(); updateDashboard(activeProfile);
-}
-
-function setupFavorites() {
-  $$('.favorite').forEach(button => {
-    const name = button.closest('[data-profile-card]').dataset.profileCard;
-    button.classList.toggle('active', state.favorites.includes(name)); button.textContent = state.favorites.includes(name) ? '♥' : '♡';
-    button.addEventListener('click', event => {
-      event.stopPropagation(); const exists = state.favorites.includes(name);
-      state.favorites = exists ? state.favorites.filter(item => item !== name) : [...state.favorites,name];
-      saveState(state); button.classList.toggle('active',!exists); button.textContent = exists ? '♡' : '♥'; renderFavorites(); toast(exists ? `${name} retiré des favoris` : `${name} ajouté aux favoris`,exists ? '−' : '♥');
-    });
-  });
-}
-
-function setupFAQ() {
-  $$('.faq-list button').forEach(button => button.addEventListener('click', () => {
-    const article = button.closest('article'); const open = article.classList.contains('open');
-    $$('.faq-list article').forEach(item => { item.classList.remove('open'); const control = $('button',item); control.setAttribute('aria-expanded','false'); $('span',control).textContent='+'; });
-    if (!open) { article.classList.add('open'); button.setAttribute('aria-expanded','true'); $('span',button).textContent='−'; }
-  }));
-}
-
-function setupSearch() {
-  const dialog = $('#search-dialog'); const input = $('#global-search');
-  const render = query => {
-    const filtered = searchIndex.filter(item => `${item.title} ${item.description}`.toLowerCase().includes(query.toLowerCase()));
-    $('#search-results').innerHTML = filtered.length ? filtered.map((item,index) => `<div class="search-result ${index===0?'active':''}" tabindex="0" data-search-index="${searchIndex.indexOf(item)}"><span>${item.icon}</span><p>${item.title}<small>${item.description}</small></p></div>`).join('') : '<div class="search-result"><p>Aucun résultat<small>Essayez “profil”, “destination” ou “admin”.</small></p></div>';
-    $$('[data-search-index]').forEach(result => result.addEventListener('click', () => activateSearch(searchIndex[Number(result.dataset.searchIndex)])));
-  };
-  const open = () => { dialog.showModal(); input.value=''; render(''); setTimeout(() => input.focus(),20); };
-  const activateSearch = item => { dialog.close(); if (item.target) $(item.target)?.scrollIntoView({behavior:'smooth'}); if (item.action) applyPreset(item.action,true); if (item.panel) { $('#dashboard').scrollIntoView({behavior:'smooth'}); openPanel(item.panel); } };
-  $('#search-trigger').addEventListener('click',open); input.addEventListener('input',event=>render(event.target.value));
-  addEventListener('keydown',event=>{ if ((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k') { event.preventDefault(); open(); } });
-  dialog.addEventListener('click',event=>{ if(event.target===dialog) dialog.close(); });
-}
-
-function setupOffline() {
-  setupPWA({ onOfflineChange: offline => { $('#offline-badge').hidden=!offline; if (offline) toast('Mode hors ligne activé','◌'); }, onInstallAvailable: available => installAvailable=available });
-}
-
-setupTheme();
-setupNavigation();
-setupMotion();
-setupConfigurator();
-setupWheelControls();
-setupMap();
-setupDashboard();
-setupFavorites();
-setupFAQ();
-setupSearch();
-setupOffline();
-updatePreview(activeProfile);
+async function init(){try{catalog=await loadCatalog();setupTheme();setupNavigation();setupMotion();setupForm();setupResultActions();setupMap();setupWorkspace();setupAdmin();setupFAQ();setupSearch();setupPwaStatus()}catch(error){console.error(error);const message=$('#form-error');if(message)message.textContent=`The interactive catalogue could not start: ${error.message} The informational content remains available below.`;toast('Interactive data unavailable; static guidance remains visible','!')}}
+init();

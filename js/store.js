@@ -1,33 +1,9 @@
-const STORAGE_KEY = 'bonusbridge-v2';
-
-const defaults = { profiles: [], favorites: [], comparison: [], history: [], theme: 'dark', reduceMotion: false };
-
-export function loadState() {
-  try { return { ...defaults, ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') }; }
-  catch { return { ...defaults }; }
-}
-
-export function saveState(state) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
-
-export function addHistory(state, label, type = 'profile') {
-  state.history.unshift({ id: crypto.randomUUID?.() || String(Date.now()), label, type, at: new Date().toISOString() });
-  state.history = state.history.slice(0, 20);
-  saveState(state);
-}
-
-export function download(filename, content, type) {
-  const blob = new Blob([content], { type });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url; link.download = filename; link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 500);
-}
-
-export function exportExcel(state, countries) {
-  const rows = countries.filter(country => state.comparison.includes(country.id));
-  const xmlRows = rows.map(country => `<Row><Cell><Data ss:Type="String">${country.name}</Data></Cell><Cell><Data ss:Type="Number">${country.score}</Data></Cell><Cell><Data ss:Type="String">${country.tags.join(', ')}</Data></Cell></Row>`).join('');
-  const xml = `<?xml version="1.0"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"><Worksheet ss:Name="Comparaison"><Table><Row><Cell><Data ss:Type="String">Pays</Data></Cell><Cell><Data ss:Type="String">Affinité</Data></Cell><Cell><Data ss:Type="String">Atouts</Data></Cell></Row>${xmlRows}</Table></Worksheet></Workbook>`;
-  download('bonusbridge-comparaison.xls', xml, 'application/vnd.ms-excel');
-}
+const KEY='bonusbridge-v3';
+const defaults={theme:'dark',history:[],favorites:[],savedComparisons:[],localRuleEdits:[],profile:{name:'International Driver',country:'FR',currency:'EUR',language:'en'}};
+const cleanArray=value=>Array.isArray(value)?value:[];
+export function loadState(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'{}');return{...structuredClone(defaults),...saved,history:cleanArray(saved.history),favorites:cleanArray(saved.favorites),savedComparisons:cleanArray(saved.savedComparisons),localRuleEdits:cleanArray(saved.localRuleEdits),profile:{...defaults.profile,...saved.profile}}}catch{return structuredClone(defaults)}}
+export function saveState(state){try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch{return false}}
+export function clearState(){localStorage.removeItem(KEY)}
+export function addHistory(state,label,route,score,input={}){state.history.unshift({id:crypto.randomUUID?.()||String(Date.now()),label,route,score,input,at:new Date().toISOString()});state.history=state.history.slice(0,30);saveState(state)}
+export function exportableState(state){return{schemaVersion:'3.1.0',exportedAt:new Date().toISOString(),application:'BonusBridge',data:{history:state.history,favorites:state.favorites,savedComparisons:state.savedComparisons,profile:state.profile,localRuleEdits:state.localRuleEdits}}}
+export function mergeImportedState(state,payload){if(payload.application!=='BonusBridge'||!payload.data)throw new Error('This is not a valid BonusBridge export.');for(const key of['history','favorites','savedComparisons','localRuleEdits'])if(payload.data[key]&&!Array.isArray(payload.data[key]))throw new Error(`Invalid ${key} collection.`);Object.assign(state,{history:payload.data.history||[],favorites:payload.data.favorites||[],savedComparisons:payload.data.savedComparisons||[],localRuleEdits:payload.data.localRuleEdits||[],profile:{...defaults.profile,...payload.data.profile}});saveState(state);return state}

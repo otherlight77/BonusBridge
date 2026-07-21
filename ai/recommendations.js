@@ -1,12 +1,2 @@
-import { rankDestinations } from './scoring.js';
-
-export function createRecommendation(profile, countries) {
-  const [best] = rankDestinations(profile, countries);
-  const name = profile?.firstName || 'Votre profil';
-  return {
-    title: `Cap sur ${best.cities[0]}`,
-    copy: `${name}, votre signature ${profile?.element || 'personnelle'} résonne avec ${best.name} : ${best.tags.join(', ').toLowerCase()}.`,
-    confidence: best.personalizedScore,
-    destination: best
-  };
-}
+export function recommendInsurers(matches,limit=6){return matches.slice(0,limit).map((match,index)=>({...match,rank:index+1,label:index===0?'Best available match':match.translationRequired?'Translation required':'Simpler evidence path'}))}
+export function summarizeMatches(matches){if(!matches.length)return{bestRecognition:0,totalSavings:0,documentReadiness:0};const count=new Set(matches.flatMap(item=>item.documents.map(document=>document.id))).size;return{bestRecognition:Math.max(...matches.map(item=>item.recognizedBonus)),totalSavings:Math.max(...matches.map(item=>item.savings)),documentReadiness:Math.max(35,100-count*10)}}
