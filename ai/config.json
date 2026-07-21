@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "endpoint": "/api/v1/recommendations",
+  "timeoutMs": 8000,
+  "fallback": "local-scoring",
+  "capabilities": ["destination-scoring", "profile-summary", "next-best-action"],
+  "privacy": {"sendBirthData": false, "requireConsent": true}
+}

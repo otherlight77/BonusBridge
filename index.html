@@ -1,257 +1,305 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071b3c">
-  <meta name="color-scheme" content="light">
-  <title>BonusBridge | Comparateur d'assurance internationale</title>
-  <meta name="description" content="Comparez les assureurs qui reconnaissent vos années d'assurance et votre bonus partout dans le monde.">
+  <meta name="theme-color" content="#090a12">
+  <meta name="color-scheme" content="dark light">
+  <title>BonusBridge — Intelligence astrale & mobilité internationale</title>
+  <meta name="description" content="BonusBridge réunit profils astraux, mobilité internationale et recommandations personnalisées dans une expérience premium.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="BonusBridge">
   <link rel="canonical" href="https://otherlight77.github.io/BonusBridge/">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/app-icon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="BonusBridge">
-  <meta property="og:title" content="BonusBridge | Votre bonus voyage avec vous">
-  <meta property="og:description" content="Trouvez les assureurs qui reconnaissent votre historique international et économisez dès votre arrivée.">
+  <meta property="og:title" content="BonusBridge — Votre trajectoire, magnifiée">
+  <meta property="og:description" content="Une expérience personnelle pour comprendre vos affinités et préparer chaque nouveau départ.">
   <meta property="og:url" content="https://otherlight77.github.io/BonusBridge/">
+  <meta property="og:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BonusBridge | Comparateur d'assurance internationale">
-  <meta name="twitter:description" content="Conservez votre historique d'assurance partout dans le monde.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="twitter:title" content="BonusBridge — Intelligence astrale & mobilité">
+  <meta name="twitter:description" content="Profils, compatibilités et destinations réunis dans un espace personnel.">
+  <meta name="twitter:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "BonusBridge",
     "url": "https://otherlight77.github.io/BonusBridge/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Web",
-    "description": "Comparateur d'assurance internationale qui identifie les assureurs reconnaissant l'historique et le bonus acquis à l'étranger.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "description": "Plateforme de profils astraux et de mobilité internationale.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="aurora aurora-one" aria-hidden="true"></div>
+  <div class="aurora aurora-two" aria-hidden="true"></div>
 
-  <header class="site-header" id="header">
-    <div class="container nav-shell">
-      <a class="brand" href="#accueil" aria-label="BonusBridge, accueil">
-        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
-        <span>Bonus<span>Bridge</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Navigation principale">
-        <a class="active" href="#accueil">Accueil</a>
-        <a href="#comparer">Comparer</a>
-        <a href="#pays">Pays</a>
-        <a href="#economies">Économies</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div class="nav-actions">
-        <a class="login-link" href="#connexion">Connexion</a>
-        <a class="button button-small button-primary" href="#comparer">Commencer gratuitement <span aria-hidden="true">↗</span></a>
-      </div>
-      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <nav class="mobile-nav" id="mobile-menu" aria-label="Navigation mobile" hidden>
-      <a href="#accueil">Accueil</a><a href="#comparer">Comparer</a><a href="#pays">Pays</a><a href="#economies">Économies</a><a href="#faq">FAQ</a><a href="#connexion">Connexion</a>
-      <a class="button button-primary" href="#comparer">Commencer gratuitement</a>
+  <header class="topbar glass" id="topbar">
+    <a class="brand" href="#home" aria-label="BonusBridge, accueil">
+      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>BonusBridge<small>ORBITAL INTELLIGENCE</small></span>
+    </a>
+    <nav class="topnav" aria-label="Navigation principale">
+      <a href="#experience">Expérience</a>
+      <a href="#configurator">Configurateur</a>
+      <a href="#world">Destinations</a>
+      <a href="#dashboard">Espace</a>
     </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="search-trigger" type="button" aria-label="Ouvrir la recherche" title="Rechercher (Ctrl K)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+      </button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+      <button class="avatar-button" id="account-trigger" type="button" aria-label="Ouvrir le tableau de bord"><span>JL</span><i></i></button>
+      <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="pulse-dot"></span> Le premier passeport de votre bonus</div>
-          <h1>Votre historique vous suit.<br><span>Vos économies aussi.</span></h1>
-          <p class="hero-lead">Ne choisissez plus votre assurance uniquement selon le prix. Découvrez quelles compagnies reconnaissent réellement votre bonus et vos années d’expérience à l’étranger.</p>
-          <div class="hero-actions">
-            <a class="button button-primary button-large" href="#comparer">Comparer maintenant <span aria-hidden="true">→</span></a>
-            <a class="button button-ghost button-large" href="#fonctionnement"><span class="play" aria-hidden="true">▶</span> Voir comment ça fonctionne</a>
-          </div>
-          <div class="trust-row" aria-label="Avantages du service">
-            <div class="avatar-stack" aria-hidden="true"><span>AM</span><span>JL</span><span>SK</span><span>+</span></div>
-            <div><strong>4,9/5</strong><span><b aria-hidden="true">★★★★★</b> par nos utilisateurs</span></div>
-            <div class="trust-divider" aria-hidden="true"></div>
-            <div><strong>100% gratuit</strong><span>Sans engagement</span></div>
-          </div>
+    <section class="hero" id="home">
+      <div class="hero-stars" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><i></i> BONUSBRIDGE V2 · NOUVELLE ORBITE</span>
+        <h1>Votre trajectoire.<br><span>Enfin révélée.</span></h1>
+        <p>Une intelligence personnelle qui relie votre profil astral, vos affinités et vos prochaines destinations — dans une seule expérience.</p>
+        <div class="hero-actions">
+          <a class="button button-primary magnetic" href="#configurator">Créer mon profil <span>↗</span></a>
+          <button class="button button-ghost" type="button" data-demo="Julia"><i class="play">▶</i> Explorer la démo</button>
         </div>
+        <div class="trust-strip">
+          <div class="mini-avatars" aria-hidden="true"><span>J</span><span>S</span><span>+</span></div>
+          <p><strong>2 847</strong> trajectoires révélées ce mois</p>
+          <span class="trust-line"></span>
+          <p><i class="live-dot"></i> Calcul local & privé</p>
+        </div>
+      </div>
 
-        <div class="hero-visual reveal reveal-delay" aria-label="Réseau international BonusBridge">
-          <div class="visual-glow" aria-hidden="true"></div>
-          <div class="world-card" data-parallax>
-            <div class="card-topline"><span><i></i> Réseau international</span><span>En direct</span></div>
-            <div class="globe" aria-hidden="true">
-              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-              <div class="land land-one"></div><div class="land land-two"></div><div class="land land-three"></div>
-              <div class="route route-one"><i></i></div><div class="route route-two"><i></i></div><div class="route route-three"><i></i></div>
+      <div class="orbital-stage reveal delay-1" aria-label="Visualisation orbitale interactive">
+        <div class="stage-glow"></div>
+        <div class="orbit orbit-a"><i></i></div>
+        <div class="orbit orbit-b"><i></i></div>
+        <div class="orbit orbit-c"><i></i></div>
+        <div class="hero-globe" data-tilt>
+          <div class="globe-grid"></div>
+          <div class="continent c1"></div><div class="continent c2"></div><div class="continent c3"></div>
+          <span class="map-pin p1"></span><span class="map-pin p2"></span><span class="map-pin p3"></span>
+        </div>
+        <article class="floating-profile julia-card glass-card">
+          <img src="assets/icons/gemini.svg" alt="" width="42" height="42">
+          <div><small>PROFIL ACTIF</small><strong>Julia</strong><span>♊ Gémeaux · Paris</span></div>
+          <em>98%</em>
+        </article>
+        <article class="floating-profile sacha-card glass-card">
+          <img src="assets/icons/libra.svg" alt="" width="42" height="42">
+          <div><small>COMPATIBILITÉ</small><strong>Sacha</strong><span>♎ Balance · Montréal</span></div>
+          <em>94%</em>
+        </article>
+        <div class="insight-pill glass-card"><span>✦</span><p><small>INSIGHT DU JOUR</small>Mercure favorise les nouveaux départs</p></div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span></span> DÉCOUVRIR</div>
+    </section>
+
+    <section class="metrics section-pad" id="experience" aria-label="Chiffres clés">
+      <div class="section-intro reveal">
+        <span class="kicker">UNE NOUVELLE LECTURE DE VOUS</span>
+        <h2>La précision rencontre<br><span>l’intuition.</span></h2>
+        <p>Vos données deviennent une interface vivante, claire et actionnable.</p>
+      </div>
+      <div class="metric-grid reveal delay-1">
+        <article><span class="metric-icon">◎</span><strong><span data-counter="12">0</span></strong><p>dimensions analysées</p><small>Identité · mobilité · affinités</small></article>
+        <article><span class="metric-icon">⌖</span><strong><span data-counter="45">0</span></strong><p>pays connectés</p><small>Recommandations locales</small></article>
+        <article><span class="metric-icon">✦</span><strong><span data-counter="98">0</span><sup>%</sup></strong><p>profil personnalisé</p><small>Calcul en temps réel</small></article>
+        <article><span class="metric-icon">∞</span><strong><span data-counter="24">0</span><sup>/7</sup></strong><p>disponibilité</p><small>Hors ligne inclus</small></article>
+      </div>
+    </section>
+
+    <section class="profiles-showcase section-pad" id="profiles">
+      <div class="section-intro centered reveal">
+        <span class="kicker">DEUX PROFILS · DEUX UNIVERS</span>
+        <h2>Choisissez votre <span>énergie.</span></h2>
+      </div>
+      <div class="profile-showcase-grid">
+        <article class="signature-card gemini-theme reveal" data-profile-card="Julia" tabindex="0">
+          <div class="card-shine"></div>
+          <div class="signature-top"><span>01 — AIR</span><button type="button" class="favorite" aria-label="Ajouter Julia aux favoris">♡</button></div>
+          <img class="zodiac-emblem" src="assets/icons/gemini.svg" alt="Symbole animé des Gémeaux">
+          <div class="signature-copy"><small>♊ GÉMEAUX</small><h3>Julia</h3><p>Curieuse · Mobile · Lumineuse</p></div>
+          <div class="palette" aria-label="Palette bleu ciel, or et blanc"><i></i><i></i><i></i></div>
+          <button class="text-link" type="button" data-demo="Julia">Ouvrir le profil <span>↗</span></button>
+        </article>
+        <article class="signature-card libra-theme reveal delay-1" data-profile-card="Sacha" tabindex="0">
+          <div class="card-shine"></div>
+          <div class="signature-top"><span>02 — AIR</span><button type="button" class="favorite" aria-label="Ajouter Sacha aux favoris">♡</button></div>
+          <img class="zodiac-emblem" src="assets/icons/libra.svg" alt="Symbole animé de la Balance">
+          <div class="signature-copy"><small>♎ BALANCE</small><h3>Sacha</h3><p>Harmonieux · Créatif · Magnétique</p></div>
+          <div class="palette" aria-label="Palette rose gold, violet et blanc"><i></i><i></i><i></i></div>
+          <button class="text-link" type="button" data-demo="Sacha">Ouvrir le profil <span>↗</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="configurator section-pad" id="configurator">
+      <div class="config-shell reveal">
+        <div class="config-heading">
+          <div><span class="kicker">CONFIGURATEUR ASTRAL</span><h2>Composez votre <span>signature.</span></h2></div>
+          <div class="privacy-badge"><i>✓</i><span>Calcul sur votre appareil<small>Aucune donnée envoyée</small></span></div>
+        </div>
+        <div class="config-layout">
+          <form id="astro-form" class="astro-form">
+            <div class="stepper" aria-label="Progression"><button type="button" class="active" data-form-step="1"><i>1</i><span>Identité</span></button><span></span><button type="button" data-form-step="2"><i>2</i><span>Naissance</span></button><span></span><button type="button" data-form-step="3"><i>3</i><span>Préférences</span></button></div>
+            <div class="form-step active" data-step="1">
+              <div class="field-grid two">
+                <label>Prénom<input name="firstName" id="first-name" autocomplete="given-name" placeholder="Votre prénom" required></label>
+                <label>Nom<input name="lastName" autocomplete="family-name" placeholder="Votre nom" required></label>
+              </div>
+              <div class="preset-row"><span>Ou partir d’un profil</span><button type="button" data-preset="Julia"><img src="assets/icons/gemini.svg" alt="">Julia</button><button type="button" data-preset="Sacha"><img src="assets/icons/libra.svg" alt="">Sacha</button></div>
+              <button class="button button-primary next-step" type="button" data-next="2">Continuer <span>→</span></button>
             </div>
-            <div class="country-chip chip-fr"><span class="flag flag-fr">🇫🇷</span><div><b>France</b><small>12 ans assurés</small></div></div>
-            <div class="country-chip chip-ca"><span class="flag">🇨🇦</span><div><b>Canada</b><small>Bonus reconnu</small></div><em>✓</em></div>
-            <div class="country-chip chip-be"><span class="flag">🇧🇪</span><div><b>Belgique</b></div></div>
-            <div class="country-chip chip-au"><span class="flag">🇦🇺</span><div><b>Australie</b></div></div>
-            <div class="country-chip chip-us"><span class="flag">🇺🇸</span><div><b>USA</b></div></div>
-            <div class="saving-float"><span class="saving-icon">↘</span><div><small>Économie estimée</small><strong>1 280 $</strong><em>par an</em></div></div>
-          </div>
-          <div class="secured-pill"><span>✓</span> Données chiffrées et sécurisées</div>
-        </div>
-      </div>
-      <div class="hero-bottom container reveal">
-        <span>ILS RECONNAISSENT VOTRE HISTORIQUE</span>
-        <div class="insurer-logos" aria-label="Exemples de compagnies partenaires"><b>northstar</b><b>MAPLE<span>+</span></b><b>azura</b><b>Helvetia</b><b>HORIZON</b></div>
-      </div>
-    </section>
-
-    <section class="section problem-section" id="probleme">
-      <div class="container">
-        <div class="section-heading centered reveal"><span class="section-kicker">LE CONSTAT</span><h2>Pourquoi payez-vous souvent <span>trop cher ?</span></h2><p>Changer de pays ne devrait pas effacer des années de conduite responsable. Pourtant, c’est encore trop souvent le cas.</p></div>
-        <div class="card-grid problem-grid">
-          <article class="feature-card reveal"><div class="icon-box icon-blue" aria-hidden="true">⌕</div><span class="card-number">01</span><h3>Le prix ne dit pas tout</h3><p>Les comparateurs classiques affichent des tarifs, sans vérifier si votre expérience internationale est valorisée.</p><a href="#comparer">Comparer autrement <span>→</span></a></article>
-          <article class="feature-card reveal reveal-delay"><div class="icon-box icon-violet" aria-hidden="true">◎</div><span class="card-number">02</span><h3>Des règles opaques</h3><p>Chaque assureur applique ses propres critères. Certains reconnaissent votre historique, d’autres l’ignorent totalement.</p><a href="#fonctionnement">Comprendre les critères <span>→</span></a></article>
-          <article class="feature-card reveal reveal-delay-2"><div class="icon-box icon-coral" aria-hidden="true">↗</div><span class="card-number">03</span><h3>Des milliers d’euros perdus</h3><p>Sans justificatif adapté, vous repartez comme jeune conducteur et payez une surprime qui peut durer plusieurs années.</p><a href="#economies">Estimer mes économies <span>→</span></a></article>
-        </div>
-        <div class="loss-banner reveal"><div><span class="loss-icon" aria-hidden="true">!</span><p><strong>Jusqu’à 3 200 €</strong><br><small>de surcoût moyen sur 3 ans</small></p></div><p>« Mon bonus de 50% n’était pas automatiquement reconnu après mon arrivée au Canada. BonusBridge m’a permis de trouver la bonne compagnie. »</p><div class="mini-person"><span>CB</span><p><b>Camille B.</b><small>France → Canada</small></p></div></div>
-      </div>
-    </section>
-
-    <section class="section how-section" id="fonctionnement">
-      <div class="container">
-        <div class="section-heading centered reveal"><span class="section-kicker">SIMPLE & TRANSPARENT</span><h2>Comment fonctionne <span>BonusBridge ?</span></h2><p>De votre historique à votre nouvelle assurance, nous vous guidons à chaque étape.</p></div>
-        <ol class="steps reveal">
-          <li><span class="step-number">1</span><div class="step-icon">⌖</div><h3>Pays actuel</h3><p>Sélectionnez le pays où vous êtes assuré.</p></li>
-          <li><span class="step-number">2</span><div class="step-icon">✈</div><h3>Nouveau pays</h3><p>Indiquez votre prochaine destination.</p></li>
-          <li><span class="step-number">3</span><div class="step-icon">⇧</div><h3>Votre historique</h3><p>Renseignez vos années et votre bonus.</p></li>
-          <li><span class="step-number">4</span><div class="step-icon">⌕</div><h3>Assureurs compatibles</h3><p>Comparez les offres qui vous valorisent.</p></li>
-          <li><span class="step-number">5</span><div class="step-icon">↘</div><h3>Économisez</h3><p>Choisissez mieux, payez moins.</p></li>
-        </ol>
-        <div class="process-note reveal"><span>✓</span> Moins de 2 minutes <i></i><span>✓</span> Aucun engagement <i></i><span>✓</span> 100% gratuit</div>
-      </div>
-    </section>
-
-    <section class="section simulator-section" id="comparer">
-      <div class="container">
-        <div class="simulator-shell reveal">
-          <div class="simulator-intro"><span class="section-kicker section-kicker-light">SIMULATION GRATUITE</span><h2>Combien pouvez-vous <span>économiser ?</span></h2><p>Découvrez en quelques clics les assureurs qui reconnaissent votre parcours.</p><div class="sim-stat"><span>↘</span><div><small>Économie moyenne constatée</small><strong>1 840 € <em>/ an</em></strong></div></div><ul><li><span>✓</span> Résultats instantanés</li><li><span>✓</span> Données confidentielles</li><li><span>✓</span> Aucun démarchage</li></ul></div>
-          <div class="simulator-panel">
-            <form id="comparison-form">
-              <div class="form-progress"><span>Votre trajet</span><div><i class="current"></i><i></i><i></i></div></div>
-              <div class="form-row">
-                <label>Pays d’origine<select id="origin" name="origin"><option value="France">🇫🇷  France</option><option value="Canada">🇨🇦  Canada</option><option value="Belgique">🇧🇪  Belgique</option><option value="Suisse">🇨🇭  Suisse</option><option value="Royaume-Uni">🇬🇧  Royaume-Uni</option></select></label>
-                <button class="swap-button" type="button" aria-label="Inverser les pays" id="swap-countries">⇄</button>
-                <label>Pays de destination<select id="destination" name="destination"><option value="Canada">🇨🇦  Canada</option><option value="France">🇫🇷  France</option><option value="Australie">🇦🇺  Australie</option><option value="USA">🇺🇸  USA</option><option value="Belgique">🇧🇪  Belgique</option></select></label>
+            <div class="form-step" data-step="2" hidden>
+              <div class="field-grid two">
+                <label>Date de naissance<input type="date" name="birthDate" id="birth-date" required></label>
+                <label>Heure de naissance<input type="time" name="birthTime" id="birth-time" value="12:00" required></label>
+                <label>Pays<select name="country" id="birth-country" required><option value="">Choisir</option></select></label>
+                <label>Ville<input name="city" id="birth-city" list="city-list" placeholder="Ex. Paris" required><datalist id="city-list"></datalist></label>
+                <label>Signe solaire<select name="sign" id="sun-sign"><option value="auto">Calcul automatique</option></select></label>
+                <label>Ascendant<select name="ascendant" id="ascendant"><option value="auto">Estimation automatique</option></select></label>
               </div>
-              <div class="form-row form-row-three">
-                <label>Années assurées<span class="input-wrap"><input id="years" name="years" type="number" min="0" max="60" value="8" required><em>ans</em></span></label>
-                <label>Bonus actuel<span class="input-wrap"><input id="bonus" name="bonus" type="number" min="0" max="70" value="50" required><em>%</em></span></label>
-                <label>Votre âge<span class="input-wrap"><input id="age" name="age" type="number" min="18" max="99" value="34" required><em>ans</em></span></label>
-              </div>
-              <button class="button button-primary compare-button" type="submit"><span class="button-label">Voir les assureurs compatibles</span><span class="button-loader" aria-hidden="true"></span><b aria-hidden="true">→</b></button>
-              <p class="form-privacy">⌾ Vos informations restent privées et ne sont jamais revendues.</p>
-            </form>
+              <div class="form-nav"><button class="button button-ghost" type="button" data-back="1">Retour</button><button class="button button-primary" type="button" data-next="3">Continuer <span>→</span></button></div>
+            </div>
+            <div class="form-step" data-step="3" hidden>
+              <fieldset class="preference-field"><legend>Vos intentions</legend><div class="choice-grid"><label><input type="checkbox" name="preferences" value="Mobilité" checked><span>✈</span>Mobilité</label><label><input type="checkbox" name="preferences" value="Relations"><span>♡</span>Relations</label><label><input type="checkbox" name="preferences" value="Carrière"><span>↗</span>Carrière</label><label><input type="checkbox" name="preferences" value="Créativité"><span>✦</span>Créativité</label></div></fieldset>
+              <label class="range-field">Niveau de détail <output id="detail-output">Équilibré</output><input type="range" name="detail" id="detail-range" min="1" max="3" value="2"></label>
+              <div class="form-nav"><button class="button button-ghost" type="button" data-back="2">Retour</button><button class="button button-primary generate-button" type="submit"><span>Générer ma signature</span><i></i></button></div>
+            </div>
+          </form>
+
+          <div class="astro-preview" id="astro-preview">
+            <div class="preview-toolbar"><span><i></i> APERÇU EN DIRECT</span><div><button type="button" id="wheel-zoom-out" aria-label="Dézoomer">−</button><button type="button" id="wheel-reset" aria-label="Réinitialiser">◎</button><button type="button" id="wheel-zoom-in" aria-label="Zoomer">+</button></div></div>
+            <div class="zodiac-wheel-wrap" id="wheel-wrap">
+              <svg class="zodiac-wheel" id="zodiac-wheel" viewBox="0 0 500 500" role="img" aria-label="Roue astrologique interactive">
+                <defs><filter id="wheel-glow"><feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><radialGradient id="wheel-core"><stop offset="0" stop-color="#8ea6ff" stop-opacity=".65"></stop><stop offset="1" stop-color="#232a55" stop-opacity=".1"></stop></radialGradient></defs>
+                <circle cx="250" cy="250" r="220" class="wheel-bg"></circle><circle cx="250" cy="250" r="184" class="wheel-ring"></circle><circle cx="250" cy="250" r="116" class="wheel-ring inner"></circle><circle cx="250" cy="250" r="73" fill="url(#wheel-core)" class="wheel-core"></circle>
+                <g id="zodiac-segments"></g><g id="zodiac-labels"></g>
+                <g class="wheel-pointer" filter="url(#wheel-glow)"><path d="M250 250 250 54"></path><circle cx="250" cy="250" r="8"></circle></g>
+                <text x="250" y="244" class="wheel-sign" id="wheel-sign">✦</text><text x="250" y="270" class="wheel-name" id="wheel-name">VOTRE PROFIL</text>
+              </svg>
+              <span class="drag-hint">Glissez pour tourner</span>
+            </div>
+            <div class="preview-insights" id="preview-insights"><div><small>SIGNE SOLAIRE</small><strong id="preview-sign">À calculer</strong></div><div><small>ASCENDANT</small><strong id="preview-ascendant">À calculer</strong></div><div><small>ÉLÉMENT</small><strong id="preview-element">—</strong></div></div>
           </div>
         </div>
-        <div class="results" id="results" hidden aria-live="polite">
-          <div class="results-heading"><div><span class="section-kicker">VOS MEILLEURES OPTIONS</span><h3><span id="result-count">3</span> assureurs reconnaissent votre historique</h3></div><span class="route-pill" id="route-pill">🇫🇷 France → 🇨🇦 Canada</span></div>
-          <div class="results-grid" id="results-grid"></div>
+      </div>
+    </section>
+
+    <section class="world-section section-pad" id="world">
+      <div class="section-intro split reveal"><div><span class="kicker">ATLAS DES AFFINITÉS</span><h2>Le monde devient<br><span>votre terrain d’énergie.</span></h2></div><p>Sélectionnez une destination et découvrez son indice d’affinité avec le profil actif.</p></div>
+      <div class="world-layout reveal delay-1">
+        <div class="map-card glass-card">
+          <div class="map-toolbar"><span><i></i> CARTE INTERACTIVE</span><button type="button" id="map-reset">Recentrer</button></div>
+          <div class="world-map" id="world-map" role="group" aria-label="Carte des destinations disponibles">
+            <svg viewBox="0 0 1000 520" aria-hidden="true"><path class="land" d="M77 132 166 71l111 18 38 72-40 64-69 15-32 76-75-32-39-89Zm280 80 95-53 82 32 70-31 56 42-23 64-92 23-34 83-67 73-57-43 26-78-60-47Zm332-88 90-40 143 55 22 78-65 34-38 99-75-25-8-76-76-49Zm118 273 78-26 62 45-25 58-103-2-40-43Z"></path><path class="route-line" d="M478 191 Q385 128 269 168 M478 191 Q650 100 803 173 M478 191 Q704 326 863 422"></path></svg>
+            <div id="map-markers"></div>
+          </div>
+        </div>
+        <aside class="destination-panel">
+          <div class="destination-header"><div><span id="destination-flag">🇫🇷</span><p><small>DESTINATION ACTIVE</small><strong id="destination-name">France</strong></p></div><em id="destination-score">96%</em></div>
+          <div class="score-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle id="score-progress" cx="60" cy="60" r="52"></circle></svg><div><strong id="score-value">96</strong><span>affinité</span></div></div>
+          <p id="destination-copy">Un territoire d’expression fluide, propice aux connexions et aux nouveaux projets.</p>
+          <div class="destination-tags" id="destination-tags"><span>Créativité</span><span>Réseau</span><span>Équilibre</span></div>
+          <button class="button button-primary" type="button" id="compare-destination">Ajouter à la comparaison <span>+</span></button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="timeline-section section-pad">
+      <div class="section-intro centered reveal"><span class="kicker">VOTRE PARCOURS</span><h2>De la donnée à la <span>décision.</span></h2></div>
+      <ol class="timeline reveal">
+        <li><i>01</i><span>◇</span><h3>Créez</h3><p>Vos informations restent locales.</p></li>
+        <li><i>02</i><span>◎</span><h3>Explorez</h3><p>Votre roue devient interactive.</p></li>
+        <li><i>03</i><span>⌖</span><h3>Comparez</h3><p>Les pays selon vos affinités.</p></li>
+        <li><i>04</i><span>✦</span><h3>Décidez</h3><p>Des recommandations actionnables.</p></li>
+      </ol>
+    </section>
+
+    <section class="dashboard-section section-pad" id="dashboard">
+      <div class="dashboard-shell reveal">
+        <aside class="dash-sidebar">
+          <a class="brand compact" href="#home" aria-label="BonusBridge"><span class="brand-symbol"><i></i><i></i><i></i></span></a>
+          <nav aria-label="Tableau de bord">
+            <button class="active" type="button" data-panel="overview" aria-label="Accueil"><span>⌂</span><em>Accueil</em></button>
+            <button type="button" data-panel="profiles"><span>♙</span><em>Mes profils</em></button>
+            <button type="button" data-panel="compare"><span>⇄</span><em>Comparateur</em></button>
+            <button type="button" data-panel="history"><span>◷</span><em>Historique</em></button>
+            <button type="button" data-panel="favorites"><span>♡</span><em>Favoris</em></button>
+            <button type="button" data-panel="settings"><span>⚙</span><em>Paramètres</em></button>
+            <button type="button" data-panel="admin"><span>◇</span><em>Admin</em></button>
+          </nav>
+        </aside>
+        <div class="dash-main">
+          <div class="dash-head"><div><small>BONSOIR</small><h2>Votre espace orbital.</h2></div><div class="dash-actions"><button type="button" id="import-json">Importer JSON</button><input type="file" id="json-file" accept="application/json" hidden><button type="button" id="export-excel">Export Excel</button><button type="button" id="export-pdf">Export PDF</button></div></div>
+          <div class="dash-panel active" data-dashboard="overview">
+            <div class="dashboard-grid">
+              <article class="dash-feature"><span class="kicker">PROFIL DU JOUR</span><div class="dash-profile"><img src="assets/icons/gemini.svg" alt=""><div><h3 id="dash-name">Julia</h3><p id="dash-sign">♊ Gémeaux · Ascendant Balance</p></div><em>98%</em></div><blockquote>« Votre curiosité ouvre une fenêtre rare. Favorisez les échanges qui élargissent votre horizon. »</blockquote><button type="button" data-panel="profiles">Voir le profil complet →</button></article>
+              <article class="energy-card"><small>ÉNERGIE GLOBALE</small><div class="energy-orb"><strong>87</strong><span>/100</span></div><p>Une journée idéale pour initier.</p></article>
+              <article class="activity-card"><small>ACTIVITÉ RÉCENTE</small><div id="activity-list"></div></article>
+              <article class="recommendation-card"><small>RECOMMANDATION IA · APERÇU</small><h3 id="recommendation-title">Cap sur Montréal</h3><p id="recommendation-copy">Votre signature Air résonne avec une ville ouverte, créative et internationale.</p><div><span>Mobilité</span><span>Confiance 92%</span></div></article>
+            </div>
+          </div>
+          <div class="dash-panel" data-dashboard="profiles" hidden><div class="panel-heading"><div><small>COLLECTION</small><h3>Mes profils</h3></div><button class="button button-primary small" type="button" data-scroll="#configurator">Nouveau profil +</button></div><div class="profile-list" id="profile-list"></div></div>
+          <div class="dash-panel" data-dashboard="compare" hidden><div class="panel-heading"><div><small>MULTI-SÉLECTION</small><h3>Comparateur de destinations</h3></div><span id="compare-count">0 sélection</span></div><div class="filter-bar"><input id="country-search" type="search" placeholder="Rechercher un pays…" aria-label="Rechercher un pays"><select id="score-filter" aria-label="Filtrer par score"><option value="0">Toutes les affinités</option><option value="90">90% et plus</option><option value="80">80% et plus</option></select></div><div class="comparison-grid" id="comparison-grid"></div></div>
+          <div class="dash-panel" data-dashboard="history" hidden><div class="panel-heading"><div><small>CHRONOLOGIE</small><h3>Historique</h3></div><button type="button" id="clear-history">Effacer</button></div><div class="history-list" id="history-list"></div></div>
+          <div class="dash-panel" data-dashboard="favorites" hidden><div class="panel-heading"><div><small>SÉLECTION</small><h3>Favoris</h3></div></div><div class="favorites-list" id="favorites-list"></div></div>
+          <div class="dash-panel" data-dashboard="settings" hidden><div class="panel-heading"><div><small>PRÉFÉRENCES</small><h3>Paramètres</h3></div></div><div class="settings-grid"><label><span>Notifications<small>Recevoir les insights importants</small></span><input type="checkbox" id="notification-setting" role="switch"></label><label><span>Mode hors ligne<small>Application installable et mise en cache</small></span><input type="checkbox" checked disabled role="switch"></label><label><span>Animations réduites<small>Limiter les mouvements d’interface</small></span><input type="checkbox" id="motion-setting" role="switch"></label><button type="button" id="install-app">Installer BonusBridge</button></div></div>
+          <div class="dash-panel" data-dashboard="admin" hidden><div class="panel-heading"><div><small>ADMINISTRATION</small><h3>Centre de contrôle</h3></div><span class="secure-label">● Session locale</span></div><div class="admin-stats"><article><small>PROFILS</small><strong id="admin-profile-count">2</strong><span>+12% ce mois</span></article><article><small>SESSIONS</small><strong>8 492</strong><span>+24% ce mois</span></article><article><small>CONVERSION</small><strong>18,4%</strong><span>+3,2 pts</span></article><article><small>SANTÉ PWA</small><strong>99,9%</strong><span>Opérationnelle</span></article></div><div class="admin-layout"><article><div class="chart-head"><span>Analytics · 7 jours</span><em>Vue simulée</em></div><div class="bar-chart" aria-label="Graphique des visites"><i style="--h:42%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:72%"></i><i style="--h:65%"></i><i style="--h:88%"></i><i style="--h:94%"></i></div></article><article class="log-card"><div class="chart-head"><span>Logs système</span><i></i></div><ul><li><time>20:42</time><span>DEPLOY</span>Version v2 initialisée</li><li><time>20:41</time><span>PROFILE</span>Calcul local terminé</li><li><time>20:40</time><span>PWA</span>Cache synchronisé</li><li><time>20:38</time><span>AI</span>Scoring disponible</li></ul></article></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section countries-section" id="pays">
-      <div class="container">
-        <div class="section-heading split reveal"><div><span class="section-kicker">UN RÉSEAU SANS FRONTIÈRES</span><h2>Votre bonus voyage dans <span>45 pays</span></h2></div><p>Nous enrichissons chaque semaine notre base d’assureurs et de règles de reconnaissance.</p></div>
-        <div class="countries-grid reveal" id="countries-grid">
-          <article class="country-card featured"><span class="big-flag">🇫🇷</span><div><h3>France</h3><p>48 assureurs analysés</p></div><span class="status-dot">Très demandé</span></article>
-          <article class="country-card featured"><span class="big-flag">🇨🇦</span><div><h3>Canada</h3><p>36 assureurs analysés</p></div><span class="status-dot">Très demandé</span></article>
-          <article class="country-card"><span class="big-flag">🇧🇪</span><div><h3>Belgique</h3><p>24 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇱🇺</span><div><h3>Luxembourg</h3><p>14 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇺🇸</span><div><h3>USA</h3><p>52 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇦🇺</span><div><h3>Australie</h3><p>31 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇳🇿</span><div><h3>Nouvelle-Zélande</h3><p>18 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇪🇸</span><div><h3>Espagne</h3><p>29 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇵🇹</span><div><h3>Portugal</h3><p>21 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇮🇹</span><div><h3>Italie</h3><p>34 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇨🇭</span><div><h3>Suisse</h3><p>26 assureurs</p></div></article>
-          <article class="country-card"><span class="big-flag">🇩🇪</span><div><h3>Allemagne</h3><p>41 assureurs</p></div></article>
-          <article class="country-card more-country"><div class="more-flags"><span>🇮🇪</span><span>🇬🇧</span><span>+31</span></div><div><h3>Et bien plus</h3><p>Voir tous les pays</p></div><span>→</span></article>
-        </div>
+    <section class="faq section-pad" id="faq">
+      <div class="section-intro split reveal"><div><span class="kicker">QUESTIONS FRÉQUENTES</span><h2>Clair, privé,<br><span>sans friction.</span></h2></div><p>Tout ce qu’il faut savoir sur la nouvelle expérience BonusBridge.</p></div>
+      <div class="faq-list reveal">
+        <article class="open"><h3><button type="button" aria-expanded="true">Comment mon signe est-il calculé ?<span>−</span></button></h3><div><p>Le signe solaire est calculé à partir de votre date de naissance. L’ascendant proposé est une estimation locale basée sur l’heure et la ville ; une future API astronomique pourra fournir un calcul éphéméride complet.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Mes données quittent-elles mon appareil ?<span>+</span></button></h3><div><p>Non. Cette version fonctionne entièrement dans votre navigateur et stocke vos profils dans le stockage local de votre appareil.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Puis-je utiliser BonusBridge hors ligne ?<span>+</span></button></h3><div><p>Oui. Une fois la première visite effectuée, la PWA met en cache les ressources essentielles et reste disponible sans réseau.</p></div></article>
+        <article><h3><button type="button" aria-expanded="false">Comment exporter ou transférer mes profils ?<span>+</span></button></h3><div><p>Le tableau de bord propose un export imprimable en PDF, un export compatible Excel et un import JSON pour restaurer vos données.</p></div></article>
       </div>
     </section>
 
-    <section class="section benefits-section">
-      <div class="container">
-        <div class="section-heading centered reveal"><span class="section-kicker">PENSÉ POUR VOUS</span><h2>Bien plus qu’un <span>comparateur</span></h2><p>Une plateforme conçue pour rendre l’assurance internationale enfin simple et transparente.</p></div>
-        <div class="benefits-grid">
-          <article class="benefit-card reveal"><span class="benefit-icon">◈</span><h3>Bonus reconnu</h3><p>Identifiez les assureurs qui valorisent réellement vos années de conduite.</p><em>Jusqu’à 50% conservé</em></article>
-          <article class="benefit-card reveal"><span class="benefit-icon">◷</span><h3>Gain de temps</h3><p>Une recherche centralisée au lieu de contacter chaque compagnie séparément.</p><em>Résultat en 2 min</em></article>
-          <article class="benefit-card reveal"><span class="benefit-icon">◉</span><h3>100% transparent</h3><p>Des critères clairs et des résultats comparables, sans offre sponsorisée cachée.</p><em>Aucun biais commercial</em></article>
-          <article class="benefit-card reveal"><span class="benefit-icon">↘</span><h3>Économies réelles</h3><p>Évitez les surprimes et obtenez un tarif cohérent avec votre profil.</p><em>1 840 € / an en moyenne</em></article>
-          <article class="benefit-card reveal"><span class="benefit-icon">♡</span><h3>Assistance humaine</h3><p>Nos experts internationaux répondent à toutes vos questions.</p><em>7j/7 dans 6 langues</em></article>
-          <article class="benefit-card reveal"><span class="benefit-icon">▤</span><h3>Documents expliqués</h3><p>Attestations, traductions, relevés : savez exactement quoi fournir.</p><em>Checklist personnalisée</em></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats-section" id="economies">
-      <div class="container stats-grid reveal">
-        <div><strong><span class="counter" data-target="150">0</span><sup>+</sup></strong><p>Assureurs analysés</p></div>
-        <div><strong><span class="counter" data-target="45">0</span></strong><p>Pays couverts</p></div>
-        <div><strong><span class="counter" data-target="25000">0</span><sup>+</sup></strong><p>Comparaisons réalisées</p></div>
-        <div><strong><span class="counter" data-target="3">0</span><sup> M€</sup></strong><p>Économisés par nos membres</p></div>
-      </div>
-    </section>
-
-    <section class="section testimonials-section">
-      <div class="container">
-        <div class="section-heading split reveal"><div><span class="section-kicker">ILS ONT FRANCHI LE PONT</span><h2>Leurs économies parlent <span>d’elles-mêmes</span></h2></div><p>Des milliers d’expatriés ont déjà transformé leur historique en économies.</p></div>
-        <div class="testimonials-grid">
-          <article class="testimonial-card reveal"><div class="quote">“</div><div class="stars" aria-label="5 étoiles">★★★★★</div><blockquote>En arrivant à Montréal, on me proposait des tarifs exorbitants. BonusBridge m’a dirigée vers un assureur qui a reconnu mes 9 années en France.</blockquote><footer><div class="portrait portrait-one" role="img" aria-label="Portrait de Sophie Martin">SM</div><div><b>Sophie Martin</b><span>France → Canada</span></div><em>−1 420 $/an</em></footer></article>
-          <article class="testimonial-card raised reveal reveal-delay"><div class="quote">“</div><div class="stars" aria-label="5 étoiles">★★★★★</div><blockquote>Une expérience incroyablement fluide. J’ai su quels documents traduire et mon bonus belge a été accepté dès le premier dossier.</blockquote><footer><div class="portrait portrait-two" role="img" aria-label="Portrait de Thomas Leroy">TL</div><div><b>Thomas Leroy</b><span>Belgique → Australie</span></div><em>−1 180 €/an</em></footer></article>
-          <article class="testimonial-card reveal reveal-delay-2"><div class="quote">“</div><div class="stars" aria-label="5 étoiles">★★★★★</div><blockquote>Le seul comparateur qui a compris mon problème. Simple, précis et surtout bien moins cher que toutes mes premières offres.</blockquote><footer><div class="portrait portrait-three" role="img" aria-label="Portrait de Nadia Benali">NB</div><div><b>Nadia Benali</b><span>Canada → France</span></div><em>−960 €/an</em></footer></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section faq-section" id="faq">
-      <div class="container faq-layout">
-        <div class="faq-intro reveal"><span class="section-kicker">QUESTIONS FRÉQUENTES</span><h2>Tout ce qu’il faut <span>savoir</span></h2><p>Une question particulière ? Notre équipe vous répond rapidement.</p><a class="button button-ghost" href="mailto:bonjour@bonusbridge.fr">Parler à un expert <span>→</span></a></div>
-        <div class="accordion reveal">
-          <div class="faq-item open"><h3><button type="button" aria-expanded="true" aria-controls="answer-1" id="question-1">Pourquoi certains assureurs reconnaissent-ils mon bonus ?<span>−</span></button></h3><div class="faq-answer" id="answer-1" role="region" aria-labelledby="question-1"><p>Chaque assureur définit sa propre politique de souscription. Certains convertissent directement votre relevé d’information étranger, tandis que d’autres exigent des justificatifs ou une traduction certifiée. BonusBridge rend ces règles lisibles.</p></div></div>
-          <div class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="answer-2" id="question-2">Quels documents dois-je fournir ?<span>+</span></button></h3><div class="faq-answer" id="answer-2" role="region" aria-labelledby="question-2"><p>Le plus souvent : un relevé d’information, une attestation de sinistralité et une copie de votre permis. La liste exacte dépend du pays et de l’assureur sélectionné.</p></div></div>
-          <div class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="answer-3" id="question-3">Puis-je comparer gratuitement ?<span>+</span></button></h3><div class="faq-answer" id="answer-3" role="region" aria-labelledby="question-3"><p>Oui. La comparaison est gratuite, sans engagement et ne déclenche aucun démarchage automatique.</p></div></div>
-          <div class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="answer-4" id="question-4">Quels pays sont disponibles ?<span>+</span></button></h3><div class="faq-answer" id="answer-4" role="region" aria-labelledby="question-4"><p>BonusBridge couvre actuellement 45 pays, dont la France, le Canada, la Belgique, les États-Unis, l’Australie et la majorité des pays européens.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container cta-card reveal">
-        <div class="cta-orb orb-left" aria-hidden="true"></div><div class="cta-orb orb-right" aria-hidden="true"></div>
-        <span class="section-kicker section-kicker-light">PRÊT À FRANCHIR LE PONT ?</span>
-        <h2>Commencez à économiser<br><span>dès aujourd’hui.</span></h2>
-        <p>Votre historique a de la valeur. Faites-le reconnaître, où que vous alliez.</p>
-        <a class="button button-white button-large" href="#comparer">Comparer gratuitement <span>→</span></a>
-        <div class="cta-reassurance"><span>✓ Sans engagement</span><span>✓ Résultat en 2 minutes</span><span>✓ 100% gratuit</span></div>
-      </div>
+    <section class="final-cta section-pad reveal">
+      <div class="cta-orbit" aria-hidden="true"></div>
+      <span class="kicker">VOTRE PROCHAINE ORBITE COMMENCE ICI</span>
+      <h2>Le monde vous attend.<br><span>Découvrez comment.</span></h2>
+      <p>Créez votre signature en moins de deux minutes.</p>
+      <a class="button button-light magnetic" href="#configurator">Commencer gratuitement <span>↗</span></a>
+      <div><span>✓ Sans compte</span><span>✓ Données privées</span><span>✓ Accessible hors ligne</span></div>
     </section>
   </main>
 
-  <footer class="site-footer" id="connexion">
-    <div class="container footer-main">
-      <div class="footer-brand"><a class="brand brand-light" href="#accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i></span><span>Bonus<span>Bridge</span></span></a><p>Le comparateur intelligent d’assurance internationale qui fait voyager votre bonus avec vous.</p><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="X">𝕏</a></div></div>
-      <div class="footer-links"><div><h3>Produit</h3><a href="#comparer">Comparer</a><a href="#fonctionnement">Comment ça marche</a><a href="#pays">Pays disponibles</a><a href="#economies">Économies</a></div><div><h3>Ressources</h3><a href="#faq">FAQ</a><a href="#">Guides pays</a><a href="#">Documents utiles</a><a href="#">Blog</a></div><div><h3>BonusBridge</h3><a href="#">À propos</a><a href="mailto:bonjour@bonusbridge.fr">Contact</a><a href="#">Presse</a><a href="#">Carrières</a></div></div>
-    </div>
-    <div class="container footer-bottom"><span>© 2026 BonusBridge. Tous droits réservés.</span><div><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGU</a></div><span class="footer-locale">🇫🇷 Français</span></div>
+  <footer class="footer">
+    <div class="footer-main"><div><a class="brand" href="#home"><span class="brand-symbol"><i></i><i></i><i></i></span><span>BonusBridge<small>ORBITAL INTELLIGENCE</small></span></a><p>L’intelligence personnelle pour vos trajectoires internationales.</p></div><nav aria-label="Liens du pied de page"><div><strong>Produit</strong><a href="#configurator">Configurateur</a><a href="#world">Destinations</a><a href="#dashboard">Tableau de bord</a></div><div><strong>Ressources</strong><a href="#faq">FAQ</a><a href="README.md">Documentation</a><a href="sitemap.xml">Plan du site</a></div><div><strong>Légal</strong><a href="#privacy">Confidentialité</a><a href="#accessibility">Accessibilité</a><a href="mailto:bonjour@bonusbridge.fr">Contact</a></div></nav></div>
+    <div class="footer-bottom"><span>© 2026 BonusBridge</span><span>Conçu entre Paris et les étoiles ✦</span><button type="button" id="back-to-top">Retour en haut ↑</button></div>
   </footer>
 
-  <button class="back-to-top" type="button" aria-label="Retour en haut">↑</button>
-  <script src="script.js" defer></script>
+  <dialog class="search-dialog" id="search-dialog">
+    <form method="dialog"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input id="global-search" type="search" placeholder="Rechercher une destination, un profil, une fonction…" autocomplete="off" aria-label="Recherche globale"><kbd>ESC</kbd></div><div class="search-results" id="search-results"></div><div class="search-foot"><span>↑↓ Naviguer</span><span>↵ Ouvrir</span><span>Recherche instantanée</span></div></form>
+  </dialog>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div class="offline-badge" id="offline-badge" hidden><i></i> Mode hors ligne</div>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
