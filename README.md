@@ -11,13 +11,15 @@ BonusBridge is a browser-native knowledge platform for cross-border motor insura
 ## Core capabilities
 
 - international route selection with origin and destination countries;
-- current insurer, insured years, bonus-malus coefficient, licence date and driver age;
-- main-driver, young-driver, claims, vehicle, coverage and language inputs;
+- five-step recognition analysis covering the move, driving history, vehicle, documents and preferences;
+- at-fault and non-fault claims, vehicle value and usage, annual mileage and translation needs;
 - ranked demonstration results with maximum recognized years and retained bonus estimates;
 - required document and certified translation guidance;
-- estimated savings, process difficulty and transparent global score;
+- estimated savings, process difficulty and a transparent weighted score out of 100;
 - interactive SVG market map with search and zoom;
-- local comparison history, favorites, saved comparisons and driver settings;
+- local comparison history, favorites, detailed document checklist, country explorer and driver settings;
+- side-by-side result comparison, sorting and verification filters;
+- educational knowledge base with country, document and moving guides;
 - local data-review views with filtering, duplicate checking, editing, import and export;
 - deterministic local rules advisor with no external service connection;
 - installable PWA with offline reference data.
@@ -53,6 +55,9 @@ Every dataset uses a versioned envelope with an entity name and a `records` arra
 | `sample-comparisons.json` | reproducible demonstration fixtures |
 | `vehicle-types.json` | normalized vehicle categories and estimate factors |
 | `coverage-types.json` | normalized requested coverage categories |
+| `country-guides.json` | insurance-system orientation and associated routes |
+| `document-guides.json` | evidence preparation and moving checklists |
+| `faq.json` | reusable educational questions and answers |
 
 ## Recommendation architecture
 
@@ -73,11 +78,11 @@ BonusBridge/
 ├── ai/                      # Matching, scoring and advisory logic
 ├── assets/                  # Logo family, favicon and social card
 ├── components/              # Framework-free interface contracts
-├── css/                     # Tokens, application and responsive styles
+├── css/                     # Tokens, application, premium and responsive styles
 ├── data/                    # Versioned insurance reference datasets
 ├── icons/                   # Identity documentation
 ├── images/                  # Image usage documentation
-├── js/                      # Application, catalog, storage and PWA modules
+├── js/                      # Application, premium interactions, catalog, storage and PWA modules
 ├── scripts/                 # Local server and repository validator
 ├── index.html               # Semantic application shell
 ├── manifest.webmanifest     # Installable app metadata

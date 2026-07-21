@@ -1,0 +1,17 @@
+{
+  "schemaVersion":"3.2.0","entity":"faq","updatedAt":"2026-07-22",
+  "records":[
+    {"id":"foreign-history","question":"Can my foreign insurance history be recognized?","answer":"Possibly. Recognition depends on the destination market, insurer, evidence and underwriting decision. BonusBridge identifies documented or demonstration scenarios to investigate.","status":"guide"},
+    {"id":"automatic","question":"Is recognition automatic?","answer":"No. Most cases require evidence and an insurer review; acceptance is not guaranteed.","status":"guide"},
+    {"id":"documents","question":"Which documents are usually required?","answer":"Common requests include a claims experience letter, policy certificate, driving licence and sometimes a driving record or certified translation.","status":"guide"},
+    {"id":"translation","question":"Do I need an official translation?","answer":"It depends on the insurer, source language and document. Confirm the accepted translator before ordering one.","status":"guide"},
+    {"id":"same-rules","question":"Does every insurer apply the same rules?","answer":"No. Recognition is often product-specific and insurer-specific, even within the same country.","status":"guide"},
+    {"id":"transfer","question":"Can my no-claims bonus be transferred?","answer":"Some insurers convert foreign history into a local discount or class; others only use the history as supporting evidence.","status":"guide"},
+    {"id":"years","question":"How many years may be recognized?","answer":"The maximum varies by rule. BonusBridge shows the recorded cap and marks unverified values clearly.","status":"guide"},
+    {"id":"official","question":"Are BonusBridge estimates official?","answer":"No. Scores and savings are decision-support estimates, not insurer decisions, contracts or regulated advice.","status":"guide"},
+    {"id":"quotes","question":"Does BonusBridge provide insurance quotes?","answer":"Not in this static version. Live quotes require regulated insurer or broker integrations.","status":"guide"},
+    {"id":"storage","question":"Where is my personal data stored?","answer":"Comparison data and preferences stay in local browser storage unless you export them yourself.","status":"guide"},
+    {"id":"export","question":"Can I export my comparison?","answer":"Yes. Comparisons and local workspace data can be exported as JSON.","status":"guide"},
+    {"id":"updates","question":"How often are recognition rules updated?","answer":"Each rule carries a status and verification date. The current bundled rules are demonstration data awaiting an operational verification process.","status":"guide"}
+  ]
+}

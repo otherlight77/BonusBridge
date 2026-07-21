@@ -1,4 +1,4 @@
-const files={countries:'countries.json',companies:'insurance-companies.json',rules:'recognition-rules.json',documents:'required-documents.json',languages:'languages.json',currencies:'currencies.json',samples:'sample-comparisons.json',vehicles:'vehicle-types.json',coverages:'coverage-types.json'};
+const files={countries:'countries.json',companies:'insurance-companies.json',rules:'recognition-rules.json',documents:'required-documents.json',languages:'languages.json',currencies:'currencies.json',samples:'sample-comparisons.json',vehicles:'vehicle-types.json',coverages:'coverage-types.json',countryGuides:'country-guides.json',documentGuides:'document-guides.json',faqs:'faq.json'};
 
 export async function loadCatalog(){
   const entries=await Promise.all(Object.entries(files).map(async([key,file])=>{

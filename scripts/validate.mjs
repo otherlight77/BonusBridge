@@ -14,7 +14,7 @@ for(const target of references.filter(value=>value.startsWith('#')&&value.length
 if(/<section\b[^>]*\shidden\b/i.test(html))failures.push('A primary section is hidden in static HTML.');
 for(const required of['home','compare','comparison-form','results-panel','coverage','platform','faq','search-dialog','form-error'])if(!ids.includes(required))failures.push(`Missing interface target: ${required}`);
 
-const datasets=['countries','insurance-companies','recognition-rules','required-documents','languages','currencies','sample-comparisons','vehicle-types','coverage-types'];
+const datasets=['countries','insurance-companies','recognition-rules','required-documents','languages','currencies','sample-comparisons','vehicle-types','coverage-types','country-guides','document-guides','faq'];
 const parsed={};
 for(const name of datasets){const file=`data/${name}.json`;parsed[name]=JSON.parse(await readFile(file,'utf8'));if(!Array.isArray(parsed[name].records))failures.push(`Invalid records envelope: ${file}`)}
 const countryIds=new Set(parsed.countries.records.map(item=>item.id));
