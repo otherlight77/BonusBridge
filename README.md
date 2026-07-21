@@ -11,7 +11,11 @@ BonusBridge est une application web statique dédiée à la reconnaissance inter
 - comparateur rapide France/international fondé sur des fichiers JSON locaux ;
 - score explicable et scénarios d’assureurs clairement qualifiés ;
 - neuf identités fictives pour tester les cartes et résultats ;
-- favoris, historique, documents et paramètres stockés dans le navigateur ;
+- profils locaux Jérémy et Julia, avec création de profils supplémentaires ;
+- assistant France–Canada, score de préparation et checklist à sept documents ;
+- favoris, historique limité aux cinq dernières analyses et comparaison côte à côte ;
+- résumé imprimable, copie du parcours et choix de thème sombre, clair ou système ;
+- documents et paramètres stockés dans le navigateur ;
 - export et import JSON des données locales ;
 - interface responsive, accessible et disponible hors ligne ;
 - aucun framework, paquet npm, backend ou service externe obligatoire.
@@ -48,6 +52,8 @@ BonusBridge/
 ## Données et confidentialité
 
 Les comparaisons et favoris restent dans `localStorage`. Aucun document n’est téléversé et aucune authentification fictive n’est simulée. Une infrastructure réelle reste nécessaire pour les règles vérifiées, les comptes synchronisés, les devis, la transmission de dossiers et les intégrations assureurs.
+
+Le symbole BonusBridge relie discrètement deux formes familiales protectrices, un pont et les couleurs de la France et du Canada. Il reste conçu comme une identité d’assurance, sans revendiquer de signification contractuelle ou officielle.
 
 ## Déploiement
 

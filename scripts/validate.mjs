@@ -12,7 +12,9 @@ const localAssets=references.filter(reference=>!/^(?:https?:|mailto:|#)/.test(re
 for(const asset of localAssets){try{await access(asset)}catch{failures.push(`Missing resource: ${asset}`)}}
 for(const target of references.filter(value=>value.startsWith('#')&&value.length>1).map(value=>value.slice(1)))if(!ids.includes(target))failures.push(`Broken fragment: #${target}`);
 if(/<section\b[^>]*\shidden\b/i.test(html))failures.push('A primary section is hidden in static HTML.');
-for(const required of['accueil','comparateur','comparison-form','results-panel','assureurs','documents','fonctionnement','espace','faq','form-error'])if(!ids.includes(required))failures.push(`Missing interface target: ${required}`);
+for(const required of['accueil','comparateur','comparison-form','results-panel','comparison-table','assureurs','documents','document-checklist','fonctionnement','espace','profile-select','journey-assistant','print-summary','faq','form-error','theme-toggle'])if(!ids.includes(required))failures.push(`Missing interface target: ${required}`);
+const betaCode=await readFile('js/beta.js','utf8');
+for(const text of['Profil Jérémy','Profil Julia','Télécharger mon résumé','Copier le résumé','Une passerelle entre la France et le Canada'])if(!(html+betaCode).includes(text))failures.push(`Missing beta feature copy: ${text}`);
 
 const datasets=['countries','insurance-companies','recognition-rules','required-documents','languages','currencies','sample-comparisons','vehicle-types','coverage-types','country-guides','document-guides','faq'];
 const parsed={};
