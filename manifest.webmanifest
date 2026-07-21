@@ -1,0 +1,21 @@
+{
+  "name": "BonusBridge — Orbital Intelligence",
+  "short_name": "BonusBridge",
+  "description": "Profils astraux, affinités et mobilité internationale.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090a12",
+  "theme_color": "#090a12",
+  "lang": "fr",
+  "categories": ["lifestyle", "travel", "productivity"],
+  "icons": [
+    {"src": "assets/icons/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Créer un profil", "url": "./#configurator", "icons": [{"src": "assets/icons/app-icon.svg", "sizes": "any", "type": "image/svg+xml"}]},
+    {"name": "Comparer les destinations", "url": "./#dashboard", "icons": [{"src": "assets/icons/app-icon.svg", "sizes": "any", "type": "image/svg+xml"}]}
+  ]
+}

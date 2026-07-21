@@ -52,13 +52,13 @@
   .topbar .brand small { display: none; }
   .topbar .brand > span:last-child { font-size: 13px; }
   .hero { width: calc(100% - 28px); padding-top: 135px; }
-  .hero h1 { font-size: 56px; letter-spacing: -4px; }
-  .hero-copy > p { font-size: 14px; }
+  .hero h1 { font-size: 40px; letter-spacing: -2.6px; }
+  .hero-copy > p { max-width: 330px; font-size: 13px; }
   .hero-actions { width: 100%; flex-direction: column; }
   .hero-actions .button { width: 100%; }
   .trust-strip { flex-wrap: wrap; justify-content: center; }
   .trust-line { display: none; }
-  .orbital-stage { min-height: 510px; transform: scale(.78); margin: -40px -60px; }
+  .orbital-stage { width: 100%; min-height: 510px; margin: -40px 0; transform: scale(.78); }
   .julia-card { left: -3%; }.sacha-card { right: -5%; }
   .scroll-cue { display: none; }
   .section-intro h2,.config-heading h2 { font-size: 42px; letter-spacing: -2.5px; }
