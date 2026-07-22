@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-07-22",
+  "records": [
+    {"id":"maaf","name":"MAAF","groupId":"covea-fr","country":"FR","source":"Covéa","sourceUrl":"https://www.covea.com/fr/groupe/marques-et-activites","sourceDate":"2026","confidenceScore":95,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"mma","name":"MMA","groupId":"covea-fr","country":"FR","source":"Covéa","sourceUrl":"https://www.covea.com/fr/groupe/marques-et-activites","sourceDate":"2026","confidenceScore":95,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"gmf","name":"GMF","groupId":"covea-fr","country":"FR","source":"Covéa","sourceUrl":"https://www.covea.com/fr/groupe/marques-et-activites","sourceDate":"2026","confidenceScore":95,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"macif","name":"Macif","groupId":"aema-fr","country":"FR","source":"Aéma Groupe","sourceUrl":"https://www.aemagroupe.fr/le-groupe/nos-marques/","sourceDate":"2026","confidenceScore":95,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"groupama","name":"Groupama","groupId":"groupama-fr","country":"FR","source":"Groupama","sourceUrl":"https://www.groupama.fr/assurance-auto/","sourceDate":"2026","confidenceScore":98,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"pacifica","name":"Pacifica","groupId":"credit-agricole-assurances-fr","country":"FR","source":"Crédit Agricole","sourceUrl":"https://www.credit-agricole.fr/particulier/assurances/sinistres.html","sourceDate":"2026","confidenceScore":96,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"intact-insurance","name":"Intact Insurance","groupId":"intact-ca","country":"CA","source":"Intact Financial","sourceUrl":"https://www.intactfc.com/","sourceDate":"2026","confidenceScore":92,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"desjardins-insurance","name":"Desjardins Insurance","groupId":"desjardins-ca","country":"CA","source":"Desjardins","sourceUrl":"https://www.desjardins.com/fr/assurances/auto.html","sourceDate":"2026","confidenceScore":98,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"aviva-canada","name":"Aviva Canada","groupId":"aviva-ca","country":"CA","source":"Aviva Canada","sourceUrl":"https://www.aviva.ca/en/find-insurance/vehicle/personal-auto-insurance/","sourceDate":"2026","confidenceScore":98,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"td-insurance","name":"TD Insurance","groupId":"td-insurance-ca","country":"CA","source":"TD Insurance","sourceUrl":"https://www.tdinsurance.com/products-services/auto-car-insurance","sourceDate":"2026","confidenceScore":98,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"},
+    {"id":"cooperators","name":"Co-operators","groupId":"cooperators-ca","country":"CA","source":"Co-operators","sourceUrl":"https://www.cooperators.ca/en/about-us/annual-reports","sourceDate":"2025","confidenceScore":96,"lastCheckedAt":"2026-07-22","verificationStatus":"verified-official"}
+  ]
+}

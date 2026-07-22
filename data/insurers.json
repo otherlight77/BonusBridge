@@ -46,7 +46,9 @@
         "unit": "%",
         "marketShare": 14.9,
         "sourceUrl": "https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 82,
+        "lastCheckedAt": "2026-07-22"
       }
     },
     {
@@ -97,7 +99,9 @@
         "unit": "%",
         "marketShare": 9.6,
         "sourceUrl": "https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 82,
+        "lastCheckedAt": "2026-07-22"
       }
     },
     {
@@ -144,7 +148,108 @@
         "unit": "%",
         "marketShare": 8.2,
         "sourceUrl": "https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 82,
+        "lastCheckedAt": "2026-07-22"
+      }
+    },
+    {
+      "id": "td-insurance-ca",
+      "legalName": "TD General Insurance Company",
+      "commercialName": "TD Insurance",
+      "groupName": "TD Insurance",
+      "country": "CA",
+      "provinceOrRegion": [
+        "Alberta",
+        "Ontario",
+        "Québec",
+        "Provinces atlantiques"
+      ],
+      "website": "https://www.tdinsurance.com/",
+      "officialSourceUrl": "https://www.tdinsurance.com/products-services/auto-car-insurance",
+      "sourceType": "official-insurer",
+      "sourceTitle": "Car Insurance — TD Insurance",
+      "sourceDate": "2026",
+      "lastCheckedAt": "2026-07-22",
+      "collectedAt": "2026-07-22T00:00:00Z",
+      "verificationStatus": "verified-official",
+      "autoInsuranceAvailable": true,
+      "acceptsForeignHistory": null,
+      "foreignHistoryDetails": "À confirmer : la page officielle décrit l’éligibilité et l’offre auto, sans règle publiée de reconnaissance étrangère.",
+      "requiredDocuments": [
+        "Permis de conduire valide"
+      ],
+      "translationRequirements": "À confirmer.",
+      "maximumYearsRecognized": null,
+      "contactUrl": "https://www.tdinsurance.com/customer-service/contact-us/car-insurance",
+      "quoteUrl": "https://www.tdinsurance.com/products-services/auto-car-insurance",
+      "notes": "Disponibilité provinciale variable ; aucune règle étrangère déduite.",
+      "confidenceScore": 94,
+      "brands": [
+        "TD Insurance",
+        "TD Meloche Monnex"
+      ],
+      "monogram": "TDI",
+      "ranking": {
+        "rank": 5,
+        "year": 2024,
+        "metric": "Part des revenus bruts d’assurance dommages au Canada",
+        "value": 5.1,
+        "unit": "%",
+        "marketShare": 5.1,
+        "sourceUrl": "https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf",
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 82,
+        "lastCheckedAt": "2026-07-22"
+      }
+    },
+    {
+      "id": "cooperators-ca",
+      "legalName": "Co-operators General Insurance Company",
+      "commercialName": "Co-operators",
+      "groupName": "Co-operators",
+      "country": "CA",
+      "provinceOrRegion": [
+        "Alberta",
+        "Ontario",
+        "Québec",
+        "Provinces atlantiques"
+      ],
+      "website": "https://www.cooperators.ca/",
+      "officialSourceUrl": "https://www.cooperators.ca/en/about-us/annual-reports",
+      "sourceType": "official-insurer",
+      "sourceTitle": "Co-operators General Insurance Company — Annual Reports",
+      "sourceDate": "2025",
+      "lastCheckedAt": "2026-07-22",
+      "collectedAt": "2026-07-22T00:00:00Z",
+      "verificationStatus": "verified-official",
+      "autoInsuranceAvailable": true,
+      "acceptsForeignHistory": null,
+      "foreignHistoryDetails": "À confirmer : aucune règle officielle publique trouvée sur la reconnaissance d’un historique étranger.",
+      "requiredDocuments": [],
+      "translationRequirements": "À confirmer.",
+      "maximumYearsRecognized": null,
+      "contactUrl": "https://www.cooperators.ca/en/contact-us",
+      "quoteUrl": "https://www.cooperators.ca/en/insurance/auto",
+      "notes": "Le rapport 2024 confirme une activité automobile ; aucune règle étrangère publique n’est attribuée.",
+      "confidenceScore": 94,
+      "brands": [
+        "Co-operators",
+        "CUMIS",
+        "Sovereign Insurance"
+      ],
+      "monogram": "CO",
+      "ranking": {
+        "rank": 6,
+        "year": 2024,
+        "metric": "Part des revenus bruts d’assurance dommages au Canada",
+        "value": 5,
+        "unit": "%",
+        "marketShare": 5,
+        "sourceUrl": "https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf",
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 82,
+        "lastCheckedAt": "2026-07-22"
       }
     },
     {
@@ -153,7 +258,21 @@
       "commercialName": "Covéa",
       "groupName": "Covéa",
       "country": "FR",
-      "provinceOrRegion": ["Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Bretagne", "Centre-Val de Loire", "Corse", "Grand Est", "Hauts-de-France", "Île-de-France", "Normandie", "Nouvelle-Aquitaine", "Occitanie", "Pays de la Loire", "Provence-Alpes-Côte d’Azur"],
+      "provinceOrRegion": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Hauts-de-France",
+        "Île-de-France",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d’Azur"
+      ],
       "website": "https://www.covea.com/",
       "officialSourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
       "sourceType": "association-professionnelle",
@@ -186,7 +305,9 @@
         "unit": "M€",
         "marketShare": 17.3,
         "sourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 98,
+        "lastCheckedAt": "2026-07-22"
       }
     },
     {
@@ -195,7 +316,21 @@
       "commercialName": "AXA France",
       "groupName": "AXA",
       "country": "FR",
-      "provinceOrRegion": ["Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Bretagne", "Centre-Val de Loire", "Corse", "Grand Est", "Hauts-de-France", "Île-de-France", "Normandie", "Nouvelle-Aquitaine", "Occitanie", "Pays de la Loire", "Provence-Alpes-Côte d’Azur"],
+      "provinceOrRegion": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Hauts-de-France",
+        "Île-de-France",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d’Azur"
+      ],
       "website": "https://www.axa.fr/",
       "officialSourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
       "sourceType": "association-professionnelle",
@@ -227,7 +362,9 @@
         "unit": "M€",
         "marketShare": 14.4,
         "sourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 98,
+        "lastCheckedAt": "2026-07-22"
       }
     },
     {
@@ -236,7 +373,21 @@
       "commercialName": "Aéma Groupe",
       "groupName": "Aéma Groupe",
       "country": "FR",
-      "provinceOrRegion": ["Auvergne-Rhône-Alpes", "Bourgogne-Franche-Comté", "Bretagne", "Centre-Val de Loire", "Corse", "Grand Est", "Hauts-de-France", "Île-de-France", "Normandie", "Nouvelle-Aquitaine", "Occitanie", "Pays de la Loire", "Provence-Alpes-Côte d’Azur"],
+      "provinceOrRegion": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Hauts-de-France",
+        "Île-de-France",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d’Azur"
+      ],
       "website": "https://www.aemagroupe.fr/",
       "officialSourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
       "sourceType": "association-professionnelle",
@@ -269,7 +420,129 @@
         "unit": "M€",
         "marketShare": 11.2,
         "sourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
-        "consultedAt": "2026-07-22"
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 98,
+        "lastCheckedAt": "2026-07-22"
+      }
+    },
+    {
+      "id": "groupama-fr",
+      "legalName": "Groupama Assurances Mutuelles",
+      "commercialName": "Groupama",
+      "groupName": "Groupama-Gan",
+      "country": "FR",
+      "provinceOrRegion": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Hauts-de-France",
+        "Île-de-France",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d’Azur"
+      ],
+      "website": "https://www.groupama.fr/",
+      "officialSourceUrl": "https://www.groupama.fr/assurance-auto/",
+      "sourceType": "official-insurer",
+      "sourceTitle": "Assurance auto Groupama",
+      "sourceDate": "2026",
+      "lastCheckedAt": "2026-07-22",
+      "collectedAt": "2026-07-22T00:00:00Z",
+      "verificationStatus": "verified-official",
+      "autoInsuranceAvailable": true,
+      "acceptsForeignHistory": null,
+      "foreignHistoryDetails": "À confirmer : aucune règle officielle publique trouvée sur la reconnaissance d’un historique étranger.",
+      "requiredDocuments": [
+        "Certificat d’immatriculation",
+        "Permis de conduire",
+        "Relevé d’information"
+      ],
+      "translationRequirements": "À confirmer.",
+      "maximumYearsRecognized": null,
+      "contactUrl": "https://www.groupama.fr/contact/",
+      "quoteUrl": "https://www.groupama.fr/devis-auto/",
+      "notes": "L’offre auto et les documents français sont officiels ; aucune extrapolation aux antécédents étrangers.",
+      "confidenceScore": 96,
+      "brands": [
+        "Groupama",
+        "Gan Assurances",
+        "Amaguiz"
+      ],
+      "monogram": "GG",
+      "ranking": {
+        "rank": 4,
+        "year": 2024,
+        "metric": "Cotisations d’assurance automobile en France",
+        "value": 2636,
+        "unit": "M€",
+        "marketShare": 9.4,
+        "sourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 98,
+        "lastCheckedAt": "2026-07-22"
+      }
+    },
+    {
+      "id": "credit-agricole-assurances-fr",
+      "legalName": "Crédit Agricole Assurances S.A.",
+      "commercialName": "Crédit Agricole Assurances",
+      "groupName": "Crédit Agricole Assurances",
+      "country": "FR",
+      "provinceOrRegion": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand Est",
+        "Hauts-de-France",
+        "Île-de-France",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d’Azur"
+      ],
+      "website": "https://www.ca-assurances.com/",
+      "officialSourceUrl": "https://presse.credit-agricole.com/credit-agricole-assurances-chiffre-daffaires-record-porte-par-lensemble-de-nos-lignes-metiers-resultat-en-forte-croissance/?lang=fra",
+      "sourceType": "official-insurer",
+      "sourceTitle": "Résultats 2024 de Crédit Agricole Assurances",
+      "sourceDate": "2025-02-05",
+      "lastCheckedAt": "2026-07-22",
+      "collectedAt": "2026-07-22T00:00:00Z",
+      "verificationStatus": "verified-official",
+      "autoInsuranceAvailable": true,
+      "acceptsForeignHistory": null,
+      "foreignHistoryDetails": "À confirmer : aucune règle officielle publique trouvée sur la reconnaissance d’un historique étranger.",
+      "requiredDocuments": [],
+      "translationRequirements": "À confirmer.",
+      "maximumYearsRecognized": null,
+      "contactUrl": "https://www.credit-agricole.fr/particulier/contact.html",
+      "quoteUrl": "https://www.credit-agricole.fr/particulier/assurances/vehicule/automobile.html",
+      "notes": "L’assurance auto est portée notamment par Pacifica ; la reconnaissance étrangère n’est pas publiée.",
+      "confidenceScore": 94,
+      "brands": [
+        "Pacifica",
+        "Crédit Agricole",
+        "LCL Assurances"
+      ],
+      "monogram": "CAA",
+      "ranking": {
+        "rank": 7,
+        "year": 2024,
+        "metric": "Cotisations d’assurance automobile en France",
+        "value": 1766,
+        "unit": "M€",
+        "marketShare": 6.3,
+        "sourceUrl": "https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf",
+        "consultedAt": "2026-07-22",
+        "confidenceScore": 98,
+        "lastCheckedAt": "2026-07-22"
       }
     }
   ]

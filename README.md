@@ -10,7 +10,7 @@ BonusBridge est une application web statique dédiée à la reconnaissance inter
 
 - comparateur rapide France/international fondé sur des fichiers JSON locaux ;
 - score explicable et scénarios d’assureurs clairement qualifiés ;
-- six groupes réels sourcés pour la France et le Canada, distincts des scénarios fictifs ;
+- dix groupes réels sourcés pour la France et le Canada, distincts des scénarios fictifs ;
 - neuf identités historiques de démonstration, dont Pirez, Jérémy et Julia présentés uniquement comme profils familiaux ;
 - profils locaux Jérémy et Julia, avec création de profils supplémentaires ;
 - assistant France–Canada, score de préparation et checklist à sept documents ;

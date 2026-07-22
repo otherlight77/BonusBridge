@@ -23,7 +23,7 @@
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
   <header class="site-header">
-    <a class="brand" href="#accueil" aria-label="BonusBridge — Pirez, Jérémy et Julia — Accueil"><img src="assets/logos/bonusbridge-dark.svg" width="280" height="60" alt="BonusBridge — Pirez, Jérémy et Julia"><span>Bêta</span></a>
+    <a class="brand" href="#accueil" aria-label="BonusBridge — Pirez, Jérémy et Julia — Accueil"><img src="assets/logos/bonusbridge-dark.svg" width="392" height="85" alt="BonusBridge — Pirez, Jérémy et Julia"><span>Bêta</span></a>
     <nav id="main-nav" aria-label="Navigation principale">
       <a href="#accueil">Accueil</a><a href="#comparateur">Comparateur</a><a href="#donnees-reelles">Données réelles</a><a href="#documents">Documents</a><a href="#espace">Espace personnel</a>
     </nav>
@@ -88,6 +88,8 @@
     <section class="section compact sourced-section" id="donnees-reelles">
       <div class="section-heading"><div><span>DONNÉES SOURCÉES</span><h2>Données réelles et sources</h2></div><p>Classement, offre automobile et historique étranger sont contrôlés séparément.</p></div>
       <p class="independence-notice">BonusBridge est un service indépendant. Les assureurs cités ne sont pas partenaires sauf indication contraire.</p>
+      <div class="official-sources-summary" aria-labelledby="official-sources-title"><div><span>SOURCES OFFICIELLES</span><h3 id="official-sources-title">Transparence des données</h3></div><dl><div><dt id="source-count">0</dt><dd>sources publiques</dd></div><div><dt id="verified-count">0</dt><dd>informations vérifiées</dd></div><div><dt id="confirm-count">0</dt><dd>informations à confirmer</dd></div></dl></div>
+      <ul class="data-legend" aria-label="Niveaux de données"><li><b>Source officielle</b> — publication de l’assureur</li><li><b>Donnée vérifiée</b> — régulateur ou source réglementaire</li><li><b>Donnée publique</b> — classement professionnel attribué</li><li><b>Démonstration</b> — scénario fictif, jamais un fait</li></ul>
       <div class="country-tabs" role="tablist" aria-label="Pays"><button type="button" role="tab" aria-selected="true" data-country-tab="FR">France</button><button type="button" role="tab" aria-selected="false" data-country-tab="CA">Canada</button></div>
       <form class="source-filters" id="source-filters">
         <label>Recherche<input type="search" name="query" placeholder="Groupe, marque, document…"></label>
@@ -95,7 +97,7 @@
         <label>Province ou région<select name="area"><option value="">Toutes</option><optgroup label="Canada"><option>Alberta</option><option>Ontario</option><option>Québec</option></optgroup><optgroup label="France"><option>Toutes régions</option><option>Île-de-France</option><option>Occitanie</option><option>Nouvelle-Aquitaine</option></optgroup></select></label>
         <label>Historique étranger<select name="foreign"><option value="">Tous les statuts</option><option value="yes">Confirmé</option><option value="unknown">À confirmer / introuvable</option></select></label>
         <label>Traduction<select name="translation"><option value="">Tous</option><option value="required">Requise ou probable</option><option value="unknown">À confirmer</option></select></label>
-        <label class="official-only"><input type="checkbox" name="officialOnly"> Afficher uniquement les informations officiellement vérifiées</label>
+        <label class="official-only"><input type="checkbox" name="officialOnly"> Afficher uniquement les données vérifiées</label>
       </form>
       <p id="ranking-method" class="ranking-method"></p>
       <div id="sourced-insurer-grid" class="sourced-grid" aria-live="polite"><p>Chargement des données sourcées…</p></div>
