@@ -1,0 +1,87 @@
+openapi: 3.1.0
+info:
+  title: BonusBridge Passport API
+  version: 0.1.0
+  description: Contrat initial pour la future API internationale BonusBridge.
+servers:
+  - url: https://api.bonusbridge.example/v1
+paths:
+  /countries:
+    get:
+      summary: Lister les pays couverts
+      responses:
+        '200':
+          description: Catalogue des pays
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Country' }
+  /recognition-checks:
+    post:
+      summary: Évaluer un scénario de reconnaissance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RecognitionRequest' }
+      responses:
+        '200':
+          description: Résultat explicable et sourcé
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RecognitionResult' }
+  /passports:
+    post:
+      summary: Générer un Insurance Passport
+      responses:
+        '201': { description: Passeport créé }
+  /passports/{passportId}:
+    get:
+      summary: Lire un passeport partagé
+      parameters:
+        - in: path
+          name: passportId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Passeport et preuves associées }
+        '404': { description: Passeport introuvable }
+  /sources:
+    get:
+      summary: Rechercher les sources et leurs versions
+      parameters:
+        - in: query
+          name: country
+          schema: { type: string, minLength: 2, maxLength: 2 }
+      responses:
+        '200': { description: Sources filtrées }
+components:
+  schemas:
+    Country:
+      type: object
+      required: [id, name, status]
+      properties:
+        id: { type: string, minLength: 2, maxLength: 2 }
+        name: { type: string }
+        status: { type: string, enum: [active, planned, research] }
+    RecognitionRequest:
+      type: object
+      required: [originCountry, destinationCountry, insuredYears, claimsCount]
+      properties:
+        originCountry: { type: string }
+        destinationCountry: { type: string }
+        areaId: { type: [string, 'null'] }
+        insurerId: { type: [string, 'null'] }
+        insuredYears: { type: integer, minimum: 0, maximum: 80 }
+        claimsCount: { type: integer, minimum: 0 }
+    RecognitionResult:
+      type: object
+      required: [status, confidence, sources, disclaimer]
+      properties:
+        status: { type: string, enum: [possible, manual_review, unknown] }
+        confidence: { type: integer, minimum: 0, maximum: 100 }
+        sources:
+          type: array
+          items: { type: string }
+        disclaimer: { type: string }

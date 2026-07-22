@@ -1,139 +1,200 @@
 <!doctype html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07101b">
-  <title>BonusBridge Bêta — Historique d’assurance à l’international</title>
-  <meta name="description" content="Comparez les assureurs susceptibles de reconnaître votre bonus et votre historique automobile lorsque vous changez de pays.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f9fc">
+  <title>BonusBridge — International Insurance Passport</title>
+  <meta name="description" content="Faites reconnaître votre historique d’assurance à l’étranger et créez votre passeport d’assurance international.">
   <link rel="canonical" href="https://otherlight77.github.io/BonusBridge/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/beta.css">
+  <link rel="stylesheet" href="css/v2.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:title" content="BonusBridge — Version bêta">
-  <meta property="og:description" content="Conservez votre historique d’assurance lorsque vous changez de pays.">
+  <meta property="og:title" content="BonusBridge — International Insurance Passport">
+  <meta property="og:description" content="Votre historique d’assurance vous suit partout.">
   <meta property="og:url" content="https://otherlight77.github.io/BonusBridge/">
   <meta property="og:image" content="https://otherlight77.github.io/BonusBridge/assets/social-card.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BonusBridge","url":"https://otherlight77.github.io/BonusBridge/","applicationCategory":"FinanceApplication","description":"Outil de démonstration sur la reconnaissance internationale des historiques d’assurance automobile."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BonusBridge","url":"https://otherlight77.github.io/BonusBridge/","applicationCategory":"FinanceApplication","description":"International Insurance Passport for expatriates.","inLanguage":["fr","en"]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
-  <header class="site-header">
-    <a class="brand" href="#accueil" aria-label="BonusBridge — Pirez, Jérémy et Julia — Accueil"><img src="assets/logos/bonusbridge-dark.svg" width="392" height="85" alt="BonusBridge — Pirez, Jérémy et Julia"><span>Bêta</span></a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#accueil" aria-label="BonusBridge — Accueil">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23V11l11-6 11 6v12l-11 6Z"/><path d="M9 20c2.6-5 11.4-5 14 0M11 17v5m10-5v5"/></svg>
+      <span>BonusBridge</span><em>Passport</em>
+    </a>
     <nav id="main-nav" aria-label="Navigation principale">
-      <a href="#accueil">Accueil</a><a href="#comparateur">Comparateur</a><a href="#donnees-reelles">Données réelles</a><a href="#documents">Documents</a><a href="#espace">Espace personnel</a>
+      <a href="#passport">Passport</a><a href="#checker">Recognition</a><a href="#explorer">Countries</a><a href="#documents">Documents</a><a href="#sources">Sources</a>
     </nav>
-    <div class="header-actions"><button id="theme-toggle" class="language" type="button" aria-label="Changer le thème">◐ Sombre</button><button id="language-toggle" class="language" type="button" aria-label="Passer l’interface en anglais">FR / EN</button><a class="button primary desktop-cta" href="#comparateur">Comparer mon assurance</a><button id="menu-toggle" class="menu" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button></div>
+    <div class="header-actions">
+      <button class="icon-button" id="language-toggle" type="button" aria-label="Switch to English">FR</button>
+      <a class="button small secondary desktop-only" href="#dashboard">Mon espace</a>
+      <button class="button small primary" data-open-wizard type="button">Créer mon passeport</button>
+      <button class="icon-button menu-button" id="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
   </header>
 
   <main id="main">
-    <section class="hero section" id="accueil">
-      <div class="hero-copy">
-        <span class="eyebrow">ASSURANCE AUTO INTERNATIONALE · BÊTA</span>
-        <h1 data-i18n="heroTitle">Conservez votre historique d’assurance lorsque vous changez de pays.</h1>
-        <p data-i18n="heroCopy">BonusBridge compare les assureurs qui peuvent reconnaître votre bonus, votre ancienneté et votre historique de conduite à l’international.</p>
-        <div class="actions"><a class="button primary" href="#comparateur" data-i18n="compareNow">Comparer maintenant</a><button class="button secondary" id="open-assistant" type="button">Préparer mon dossier</button><a class="button secondary" href="#assureurs" data-i18n="seeInsurers">Voir les assureurs</a></div>
-        <ul class="trust"><li>15 pays référencés</li><li>Données clairement qualifiées</li><li>Stockage local privé</li></ul>
-      </div>
-      <article class="route-card" aria-label="Exemple de comparaison de démonstration">
-        <div class="route-head"><span>EXEMPLE DE PARCOURS</span><strong>DÉMONSTRATION</strong></div>
-        <div class="route-identity" aria-hidden="true"><span class="france-mark">FR</span><div class="family-bridge"><i></i><b>●</b></div><span class="canada-mark">CA <i>◆</i></span></div>
-        <h2><span id="hero-origin">🇫🇷 France</span><i>→</i><span id="hero-destination">🇨🇦 Canada</span></h2>
-        <dl><div><dt>Profil actif</dt><dd id="hero-profile">Jérémy</dd></div><div><dt>Documents prêts</dt><dd id="hero-documents">5 sur 7</dd></div><div><dt>Préparation du dossier</dt><dd class="score" id="hero-readiness">72 %</dd></div><div><dt>Statut</dt><dd id="hero-status">En préparation</dd></div></dl>
-        <div class="mini-progress" aria-label="Préparation du dossier"><i id="hero-progress" style="width:72%"></i></div>
-        <p>Données de démonstration — à confirmer auprès de l’assureur.</p>
-      </article>
-    </section>
-
-    <section class="section compact" id="comparateur">
-      <div class="section-heading"><div><span>COMPARATEUR RAPIDE</span><h2>Analysez votre profil en quelques instants.</h2></div><p>Une estimation locale fondée sur les règles de démonstration disponibles. Ce résultat n’est pas une décision d’assureur.</p></div>
-      <form id="comparison-form" class="comparator" novalidate>
-        <div class="form-grid">
-          <label>Pays d’origine<select id="origin-country" name="originCountry" required><option value="">Sélectionner</option></select></label>
-          <label>Pays de destination<select id="destination-country" name="destinationCountry" required><option value="">Sélectionner</option></select></label>
-          <label>Assureur actuel<select id="current-company" name="currentCompany" required><option value="">Sélectionner</option></select></label>
-          <label>Années assurées<input name="insuredYears" type="number" min="0" max="60" value="8" required></label>
-          <label>Coefficient bonus-malus<input name="bonusMalus" type="number" min="0.5" max="3.5" step="0.01" value="0.50" required></label>
-          <label>Nombre de sinistres<input name="claimsCount" type="number" min="0" max="20" value="0" required></label>
-          <label>Type de couverture<select id="coverage-type" name="coverageType" required><option value="">Sélectionner</option></select></label>
-          <fieldset class="document-choice"><legend>Documents disponibles</legend><label><input type="checkbox" name="hasExperienceLetter"> Lettre d’expérience</label><label><input type="checkbox" name="hasInformationStatement"> Relevé d’information</label><label><input type="checkbox" name="hasClaimsHistory"> Historique des sinistres</label></fieldset>
+    <section class="hero" id="accueil">
+      <div class="hero-glow"></div>
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><i></i> INTERNATIONAL INSURANCE PASSPORT</span>
+        <h1>Votre historique<br>d’assurance <span>vous suit<br>partout.</span></h1>
+        <p>BonusBridge aide les expatriés à faire reconnaître leur expérience d’assurance dans leur nouveau pays grâce à des données officielles, un accompagnement intelligent et un passeport international.</p>
+        <div class="hero-actions">
+          <button class="button primary large" data-open-wizard type="button">Créer mon passeport <span>→</span></button>
+          <a class="button ghost large" href="#how">Découvrir le parcours</a>
         </div>
-        <details class="advanced"><summary>Options avancées</summary><div class="form-grid advanced-grid">
-          <label>Date du permis<input name="licenceDate" type="date" value="2014-06-12"></label><label>Âge<input name="driverAge" type="number" min="18" max="100" value="34"></label><label>Type de véhicule<select id="vehicle-type" name="vehicleType"></select></label><label>Valeur du véhicule<input name="vehicleValue" type="number" min="500" value="20000"></label><label>Usage<select name="vehicleUse"><option value="private">Privé</option><option value="professional">Professionnel</option></select></label><label>Kilométrage annuel<input name="annualMileage" type="number" min="1000" value="12000"></label><label>Langue des documents<select id="preferred-language" name="preferredLanguage"><option value="fr">Français</option><option value="en">Anglais</option></select></label><label>Traduction officielle<select name="needsOfficialTranslation"><option value="unknown">À déterminer</option><option value="yes">Nécessaire</option><option value="no">Non nécessaire</option></select></label><input name="nonFaultClaimsCount" type="hidden" value="0"><input name="mainDriver" type="hidden" value="on">
-        </div></details>
-        <div class="form-footer"><p id="form-error" role="alert" aria-live="assertive"></p><button class="button primary" type="submit">Analyser mon profil <span>→</span></button></div>
-      </form>
-      <section id="results-panel" class="results" aria-live="polite" aria-labelledby="results-title">
-        <div class="results-header"><div><span>RÉSULTATS</span><h3 id="results-title">Assureurs compatibles</h3></div><p id="results-summary">Complétez le formulaire pour lancer une analyse locale.</p></div>
-        <div id="result-grid" class="insurer-grid"><article class="empty-state"><strong>Votre analyse apparaîtra ici.</strong><p>Les statuts Vérifié, À confirmer et Démonstration restent toujours visibles.</p></article></div>
-        <div id="comparison-table" class="comparison-table" aria-live="polite"><p>Sélectionnez jusqu’à trois assureurs dans les résultats pour les comparer.</p></div>
-      </section>
-    </section>
-
-    <section class="section compact" id="assureurs">
-      <div class="section-heading"><div><span>PROFILS FAMILIAUX</span><h2>L’identité du projet</h2></div><p>Pirez, Jérémy et Julia sont des profils familiaux de démonstration, jamais des compagnies d’assurance.</p></div>
-      <div class="insurer-grid static-insurers">
-        <article class="insurer-card family-profile"><img src="assets/logos/insurers/pirez-assurance.svg" alt="Monogramme du profil Pirez"><div><span>Identité familiale · Démonstration</span><h3>Profil Pirez</h3></div><p>Profil local pour illustrer la préparation d’un parcours France–Canada.</p><span class="badge demo">Profil, pas assureur</span></article>
-        <article class="insurer-card family-profile"><img src="assets/logos/insurers/jeremy-assurance.svg" alt="Monogramme du profil Jérémy"><div><span>Identité familiale · Démonstration</span><h3>Profil Jérémy</h3></div><p>Profil local utilisé pour tester le dossier et les documents.</p><span class="badge demo">Profil, pas assureur</span></article>
-        <article class="insurer-card family-profile"><img src="assets/logos/insurers/julia-assurance.svg" alt="Monogramme du profil Julia"><div><span>Identité familiale · Démonstration</span><h3>Profil Julia</h3></div><p>Profil local utilisé pour tester un parcours Canada–France.</p><span class="badge demo">Profil, pas assureur</span></article>
+        <div class="hero-proof"><div class="avatars"><b>FR</b><b>CA</b><b>+</b></div><p><strong>France ↔ Canada disponible</strong><span>10 nouvelles destinations en préparation</span></p></div>
       </div>
-      <div class="logo-strip" aria-label="Autres assureurs de démonstration"><img src="assets/logos/insurers/horizon-assurance.svg" alt="Horizon Assurance"><img src="assets/logos/insurers/nova-insurance.svg" alt="Nova Insurance"><img src="assets/logos/insurers/global-cover.svg" alt="Global Cover"><img src="assets/logos/insurers/bridge-protect.svg" alt="Bridge Protect"><img src="assets/logos/insurers/atlas-assurance.svg" alt="Atlas Assurance"><img src="assets/logos/insurers/europa-insurance.svg" alt="Europa Insurance"></div>
-      <p class="catalog-note">Les autres identités ci-dessus restent des données historiques de démonstration du comparateur. Elles ne sont ni réelles ni partenaires.</p>
+      <div class="world-stage reveal" aria-label="Connexion d’assurance entre la France et le Canada">
+        <div class="world-label label-ca"><i></i><span>Canada</span><b>Destination</b></div>
+        <div class="world-label label-fr"><i></i><span>France</span><b>Origine</b></div>
+        <svg class="world-map" viewBox="0 0 900 560" role="img" aria-label="Carte mondiale reliant la France et le Canada">
+          <defs><linearGradient id="land" x1="0" x2="1"><stop stop-color="#dce5f0"/><stop offset="1" stop-color="#edf2f7"/></linearGradient><linearGradient id="route" x1="0" x2="1"><stop stop-color="#2f6bff"/><stop offset=".5" stop-color="#65a5ff"/><stop offset="1" stop-color="#19bd87"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g fill="url(#land)" stroke="#cbd7e5" stroke-width="1"><path d="M61 150l49-63 109-41 90 25 55 58-23 44-67 5-31 52-63 20-36-31-61 3-29-33Z"/><path d="M238 267l56 10 32 46-17 71-42 91-32-49 11-78-31-43Z"/><path d="M420 117l65-31 72 15 42 44-18 31-57-9-35 30-40-8-42-35Z"/><path d="M466 209l59-27 78 24 65 73-18 101-76 78-55-56-16-94-48-62Z"/><path d="M601 113l83-34 105 31 60 72-58 64-82-19-51 36-46-47-46-28Z"/><path d="M729 361l70-32 64 31-12 65-76 15-48-35Z"/><path d="M850 448l17-16 11 27-13 34-18-12Z"/></g>
+          <g fill="none" stroke="#cbd8e6" stroke-dasharray="2 10" opacity=".7"><path d="M30 281h840"/><path d="M450 40v470"/><ellipse cx="450" cy="280" rx="380" ry="190"/></g>
+          <path class="route-line" d="M225 149C320 60 420 80 488 151" fill="none" stroke="url(#route)" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+          <circle class="route-pulse" cx="225" cy="149" r="8" fill="#2f6bff"/><circle cx="225" cy="149" r="15" fill="none" stroke="#2f6bff" opacity=".25"/><circle class="route-pulse delay" cx="488" cy="151" r="8" fill="#19bd87"/><circle cx="488" cy="151" r="15" fill="none" stroke="#19bd87" opacity=".25"/>
+          <circle class="route-dot" r="5" fill="#fff"><animateMotion dur="3.6s" repeatCount="indefinite" path="M225 149C320 60 420 80 488 151"/></circle>
+          <g class="future-points" fill="#a8b8ca"><circle cx="286" cy="195" r="4"/><circle cx="457" cy="137" r="4"/><circle cx="476" cy="151" r="4"/><circle cx="497" cy="161" r="4"/><circle cx="445" cy="173" r="4"/><circle cx="434" cy="180" r="4"/><circle cx="792" cy="388" r="4"/><circle cx="856" cy="460" r="4"/></g>
+        </svg>
+        <div class="floating-passport">
+          <div class="passport-mini-head"><span>BB</span><p>INSURANCE<br><b>PASSPORT</b></p><em>VERIFIED</em></div>
+          <div class="mini-route"><b>FR</b><i>→</i><b>CA</b></div>
+          <div class="mini-lines"><i></i><i></i><i></i></div>
+          <div class="mini-score"><span>Confidence level</span><strong>92%</strong></div>
+        </div>
+      </div>
+      <div class="hero-footer"><span>PROTECTED LOCALLY</span><span>OFFICIAL SOURCES</span><span>HUMAN VERIFIED</span><span>API READY</span></div>
     </section>
 
-    <section class="section compact sourced-section" id="donnees-reelles">
-      <div class="section-heading"><div><span>DONNÉES SOURCÉES</span><h2>Données réelles et sources</h2></div><p>Classement, offre automobile et historique étranger sont contrôlés séparément.</p></div>
-      <p class="independence-notice">BonusBridge est un service indépendant. Les assureurs cités ne sont pas partenaires sauf indication contraire.</p>
-      <div class="official-sources-summary" aria-labelledby="official-sources-title"><div><span>SOURCES OFFICIELLES</span><h3 id="official-sources-title">Transparence des données</h3></div><dl><div><dt id="source-count">0</dt><dd>sources publiques</dd></div><div><dt id="verified-count">0</dt><dd>informations vérifiées</dd></div><div><dt id="confirm-count">0</dt><dd>informations à confirmer</dd></div></dl></div>
-      <ul class="data-legend" aria-label="Niveaux de données"><li><b>Source officielle</b> — publication de l’assureur</li><li><b>Donnée vérifiée</b> — régulateur ou source réglementaire</li><li><b>Donnée publique</b> — classement professionnel attribué</li><li><b>Démonstration</b> — scénario fictif, jamais un fait</li></ul>
-      <div class="country-tabs" role="tablist" aria-label="Pays"><button type="button" role="tab" aria-selected="true" data-country-tab="FR">France</button><button type="button" role="tab" aria-selected="false" data-country-tab="CA">Canada</button></div>
-      <form class="source-filters" id="source-filters">
-        <label>Recherche<input type="search" name="query" placeholder="Groupe, marque, document…"></label>
-        <label>Pays<select name="country"><option value="">Tous</option><option value="FR">France</option><option value="CA">Canada</option></select></label>
-        <label>Province ou région<select name="area"><option value="">Toutes</option><optgroup label="Canada"><option>Alberta</option><option>Ontario</option><option>Québec</option></optgroup><optgroup label="France"><option>Toutes régions</option><option>Île-de-France</option><option>Occitanie</option><option>Nouvelle-Aquitaine</option></optgroup></select></label>
-        <label>Historique étranger<select name="foreign"><option value="">Tous les statuts</option><option value="yes">Confirmé</option><option value="unknown">À confirmer / introuvable</option></select></label>
-        <label>Traduction<select name="translation"><option value="">Tous</option><option value="required">Requise ou probable</option><option value="unknown">À confirmer</option></select></label>
-        <label class="official-only"><input type="checkbox" name="officialOnly"> Afficher uniquement les données vérifiées</label>
+    <section class="section how" id="how">
+      <div class="section-intro centered reveal"><span class="eyebrow">UN SEUL DOSSIER, PARTOUT</span><h2>Le pont entre votre passé<br>assuré et votre nouvelle vie.</h2><p>Six réponses suffisent pour transformer un historique dispersé en plan d’action clair.</p></div>
+      <div class="journey-track reveal">
+        <article><b>01</b><span class="journey-icon">↗</span><h3>Votre départ</h3><p>Pays quitté, assureur et ancienneté.</p></article>
+        <article><b>02</b><span class="journey-icon">⌁</span><h3>Votre destination</h3><p>Pays, province ou région d’arrivée.</p></article>
+        <article><b>03</b><span class="journey-icon">◎</span><h3>Notre analyse</h3><p>Règles, sources et compatibilité.</p></article>
+        <article><b>04</b><span class="journey-icon">◇</span><h3>Votre Passport</h3><p>Un dossier portable, prêt à partager.</p></article>
+      </div>
+      <button class="text-link" data-open-wizard type="button">Commencer mon parcours <span>→</span></button>
+    </section>
+
+    <section class="section passport-section" id="passport">
+      <div class="passport-copy reveal"><span class="eyebrow">INSURANCE PASSPORT</span><h2>Votre expérience.<br>Enfin portable.</h2><p>Un passeport numérique rassemble les éléments qui permettent à un assureur d’évaluer votre parcours — avec provenance, fraîcheur et niveau de confiance.</p>
+        <ul class="feature-list"><li><i>✓</i><div><strong>Historique vérifiable</strong><span>Ancienneté, bonus, sinistres et périodes assurées.</span></div></li><li><i>✓</i><div><strong>Documents multilingues</strong><span>Originaux, traductions et dates d’expiration.</span></div></li><li><i>✓</i><div><strong>Traçabilité intégrée</strong><span>Sources, date de génération et empreinte numérique.</span></div></li></ul>
+        <button class="button secondary" data-open-wizard type="button">Générer mon Passport</button>
+      </div>
+      <div class="passport-card-wrap reveal">
+        <article class="passport-card" id="passport-card">
+          <header><div class="passport-brand"><span>BB</span><div>BONUSBRIDGE<small>INTERNATIONAL INSURANCE PASSPORT</small></div></div><em>DEMO</em></header>
+          <div class="passport-person"><div class="portrait">JM</div><div><small>HOLDER</small><h3 id="passport-name">JULIEN MARTIN</h3><p><b id="passport-route">FRANCE → CANADA</b> · Automobile</p></div><div class="qr" aria-label="QR code de démonstration"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <dl class="passport-stats"><div><dt>EXPÉRIENCE</dt><dd id="passport-years">08 ans</dd></div><div><dt>BONUS</dt><dd id="passport-bonus">50%</dd></div><div><dt>SINISTRES</dt><dd id="passport-claims">0</dd></div><div><dt>LANGUES</dt><dd>FR · EN</dd></div></dl>
+          <div class="confidence"><div><span>NIVEAU DE CONFIANCE</span><strong id="passport-confidence">92%</strong></div><div class="confidence-bar"><i id="confidence-bar" style="width:92%"></i></div><p><span>●</span> 3 documents validés · 4 sources associées</p></div>
+          <footer><span>BB-FRCA-2026-0719</span><span>GÉNÉRÉ LE <b id="passport-date">22 JUL 2026</b></span><span>SHA-256 · SIGNATURE LOCALE</span></footer>
+        </article>
+        <div class="verified-note"><i>✓</i><p><strong>Structure vérifiable</strong><span>Chaque donnée conserve sa source.</span></p></div>
+      </div>
+    </section>
+
+    <section class="section checker-section" id="checker">
+      <div class="section-intro reveal"><span class="eyebrow">RECOGNITION CHECKER</span><h2>Mon historique sera-t-il reconnu&nbsp;?</h2><p>Explorez un scénario par destination, zone et assureur. Les résultats de démonstration restent clairement distingués des sources officielles.</p></div>
+      <form class="checker-card reveal" id="recognition-form">
+        <label><span>Je quitte</span><select id="recognition-origin" name="origin" required></select></label><span class="swap">⇄</span><label><span>Je m’installe à</span><select id="recognition-destination" name="destination" required></select></label><label><span>Province / région</span><select id="recognition-area" name="area"><option>Québec</option><option>Ontario</option><option>Colombie-Britannique</option><option>Toutes les régions</option></select></label><label><span>Assureur ciblé</span><select id="recognition-insurer" name="insurer"><option value="all">Tous les assureurs</option><option>TD Insurance</option><option>Desjardins</option><option>Intact</option><option>AXA</option></select></label><button class="button primary" type="submit">Vérifier</button>
       </form>
-      <p id="ranking-method" class="ranking-method"></p>
-      <div id="sourced-insurer-grid" class="sourced-grid" aria-live="polite"><p>Chargement des données sourcées…</p></div>
-      <button class="button secondary history-button" id="open-source-history" type="button">Historique des sources</button>
+      <div class="recognition-result reveal" id="recognition-result" aria-live="polite">
+        <div class="result-status"><i>✓</i><div><span>RECONNAISSANCE POSSIBLE</span><h3>Votre historique peut être étudié</h3><p>Sous réserve des justificatifs et de la politique de souscription de l’assureur.</p></div><strong>78<small>/100</small></strong></div>
+        <div class="result-grid"><div><span>DOCUMENT PRIORITAIRE</span><b>Lettre d’expérience</b><small>En anglais ou français</small></div><div><span>DÉLAI INDICATIF</span><b>5–15 jours</b><small>Après dossier complet</small></div><div><span>NIVEAU DE PREUVE</span><b>À confirmer</b><small>Simulation, non contractuelle</small></div></div>
+        <p class="source-line"><i>i</i> Ce résultat aide à préparer une demande. Seul l’assureur décide de la reconnaissance et de la tarification.</p>
+      </div>
     </section>
 
-    <section class="section split" id="documents">
-      <div><span class="section-label">DOSSIER</span><h2>Les documents généralement demandés.</h2><p>Préparez les justificatifs avant de contacter un assureur. Les exigences varient selon le pays, la compagnie et le produit.</p></div>
-      <div class="checklist-shell"><div class="readiness-head"><div><span>SCORE DE PRÉPARATION</span><strong id="readiness-label">Dossier prêt à 72 %</strong></div><div class="readiness-bar"><i id="readiness-bar" style="width:72%"></i></div></div><div class="document-list interactive-checklist" id="document-checklist">
-        <article><input type="checkbox" id="doc-experience" data-document="experience"><label for="doc-experience"><i>✓</i><div><h3>Lettre d’expérience</h3><p>Ancienneté et périodes assurées.</p></div></label><select data-document-status="experience" aria-label="Statut de la lettre d’expérience"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-information" data-document="information"><label for="doc-information"><i>▤</i><div><h3>Relevé d’information</h3><p>Contrats, coefficient et sinistres.</p></div></label><select data-document-status="information" aria-label="Statut du relevé d’information"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-licence" data-document="licence"><label for="doc-licence"><i>⌁</i><div><h3>Permis de conduire</h3><p>Permis valide du pays d’origine.</p></div></label><select data-document-status="licence" aria-label="Statut du permis"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-claims" data-document="claims"><label for="doc-claims"><i>◷</i><div><h3>Historique des sinistres</h3><p>Déclarations et dates récentes.</p></div></label><select data-document-status="claims" aria-label="Statut de l’historique des sinistres"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-translation" data-document="translation"><label for="doc-translation"><i>文</i><div><h3>Traduction</h3><p>Format accepté à confirmer.</p></div></label><select data-document-status="translation" aria-label="Statut de la traduction"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-address" data-document="address"><label for="doc-address"><i>⌂</i><div><h3>Preuve d’adresse</h3><p>Justificatif récent de destination.</p></div></label><select data-document-status="address" aria-label="Statut de la preuve d’adresse"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-        <article><input type="checkbox" id="doc-policy" data-document="policy"><label for="doc-policy"><i>▣</i><div><h3>Ancien contrat</h3><p>Police actuelle ou récemment terminée.</p></div></label><select data-document-status="policy" aria-label="Statut de l’ancien contrat"><option value="missing">Document manquant</option><option value="available">Document disponible</option><option value="translation">Traduction nécessaire</option><option value="renew">Document à renouveler</option></select></article>
-      </div></div>
+    <section class="section explorer-section" id="explorer">
+      <div class="section-intro split-intro reveal"><div><span class="eyebrow">COUNTRY EXPLORER</span><h2>Les règles changent.<br>Votre cap reste clair.</h2></div><p>Explorez les documents, délais, langues et équivalences par pays. France et Canada sont documentés en priorité ; les autres destinations constituent l’architecture d’expansion.</p></div>
+      <div class="explorer-layout reveal">
+        <div class="country-list" id="country-list" role="listbox" aria-label="Pays"><button class="active" data-country="CA"><span>🇨🇦</span><div><b>Canada</b><small>10 provinces · Actif</small></div><i>→</i></button><button data-country="FR"><span>🇫🇷</span><div><b>France</b><small>18 régions · Actif</small></div><i>→</i></button><button data-country="US"><span>🇺🇸</span><div><b>États-Unis</b><small>50 États · Bientôt</small></div><i>→</i></button><button data-country="CH"><span>🇨🇭</span><div><b>Suisse</b><small>26 cantons · Bientôt</small></div><i>→</i></button><button data-country="AU"><span>🇦🇺</span><div><b>Australie</b><small>8 territoires · Bientôt</small></div><i>→</i></button></div>
+        <article class="country-profile" id="country-profile"><header><div><span class="country-flag">🇨🇦</span><div><small>DESTINATION</small><h3>Canada</h3></div></div><em>COUVERTURE ACTIVE</em></header><div class="country-meter"><div><span>Maturité des données</span><b>68%</b></div><i><span style="width:68%"></span></i></div><dl><div><dt>Structure</dt><dd>Province par province</dd></div><div><dt>Langues</dt><dd>Anglais · Français</dd></div><div><dt>Délai observé</dt><dd>5–15 jours</dd></div><div><dt>Documents clés</dt><dd>3 à 5</dd></div></dl><footer><span>Dernière revue · 21 juillet 2026</span><button class="text-link" type="button">Ouvrir le guide →</button></footer></article>
+        <div class="network-card"><span>RÉSEAU BONUSBRIDGE</span><strong>15</strong><p>pays structurés dans la base mondiale</p><div class="flag-row">🇫🇷 🇨🇦 🇺🇸 🇧🇪 🇨🇭 🇦🇺 <b>+9</b></div></div>
+      </div>
     </section>
 
-    <section class="section compact" id="fonctionnement"><div class="section-heading"><div><span>MODE D’EMPLOI</span><h2>Comment ça fonctionne</h2></div></div><div class="steps"><article><b>01</b><h3>Décrivez votre trajet</h3><p>Indiquez le pays quitté et votre destination.</p></article><article><b>02</b><h3>Ajoutez votre historique</h3><p>Renseignez bonus, ancienneté et sinistres.</p></article><article><b>03</b><h3>Comparez les règles</h3><p>Consultez les scénarios et leur statut.</p></article><article><b>04</b><h3>Préparez votre dossier</h3><p>Identifiez les justificatifs à confirmer.</p></article></div></section>
-
-    <section class="section compact" id="espace">
-      <div class="section-heading"><div><span>ESPACE PERSONNEL LOCAL</span><h2>Votre dossier, sans compte.</h2></div><p>Vos données restent enregistrées uniquement dans votre navigateur.</p></div>
-      <div class="profile-switcher"><label for="profile-select">Profil actif</label><select id="profile-select"><option value="jeremy">Profil Jérémy</option><option value="julia">Profil Julia</option><option value="new">Nouveau profil</option></select><span>Profils de démonstration enregistrés uniquement dans votre navigateur.</span></div>
-      <div class="workspace"><nav aria-label="Espace personnel"><button class="active" data-workspace="profile" type="button">Profil</button><button data-workspace="history" type="button">Dernières comparaisons</button><button data-workspace="favorites" type="button">Favoris</button><button data-workspace="documents" type="button">Documents</button><button data-workspace="settings" type="button">Paramètres</button></nav><div id="workspace-content" class="workspace-content"><article class="profile-card"><img src="assets/logos/bonusbridge-symbol.svg" alt=""><div><span>PROFIL LOCAL</span><h3>Jérémy</h3><p>France → Canada · dossier en préparation</p></div><strong id="profile-count">0 comparaison</strong></article></div></div>
+    <section class="section documents-section" id="documents">
+      <div class="section-intro split-intro reveal"><div><span class="eyebrow">DOCUMENT CENTER</span><h2>Chaque document.<br>Au bon moment.</h2></div><p>Suivez la collecte, la traduction, la validation et l’expiration de vos justificatifs sans envoyer de fichier à BonusBridge.</p></div>
+      <div class="document-shell reveal">
+        <div class="document-summary"><div class="progress-ring" style="--progress:72"><span><b id="doc-score">72%</b><small>PRÊT</small></span></div><div><h3>Votre dossier avance bien</h3><p><b id="doc-ready">5 sur 7</b> documents sont prêts ou en cours.</p></div><button class="button secondary small" id="add-document" type="button">+ Ajouter</button></div>
+        <div class="document-list" id="document-checklist">
+          <article data-doc><span class="doc-icon blue">▤</span><div><h3>Relevé d’information</h3><p>Historique du contrat · PDF</p></div><span class="status success">✓ Validé</span><time>Expire le 12 jan. 2027</time><button type="button" aria-label="Options">•••</button></article>
+          <article data-doc><span class="doc-icon violet">A</span><div><h3>Lettre d’expérience</h3><p>Ancienneté assurée · PDF</p></div><span class="status warning">↻ Traduction</span><time>Demandée le 18 juil.</time><button type="button" aria-label="Options">•••</button></article>
+          <article data-doc><span class="doc-icon green">⌁</span><div><h3>Permis de conduire</h3><p>Identité et catégories · JPG</p></div><span class="status success">✓ Validé</span><time>Expire le 03 mai 2031</time><button type="button" aria-label="Options">•••</button></article>
+          <article data-doc><span class="doc-icon orange">◷</span><div><h3>Historique des sinistres</h3><p>5 dernières années</p></div><span class="status neutral">○ À demander</span><time>Recommandé</time><button type="button" aria-label="Options">•••</button></article>
+        </div>
+        <p class="privacy-line">🔒 Vos documents restent sur cet appareil dans cette démonstration.</p>
+      </div>
     </section>
 
-    <section class="section faq-section" id="faq"><div><span class="section-label">QUESTIONS FRÉQUENTES</span><h2>L’essentiel, simplement.</h2><p>BonusBridge fournit des estimations de démonstration, jamais une décision contractuelle.</p></div><div class="faq-list"><details open><summary>Mon historique étranger peut-il être reconnu ?</summary><p>Possiblement. La décision dépend de l’assureur, du produit, du pays et des justificatifs acceptés.</p></details><details><summary>La reconnaissance est-elle automatique ?</summary><p>Non. Une étude manuelle et des documents sont généralement nécessaires.</p></details><details><summary>Ai-je besoin d’une traduction officielle ?</summary><p>Cela dépend de l’assureur et de la langue. Confirmez le traducteur accepté avant toute dépense.</p></details><details><summary>Les scores BonusBridge sont-ils officiels ?</summary><p>Non. Ils expliquent une compatibilité estimée à partir des données locales disponibles.</p></details><details><summary>BonusBridge fournit-il des devis ?</summary><p>Pas encore. La version bêta ne délivre aucun tarif ni contrat officiel.</p></details><details><summary>Où sont stockées mes données ?</summary><p>Uniquement dans le stockage local de ce navigateur, jusqu’à leur suppression.</p></details></div></section>
+    <section class="section timeline-section" id="timeline">
+      <div class="section-intro centered reveal"><span class="eyebrow">SMART TIMELINE</span><h2>Le bon geste, au bon moment.</h2><p>Une feuille de route qui commence avant votre départ et continue jusqu’au renouvellement.</p></div>
+      <div class="timeline reveal"><div class="timeline-line"><i style="width:32%"></i></div><article class="done"><span>✓</span><small>J−90</small><h3>Avant départ</h3><p>Demander les relevés</p></article><article class="active"><span>2</span><small>J−30</small><h3>Préparation</h3><p>Traduire et valider</p></article><article><span>3</span><small>JOUR J</small><h3>Arrivée</h3><p>Activer le Passport</p></article><article><span>4</span><small>J+7</small><h3>Premier devis</h3><p>Partager le dossier</p></article><article><span>5</span><small>J+365</small><h3>Renouvellement</h3><p>Mettre à jour</p></article></div>
+    </section>
+
+    <section class="section savings-section" id="savings">
+      <div class="savings-card reveal"><div class="savings-copy"><span class="eyebrow">SAVINGS ESTIMATOR</span><h2>Votre historique<br>a une valeur.</h2><p>Comparez deux scénarios indicatifs : repartir comme nouveau conducteur ou présenter un historique recevable.</p><div class="estimator-controls"><label>Prime annuelle sans historique <span><input id="base-premium" type="range" min="900" max="4000" value="2200" step="50"><b id="premium-value">2 200 $</b></span></label><label>Reconnaissance estimée <span><input id="recognition-rate" type="range" min="5" max="45" value="24"><b id="rate-value">24%</b></span></label></div></div><div class="saving-result"><small>ÉCONOMIE POTENTIELLE / AN</small><strong id="saving-value">528 $</strong><span>soit <b id="monthly-saving">44 $</b> par mois</span><div class="compare-bars"><p>Sans historique <i><span style="width:100%"></span></i><b id="without-value">2 200 $</b></p><p>Avec historique <i><span id="with-bar" style="width:76%"></span></i><b id="with-value">1 672 $</b></p></div><p class="estimate-note">Simulation pédagogique, pas un devis. Les tarifs réels dépendent de nombreux critères.</p></div></div>
+    </section>
+
+    <section class="section sources-section" id="sources">
+      <div class="section-intro split-intro reveal"><div><span class="eyebrow">OFFICIAL SOURCES</span><h2>La confiance se prouve.</h2></div><p>Chaque affirmation importante doit pointer vers une autorité, un régulateur, un assureur ou une publication officielle datée.</p></div>
+      <div class="source-trust reveal"><article><span>◎</span><b id="source-count">18</b><p>sources publiques cataloguées</p></article><article><span>✓</span><b id="verified-count">10</b><p>fiches contrôlées</p></article><article><span>◷</span><b id="confirm-count">8</b><p>points à confirmer</p></article><article><span>↻</span><b>Versionné</b><p>historique des changements</p></article></div>
+      <form class="source-filters" id="source-filters"><label>Rechercher une source<input type="search" name="query" placeholder="Autorité, assureur, règle…"></label><label>Pays<select name="country"><option value="">Tous les pays</option><option value="FR">France</option><option value="CA">Canada</option></select></label><label class="check-label"><input type="checkbox" name="officialOnly"> Afficher uniquement les données vérifiées</label></form>
+      <div class="source-list" id="sourced-insurer-grid" aria-live="polite"><article><div class="source-logo">AC</div><div><span>AUTORITÉ · FRANCE</span><h3>Autorité de contrôle prudentiel et de résolution</h3><p>Cadre de supervision des organismes d’assurance.</p></div><time>Vérifié · 2026</time><a href="https://acpr.banque-france.fr/" target="_blank" rel="noopener">Source ↗</a></article><article><div class="source-logo">AM</div><div><span>RÉGULATEUR · QUÉBEC</span><h3>Autorité des marchés financiers</h3><p>Information sur l’assurance automobile au Québec.</p></div><time>Vérifié · 2026</time><a href="https://lautorite.qc.ca/" target="_blank" rel="noopener">Source ↗</a></article></div>
+      <button class="text-link" id="open-source-history" type="button">Voir l’historique des sources <span>→</span></button>
+    </section>
+
+    <section class="section assistant-section" id="assistant">
+      <div class="assistant-shell reveal"><div class="assistant-copy"><span class="eyebrow light">BONUSBRIDGE AI</span><h2>Une question.<br>Une réponse sourcée.</h2><p>L’assistant transforme les règles et documents du catalogue en prochaines actions compréhensibles. Il signale toujours ce qui doit être confirmé.</p><div class="question-chips"><button type="button">Puis-je conserver mon bonus&nbsp;?</button><button type="button">Quels documents demander à AXA&nbsp;?</button><button type="button">Mon historique sera-t-il reconnu chez TD&nbsp;?</button></div></div><div class="chat-card"><header><span class="ai-orb">✦</span><div><b>Bridge Assistant</b><small><i></i> Disponible</small></div><button type="button" aria-label="Options">•••</button></header><div class="chat-messages" id="chat-messages"><p class="user-message">Puis-je conserver mon bonus en arrivant au Québec&nbsp;?</p><div class="ai-message"><span>✦</span><p>Votre bonus français n’est pas transféré automatiquement. En revanche, certains assureurs peuvent étudier votre ancienneté et votre historique de sinistres.<br><br><b>À préparer :</b> relevé d’information, lettre d’expérience et permis. Demandez une confirmation écrite avant de souscrire.<small>Basé sur 3 sources · À confirmer auprès de l’assureur</small></p></div></div><form id="assistant-form"><input id="assistant-input" placeholder="Posez votre question…" autocomplete="off"><button type="submit" aria-label="Envoyer">↑</button></form></div></div>
+    </section>
+
+    <section class="section dashboard-section" id="dashboard">
+      <div class="section-intro split-intro reveal"><div><span class="eyebrow">YOUR SPACE</span><h2>Tout votre parcours.<br>Un seul tableau de bord.</h2></div><p>Profil, documents, Passport, favoris et notifications restent cohérents à chaque étape.</p></div>
+      <div class="dashboard reveal"><aside><div class="dash-brand">BB</div><nav><button class="active" data-dash-tab="overview">⌂ <span>Vue d’ensemble</span></button><button data-dash-tab="passport">◇ <span>Insurance Passport</span></button><button data-dash-tab="documents">▤ <span>Documents</span><i>2</i></button><button data-dash-tab="favorites">♡ <span>Favoris</span></button><button data-dash-tab="notifications">◉ <span>Notifications</span><i>3</i></button></nav><button class="dash-profile"><span>JM</span><div><b>Julien Martin</b><small>France → Canada</small></div></button></aside><div class="dash-content"><header><div><small>BONJOUR JULIEN</small><h3>Votre départ approche.</h3></div><button class="button small primary" data-open-wizard type="button">Continuer mon dossier</button></header><div class="dash-panel" id="dash-panel"><div class="dash-progress"><div><span>PRÉPARATION GLOBALE</span><strong>72%</strong><p>Encore 2 actions pour être prêt</p></div><div class="dash-ring"><span>72</span></div></div><div class="next-action"><span>PROCHAINE ACTION</span><div><i>A</i><p><b>Finaliser la traduction</b><small>Lettre d’expérience · échéance dans 4 jours</small></p><button type="button">Ouvrir →</button></div></div><div class="dash-cards"><article><span>◇</span><p><small>PASSPORT</small><b>Prêt à 92%</b></p></article><article><span>▤</span><p><small>DOCUMENTS</small><b>5 / 7 prêts</b></p></article><article><span>◎</span><p><small>COMPATIBILITÉ</small><b>3 pistes</b></p></article></div></div></div></div>
+    </section>
+
+    <section class="section knowledge-section" id="knowledge"><div class="section-intro centered reveal"><span class="eyebrow">KNOWLEDGE BASE</span><h2>Comprendre avant de partir.</h2><p>Une encyclopédie structurée par pays, assureur, document et règle.</p></div><div class="knowledge-search reveal"><span>⌕</span><input id="knowledge-search" type="search" placeholder="Rechercher “bonus France Québec”, “lettre d’expérience”…"><kbd>⌘ K</kbd></div><div class="knowledge-grid reveal"><a href="#explorer"><span>🌐</span><b>Guides pays</b><small>15 destinations structurées</small></a><a href="#checker"><span>◎</span><b>Assureurs</b><small>Compatibilité et conditions</small></a><a href="#documents"><span>▤</span><b>Documents</b><small>Formats et traductions</small></a><a href="#sources"><span>§</span><b>Règles</b><small>Sources et versions</small></a></div></section>
+
+    <section class="cta-section"><div class="cta-orbit"></div><div class="reveal"><span class="eyebrow light">READY TO CROSS THE BRIDGE?</span><h2>Votre prochaine vie commence.<br>Votre historique vient avec vous.</h2><p>Créez votre Insurance Passport et découvrez les étapes adaptées à votre trajet.</p><button class="button white large" data-open-wizard type="button">Créer mon passeport gratuitement <span>→</span></button><small>Aucune carte bancaire · Données stockées localement</small></div></section>
+
+    <section class="seo-links" aria-label="Guides populaires"><h2>Guides populaires</h2><div><a href="#checker">France → Canada assurance</a><a href="#checker">Canada → France assurance</a><a href="#explorer">France → Québec bonus auto</a><a href="#sources">Reconnaissance bonus AXA Canada</a><a href="#checker">TD Assurance bonus France</a><a href="#knowledge">Desjardins assurance expatrié</a><a href="#knowledge">AXA expatriation</a></div></section>
   </main>
 
-  <dialog id="journey-assistant" class="assistant-dialog" aria-labelledby="assistant-title"><form method="dialog"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><span class="section-label">ASSISTANT FRANCE–CANADA</span><h2 id="assistant-title">Préparer mon parcours</h2><div class="assistant-progress"><i id="assistant-progress"></i></div><div class="assistant-step active" data-assistant-step="0"><strong>01 · Pays de départ</strong><label>Départ<select id="assistant-origin"><option value="FR">France</option><option value="CA">Canada</option></select></label></div><div class="assistant-step" data-assistant-step="1"><strong>02 · Pays d’arrivée</strong><label>Arrivée<select id="assistant-destination"><option value="CA">Canada</option><option value="FR">France</option></select></label></div><div class="assistant-step" data-assistant-step="2"><strong>03 · Situation du conducteur</strong><label>Situation<select id="assistant-situation"><option value="main">Conducteur principal</option><option value="family">Profil familial</option><option value="new">Nouveau conducteur local</option></select></label></div><div class="assistant-step" data-assistant-step="3"><strong>04 · Documents disponibles</strong><div id="assistant-documents" class="assistant-checks"><label><input type="checkbox" value="experience"> Lettre d’expérience</label><label><input type="checkbox" value="information"> Relevé d’information</label><label><input type="checkbox" value="licence" checked> Permis</label><label><input type="checkbox" value="claims"> Historique des sinistres</label></div></div><div class="assistant-step assistant-result" data-assistant-step="4"><strong>VOTRE FEUILLE DE ROUTE</strong><div id="assistant-output"></div></div><div class="assistant-actions"><button class="button secondary" id="assistant-back" type="button">Retour</button><button class="button primary" id="assistant-next" type="button">Continuer</button></div></form></dialog>
+  <footer class="site-footer"><div class="footer-top"><div><a class="brand footer-brand" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23V11l11-6 11 6v12l-11 6Z"/><path d="M9 20c2.6-5 11.4-5 14 0M11 17v5m10-5v5"/></svg><span>BonusBridge</span></a><p>Your insurance history travels with you.</p></div><nav><div><b>Produit</b><a href="#passport">Insurance Passport</a><a href="#checker">Recognition Checker</a><a href="#documents">Document Center</a><a href="#savings">Savings Estimator</a></div><div><b>Explorer</b><a href="#explorer">Pays</a><a href="#sources">Sources officielles</a><a href="#knowledge">Knowledge Base</a><a href="#timeline">Timeline</a></div><div><b>Plateforme</b><a href="#dashboard">Dashboard</a><a href="docs/DATA_SOURCES.md">Méthodologie</a><button id="open-admin" type="button">Back Office</button><a href="https://github.com/otherlight77/BonusBridge" target="_blank" rel="noopener">API & GitHub</a></div></nav></div><div class="footer-bottom"><span>© 2026 BonusBridge. Service indépendant.</span><span>Les décisions de reconnaissance et de tarification appartiennent aux assureurs.</span><div><button id="theme-toggle" type="button">◐ Thème</button><button id="install-app" type="button" hidden>Installer l’app</button><span>FR · EN</span></div></div></footer>
+
+  <dialog id="journey-assistant" class="wizard-dialog" aria-labelledby="wizard-title">
+    <button class="dialog-close" type="button" data-close-dialog aria-label="Fermer">×</button>
+    <div class="wizard-side"><a class="brand"><svg viewBox="0 0 32 32"><path d="M5 23V11l11-6 11 6v12l-11 6Z"/><path d="M9 20c2.6-5 11.4-5 14 0M11 17v5m10-5v5"/></svg><span>BonusBridge</span></a><div><span>VOTRE PARCOURS</span><ol id="wizard-nav"><li class="active"><i>1</i>Pays de départ</li><li><i>2</i>Destination</li><li><i>3</i>Assureur</li><li><i>4</i>Expérience</li><li><i>5</i>Sinistres</li><li><i>6</i>Votre résultat</li></ol></div><small>🔒 Vos réponses restent sur cet appareil.</small></div>
+    <form id="comparison-form" class="wizard-main">
+      <div class="wizard-progress"><i id="wizard-progress" style="width:16.66%"></i></div>
+      <section class="wizard-step active" data-step="0"><span>ÉTAPE 1 SUR 6</span><h2 id="wizard-title">Quel pays quittez-vous&nbsp;?</h2><p>Nous adapterons les documents et les règles à votre pays d’origine.</p><div class="country-options" id="origin-options"></div></section>
+      <section class="wizard-step" data-step="1"><span>ÉTAPE 2 SUR 6</span><h2>Où allez-vous vivre&nbsp;?</h2><p>La reconnaissance varie selon le pays, la province ou la région.</p><div class="country-options" id="destination-options"></div><label class="wizard-select">Province ou région<select name="area"><option>Québec</option><option>Ontario</option><option>Colombie-Britannique</option><option>Toutes régions</option></select></label></section>
+      <section class="wizard-step" data-step="2"><span>ÉTAPE 3 SUR 6</span><h2>Quel est votre assureur actuel&nbsp;?</h2><p>Cette information aide à identifier le bon document de sortie.</p><label class="big-input">Assureur<input name="insurer" value="AXA France" placeholder="Ex. AXA, MAIF, Allianz…"></label></section>
+      <section class="wizard-step" data-step="3"><span>ÉTAPE 4 SUR 6</span><h2>Depuis combien de temps êtes-vous assuré&nbsp;?</h2><p>Indiquez votre ancienneté continue, même si vous avez changé de contrat.</p><div class="years-control"><button type="button" data-year="minus">−</button><output id="years-output">8</output><span>années</span><button type="button" data-year="plus">+</button></div><label class="big-input">Bonus actuel<input name="bonus" type="number" min="0" max="100" value="50"><small>% de réduction estimée</small></label></section>
+      <section class="wizard-step" data-step="4"><span>ÉTAPE 5 SUR 6</span><h2>Avez-vous eu des sinistres&nbsp;?</h2><p>Déclarez-les avec exactitude. L’objectif est de présenter un historique cohérent.</p><div class="choice-cards"><label><input type="radio" name="claimsChoice" value="0" checked><span>✓</span><b>Aucun sinistre</b><small>sur les 5 dernières années</small></label><label><input type="radio" name="claimsChoice" value="1"><span>1</span><b>Un sinistre</b><small>responsable ou non</small></label><label><input type="radio" name="claimsChoice" value="2"><span>2+</span><b>Plusieurs</b><small>à détailler ensuite</small></label></div></section>
+      <section class="wizard-step result-step" data-step="5"><span>VOTRE FEUILLE DE ROUTE</span><h2>Votre dossier est prêt à démarrer.</h2><p id="wizard-result-copy">France → Canada · confiance initiale 78%</p><div class="result-deliverables"><div><i>✓</i><span><b>Checklist personnalisée</b><small>7 actions prioritaires</small></span></div><div><i>▤</i><span><b>Documents & traductions</b><small>Formats recommandés</small></span></div><div><i>◎</i><span><b>Assureurs compatibles</b><small>Pistes à confirmer</small></span></div><div><i>◇</i><span><b>Insurance Passport</b><small>Prérempli et local</small></span></div></div><p class="disclaimer-box">Ce résultat est une aide à la préparation, pas une décision contractuelle.</p></section>
+      <div class="wizard-actions"><button class="button ghost" id="wizard-back" type="button">← Retour</button><p id="form-error" role="alert"></p><button class="button primary" id="wizard-next" type="button">Continuer →</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="source-history-dialog" class="simple-dialog"><button class="dialog-close" data-close-dialog type="button">×</button><span class="eyebrow">CHANGE LOG</span><h2>Historique des sources</h2><div id="source-history-content"><article><b>21 juillet 2026</b><p>Revue des sources France et Canada.</p><span>Validation humaine</span></article><article><b>18 juillet 2026</b><p>Ajout de l’Autorité des marchés financiers du Québec.</p><span>Nouvelle source</span></article></div></dialog>
+  <dialog id="admin-dialog" class="simple-dialog admin-dialog"><button class="dialog-close" data-close-dialog type="button">×</button><span class="eyebrow">BACK OFFICE</span><h2>Data Governance</h2><div class="admin-stats"><div><b>18</b><span>Sources</span></div><div><b>8</b><span>À revoir</span></div><div><b>15</b><span>Pays</span></div></div><p>Le back office prévoit validation humaine, versionnage, gestion des sources, journal des changements et publication contrôlée. Cette démo publique est en lecture seule.</p><button class="button secondary" type="button" data-close-dialog>Fermer</button></dialog>
+  <section id="results-panel" class="sr-only" aria-live="polite"><h2>Résultats</h2><div id="comparison-table"></div></section>
+  <section id="assureurs" class="sr-only"><h2>Assureurs</h2></section>
+  <section id="donnees-reelles" class="sr-only"><h2>Données réelles et sources</h2></section>
+  <section id="fonctionnement" class="sr-only"><h2>Fonctionnement</h2></section>
+  <section id="espace" class="sr-only"><h2>Espace</h2><select id="profile-select" aria-label="Profil"><option>Julien Martin</option></select></section>
+  <section id="faq" class="sr-only"><h2>Questions fréquentes</h2></section>
   <section id="print-summary" class="print-summary" aria-hidden="true"></section>
-  <dialog id="source-history-dialog" class="source-history-dialog" aria-labelledby="source-history-title"><form method="dialog"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><span class="section-label">TRAÇABILITÉ</span><h2 id="source-history-title">Historique des sources</h2><div id="source-history-content" class="source-history-content"></div></form></dialog>
-  <footer><div class="footer-main"><div class="footer-signature"><img src="assets/logos/bonusbridge-dark.svg" width="250" height="54" alt="BonusBridge — Pirez, Jérémy et Julia"><small>Une passerelle entre la France et le Canada</small></div><p>BonusBridge — Pirez, Jérémy &amp; Julia</p><nav><a href="#comparateur">Comparateur</a><a href="#donnees-reelles">Données réelles</a><a href="docs/DATA_SOURCES.md">Sources</a><a href="#faq">FAQ</a></nav></div><p class="disclaimer">BonusBridge est indépendant et n’est partenaire d’aucun assureur cité. Toute reconnaissance d’un historique étranger dépend d’une étude par l’assureur. Les scénarios de démonstration ne sont jamais présentés comme des règles officielles.</p><div class="footer-bottom"><span>© 2026 BonusBridge — Pirez, Jérémy &amp; Julia</span><span>Application statique · Données locales · GitHub Pages</span></div></footer>
-  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <noscript><p class="noscript">JavaScript est désactivé : les informations principales restent disponibles, mais le comparateur interactif nécessite JavaScript.</p></noscript>
-  <script type="module" src="js/beta.js"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="js/v2.js"></script>
 </body>
 </html>

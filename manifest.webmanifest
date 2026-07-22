@@ -1,9 +1,9 @@
 {
-  "name":"BonusBridge — Assurance internationale bêta",
+  "name":"BonusBridge — International Insurance Passport",
   "short_name":"BonusBridge",
-  "description":"Comparez la reconnaissance de votre historique d’assurance automobile à l’international.",
+  "description":"Votre historique d’assurance vous suit partout. Créez votre passeport d’assurance international.",
   "id":"./","start_url":"./","scope":"./","display":"standalone","orientation":"any",
-  "background_color":"#07101b","theme_color":"#07101b","lang":"fr","categories":["finance","travel"],
+  "background_color":"#f7f9fc","theme_color":"#f7f9fc","lang":"fr","categories":["finance","travel","utilities"],
   "icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}],
-  "shortcuts":[{"name":"Comparer mon assurance","url":"./#comparateur","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]},{"name":"Mon espace local","url":"./#espace","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]}]
+  "shortcuts":[{"name":"Créer mon Passport","url":"./#passport","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]},{"name":"Vérifier une reconnaissance","url":"./#checker","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]},{"name":"Mon espace","url":"./#dashboard","icons":[{"src":"assets/logos/favicon.svg","sizes":"any","type":"image/svg+xml"}]}]
 }

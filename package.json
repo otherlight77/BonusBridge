@@ -1,9 +1,10 @@
 {
   "name": "bonusbridge",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "node scripts/generate-seo-pages.mjs",
     "test": "node scripts/validate.mjs && node scripts/validate-insurer-sources.js",
     "collect": "node scripts/collect-public-insurer-data.js",
     "normalize": "node scripts/normalize-insurer-data.js",

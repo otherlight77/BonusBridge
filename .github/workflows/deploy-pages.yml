@@ -28,6 +28,9 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Generate SEO guides
+        run: node scripts/generate-seo-pages.mjs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
