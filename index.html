@@ -10,6 +10,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/logos/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/v2.css">
+  <link rel="stylesheet" href="css/ag2r.css">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="BonusBridge — International Insurance Passport">
@@ -27,7 +28,7 @@
       <span>BonusBridge</span><em>Passport</em>
     </a>
     <nav id="main-nav" aria-label="Navigation principale">
-      <a href="#passport">Passport</a><a href="#checker">Recognition</a><a href="#explorer">Countries</a><a href="#documents">Documents</a><a href="#sources">Sources</a>
+      <a href="#passport">Passport</a><a href="#checker">Recognition</a><a href="#explorer">Countries</a><a href="#documents">Documents</a><a href="#test-local">Test local</a><a href="#sources">Sources</a>
     </nav>
     <div class="header-actions">
       <button class="icon-button" id="language-toggle" type="button" aria-label="Switch to English">FR</button>
@@ -135,6 +136,102 @@
       </div>
     </section>
 
+    <section class="section ag2r-section" id="test-local">
+      <div class="section-intro split-intro reveal"><div><span class="eyebrow">TEST LOCAL AVEC MON PROPRE DOCUMENT</span><h2>Tester un vrai document, localement.</h2></div><p>Utilisez ce mode uniquement sur votre appareil personnel. Votre document est analysé dans votre navigateur et ne doit jamais être ajouté au dépôt GitHub.</p></div>
+      <div class="ag2r-warning reveal">
+        <strong>Attention</strong>
+        <p>BonusBridge ne se connecte jamais à AG2R à votre place. Vous ouvrez l’espace client officiel dans un autre onglet, téléchargez vous-même le document, puis vous revenez ici pour l’analyser localement.</p>
+      </div>
+      <div class="ag2r-indicators reveal" aria-label="Statut du mode local">
+        <div><span>Traitement local</span><b>Activé</b></div>
+        <div><span>Envoi serveur</span><b>Désactivé</b></div>
+        <div id="ag2r-retention-state"><span>Conservation permanente</span><b>Désactivée par défaut</b></div>
+      </div>
+      <div class="ag2r-layout reveal">
+        <article class="ag2r-panel ag2r-dropzone" id="ag2r-dropzone" tabindex="0" aria-label="Déposer un document local">
+          <input id="ag2r-file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt,.json" hidden>
+          <span class="eyebrow">1. Import local</span>
+          <h3>Déposez votre document ou choisissez un fichier.</h3>
+          <p>Formats acceptés pour la démo : PDF texte, PDF scanné, image, texte ou JSON de validation. Le fichier brut reste en mémoire locale seulement.</p>
+          <div class="dropzone-actions">
+            <button class="button primary" id="ag2r-pick-file" type="button">Choisir un fichier</button>
+            <button class="button secondary" id="ag2r-load-ocr" type="button">Préparer l’OCR local</button>
+          </div>
+          <p class="dropzone-note">Le traitement local est conçu pour les tests sur appareil personnel uniquement.</p>
+        </article>
+        <article class="ag2r-panel">
+          <span class="eyebrow">2. Contrôle local</span>
+          <h3>Validation, export et effacement.</h3>
+          <label class="retain-toggle"><input id="ag2r-retain" type="checkbox"> Conserver temporairement les informations validées dans ce navigateur</label>
+          <div class="ag2r-button-row">
+            <button class="button secondary" id="ag2r-export-private" type="button">Export privé</button>
+            <button class="button secondary" id="ag2r-export-shareable" type="button">Export partageable</button>
+            <label class="button secondary file-button" for="ag2r-import"><input id="ag2r-import" type="file" accept="application/json" hidden>Importer JSON</label>
+          </div>
+          <div class="ag2r-button-row destructive">
+            <button class="button ghost" id="ag2r-delete-document" type="button">Supprimer ce document</button>
+            <button class="button primary danger" id="ag2r-clear-all" type="button">Effacer toutes mes données</button>
+          </div>
+          <div class="ag2r-privacy-note">
+            <strong>Confidentialité locale</strong>
+            <p>Le document brut ne doit jamais être enregistré automatiquement dans `localStorage`. Seules les données structurées validées par l’utilisateur peuvent être conservées avec consentement explicite.</p>
+          </div>
+        </article>
+      </div>
+      <div class="ag2r-grid reveal">
+        <article class="ag2r-panel ag2r-analysis">
+          <div class="ag2r-panel-head">
+            <div>
+              <span class="eyebrow">3. Analyse locale</span>
+              <h3>Informations détectées</h3>
+            </div>
+            <small id="ag2r-file-meta">Aucun document chargé</small>
+          </div>
+          <div class="ag2r-summary" id="ag2r-summary">
+            <p>Déposez un document pour afficher un extrait justificatif, le type détecté et les champs à valider.</p>
+          </div>
+          <div class="ag2r-excerpt">
+            <span>Extrait justificatif local</span>
+            <p id="ag2r-excerpt">Aucun extrait pour le moment.</p>
+          </div>
+          <div class="ag2r-ocr-state" id="ag2r-ocr-state">OCR local non chargé.</div>
+          <div class="ag2r-field-actions">
+            <button class="button secondary small" id="ag2r-confirm-visible" type="button">Confirmer les champs visibles</button>
+            <button class="button secondary small" id="ag2r-reset-fields" type="button">Réinitialiser les validations</button>
+          </div>
+          <div class="ag2r-fields" id="ag2r-fields" aria-live="polite"></div>
+        </article>
+        <article class="ag2r-panel ag2r-journal">
+          <div class="ag2r-panel-head">
+            <div>
+              <span class="eyebrow">4. Journal technique</span>
+              <h3>Historique local anonymisé</h3>
+            </div>
+            <small>Données sans contenu OCR brut</small>
+          </div>
+          <div class="ag2r-journal-table-wrap">
+            <table class="ag2r-journal-table">
+              <thead>
+                <tr><th>Type</th><th>Taille</th><th>Pages</th><th>Document</th><th>Durée</th><th>Champs</th><th>Confirmés</th><th>Corrigés</th><th>Ignorés</th><th>Erreurs</th></tr>
+              </thead>
+              <tbody id="ag2r-journal-body">
+                <tr><td colspan="10">Aucun journal pour le moment.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="ag2r-scenarios">
+            <article><b>TEST 1</b><p>PDF contenant du texte : ouverture réussie, classification probable, champs principaux proposés, validation manuelle possible.</p></article>
+            <article><b>TEST 2</b><p>PDF scanné : absence de texte détectée, OCR local proposé, fiabilité signalée, correction manuelle possible.</p></article>
+            <article><b>TEST 3</b><p>Document inconnu : aucune classification forcée, statut document non reconnu, typologie sélectionnable manuellement.</p></article>
+            <article><b>TEST 4</b><p>PDF protégé ou illisible : erreur compréhensible, suppression mémoire immédiate, suggestion d’un PDF non protégé.</p></article>
+            <article><b>TEST 5</b><p>Données sensibles : masquage automatique, exclusion du QR code, exclusion des exports publics et des journaux.</p></article>
+            <article><b>TEST 6</b><p>Effacement : suppression du document, des validations et des caches locaux avec confirmation visuelle.</p></article>
+            <article><b>TEST 7</b><p>Rechargement : aucune donnée ne réapparaît sans consentement, seules les validations structurées peuvent être restaurées.</p></article>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section timeline-section" id="timeline">
       <div class="section-intro centered reveal"><span class="eyebrow">SMART TIMELINE</span><h2>Le bon geste, au bon moment.</h2><p>Une feuille de route qui commence avant votre départ et continue jusqu’au renouvellement.</p></div>
       <div class="timeline reveal"><div class="timeline-line"><i style="width:32%"></i></div><article class="done"><span>✓</span><small>J−90</small><h3>Avant départ</h3><p>Demander les relevés</p></article><article class="active"><span>2</span><small>J−30</small><h3>Préparation</h3><p>Traduire et valider</p></article><article><span>3</span><small>JOUR J</small><h3>Arrivée</h3><p>Activer le Passport</p></article><article><span>4</span><small>J+7</small><h3>Premier devis</h3><p>Partager le dossier</p></article><article><span>5</span><small>J+365</small><h3>Renouvellement</h3><p>Mettre à jour</p></article></div>
@@ -168,7 +265,7 @@
     <section class="seo-links" aria-label="Guides populaires"><h2>Guides populaires</h2><div><a href="#checker">France → Canada assurance</a><a href="#checker">Canada → France assurance</a><a href="#explorer">France → Québec bonus auto</a><a href="#sources">Reconnaissance bonus AXA Canada</a><a href="#checker">TD Assurance bonus France</a><a href="#knowledge">Desjardins assurance expatrié</a><a href="#knowledge">AXA expatriation</a></div></section>
   </main>
 
-  <footer class="site-footer"><div class="footer-top"><div><a class="brand footer-brand" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23V11l11-6 11 6v12l-11 6Z"/><path d="M9 20c2.6-5 11.4-5 14 0M11 17v5m10-5v5"/></svg><span>BonusBridge</span></a><p>Your insurance history travels with you.</p></div><nav><div><b>Produit</b><a href="#passport">Insurance Passport</a><a href="#checker">Recognition Checker</a><a href="#documents">Document Center</a><a href="#savings">Savings Estimator</a></div><div><b>Explorer</b><a href="#explorer">Pays</a><a href="#sources">Sources officielles</a><a href="#knowledge">Knowledge Base</a><a href="#timeline">Timeline</a></div><div><b>Plateforme</b><a href="#dashboard">Dashboard</a><a href="docs/DATA_SOURCES.md">Méthodologie</a><button id="open-admin" type="button">Back Office</button><a href="https://github.com/otherlight77/BonusBridge" target="_blank" rel="noopener">API & GitHub</a></div></nav></div><div class="footer-bottom"><span>© 2026 BonusBridge. Service indépendant.</span><span>Les décisions de reconnaissance et de tarification appartiennent aux assureurs.</span><div><button id="theme-toggle" type="button">◐ Thème</button><button id="install-app" type="button" hidden>Installer l’app</button><span>FR · EN</span></div></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><a class="brand footer-brand" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23V11l11-6 11 6v12l-11 6Z"/><path d="M9 20c2.6-5 11.4-5 14 0M11 17v5m10-5v5"/></svg><span>BonusBridge</span></a><p>Your insurance history travels with you.</p></div><nav><div><b>Produit</b><a href="#passport">Insurance Passport</a><a href="#checker">Recognition Checker</a><a href="#documents">Document Center</a><a href="#test-local">Test local</a><a href="#savings">Savings Estimator</a></div><div><b>Explorer</b><a href="#explorer">Pays</a><a href="#sources">Sources officielles</a><a href="#knowledge">Knowledge Base</a><a href="#timeline">Timeline</a></div><div><b>Plateforme</b><a href="#dashboard">Dashboard</a><a href="docs/DATA_SOURCES.md">Méthodologie</a><button id="open-admin" type="button">Back Office</button><a href="https://github.com/otherlight77/BonusBridge" target="_blank" rel="noopener">API & GitHub</a></div></nav></div><div class="footer-bottom"><span>© 2026 BonusBridge. Service indépendant.</span><span>Les décisions de reconnaissance et de tarification appartiennent aux assureurs.</span><div><button id="theme-toggle" type="button">◐ Thème</button><button id="install-app" type="button" hidden>Installer l’app</button><span>FR · EN</span></div></div></footer>
 
   <dialog id="journey-assistant" class="wizard-dialog" aria-labelledby="wizard-title">
     <button class="dialog-close" type="button" data-close-dialog aria-label="Fermer">×</button>
@@ -187,6 +284,7 @@
 
   <dialog id="source-history-dialog" class="simple-dialog"><button class="dialog-close" data-close-dialog type="button">×</button><span class="eyebrow">CHANGE LOG</span><h2>Historique des sources</h2><div id="source-history-content"><article><b>21 juillet 2026</b><p>Revue des sources France et Canada.</p><span>Validation humaine</span></article><article><b>18 juillet 2026</b><p>Ajout de l’Autorité des marchés financiers du Québec.</p><span>Nouvelle source</span></article></div></dialog>
   <dialog id="admin-dialog" class="simple-dialog admin-dialog"><button class="dialog-close" data-close-dialog type="button">×</button><span class="eyebrow">BACK OFFICE</span><h2>Data Governance</h2><div class="admin-stats"><div><b>18</b><span>Sources</span></div><div><b>8</b><span>À revoir</span></div><div><b>15</b><span>Pays</span></div></div><p>Le back office prévoit validation humaine, versionnage, gestion des sources, journal des changements et publication contrôlée. Cette démo publique est en lecture seule.</p><button class="button secondary" type="button" data-close-dialog>Fermer</button></dialog>
+  <dialog id="ag2r-export-dialog" class="simple-dialog ag2r-export-dialog"><button class="dialog-close" data-close-dialog type="button">×</button><span class="eyebrow" id="ag2r-export-label">EXPORT</span><h2 id="ag2r-export-title">Prévisualisation de l’export</h2><p id="ag2r-export-note"></p><div id="ag2r-export-preview" class="ag2r-export-preview"></div><div class="wizard-actions"><button class="button ghost" data-close-dialog type="button">Annuler</button><button class="button primary" id="ag2r-export-confirm" type="button">Télécharger</button></div></dialog>
   <section id="results-panel" class="sr-only" aria-live="polite"><h2>Résultats</h2><div id="comparison-table"></div></section>
   <section id="assureurs" class="sr-only"><h2>Assureurs</h2></section>
   <section id="donnees-reelles" class="sr-only"><h2>Données réelles et sources</h2></section>

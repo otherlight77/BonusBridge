@@ -1,3 +1,6 @@
+import { exportJSON, importJSON } from './export.js';
+import { setupAG2RTest } from './ag2r.js';
+
 const $=(selector,root=document)=>root.querySelector(selector);
 const $$=(selector,root=document)=>[...root.querySelectorAll(selector)];
 const storeKey='bonusbridge-passport-v2';
@@ -142,5 +145,5 @@ function setupPreferences(){
 function setupPWA(){window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();deferredInstall=event;$('#install-app').hidden=false});$('#install-app').addEventListener('click',async()=>{if(!deferredInstall)return;deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null;$('#install-app').hidden=true});if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{})}
 function setupKnowledge(){const input=$('#knowledge-search');document.addEventListener('keydown',event=>{if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='k'){event.preventDefault();input.focus()}});input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();const query=input.value.trim();if(query){$('#assistant-input').value=query;location.hash='assistant';toast('Question transférée à Bridge Assistant.')}}})}
 
-function init(){populateCountries();setupReveal();setupNavigation();setupDialogs();setupWizard();setupRecognition();setupExplorer();setupDocuments();setupEstimator();setupSources();setupAssistant();setupDashboard();setupPreferences();setupPWA();setupKnowledge();updatePersonalization();renderSources();$('#passport-date').textContent=new Intl.DateTimeFormat(state.language==='fr'?'fr-FR':'en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date()).toUpperCase()}
+function init(){populateCountries();setupReveal();setupNavigation();setupDialogs();setupWizard();setupRecognition();setupExplorer();setupDocuments();setupEstimator();setupSources();setupAssistant();setupDashboard();setupPreferences();setupPWA();setupKnowledge();setupAG2RTest({root:document,toast,escapeHTML,exportJSON,importJSON,openDialog,closeDialog});updatePersonalization();renderSources();$('#passport-date').textContent=new Intl.DateTimeFormat(state.language==='fr'?'fr-FR':'en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date()).toUpperCase()}
 init();
