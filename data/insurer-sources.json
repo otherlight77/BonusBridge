@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0", "updatedAt": "2026-07-22", "records": [
+    {"id":"fr-ranking-2024","insurerIds":["covea-fr","axa-fr","aema-fr"],"url":"https://www.franceassureurs.fr/wp-content/uploads/lassurance-automobile-des-particuliers-en-2024.pdf","type":"association-professionnelle","title":"L’assurance automobile des particuliers en 2024","publisher":"France Assureurs","dataYear":2024,"metric":"Cotisations d’assurance automobile","lastCheckedAt":"2026-07-22","robotsChecked":true,"status":"accessible"},
+    {"id":"ca-ranking-2024","insurerIds":["intact-ca","desjardins-ca","aviva-ca"],"url":"https://cdnc.heyzine.com/files/uploaded/v3/b78a903cb0056e1b3278a23611b1b398c439ad63-7.pdf","type":"press-ranking","title":"Parts de marché des assureurs de dommages au Canada en 2024","publisher":"Journal de l’assurance / MSA Research","dataYear":2024,"metric":"Revenus bruts d’assurance dommages","lastCheckedAt":"2026-07-22","robotsChecked":true,"status":"accessible"},
+    {"id":"desjardins-newcomers","insurerIds":["desjardins-ca"],"url":"https://www.desjardins.com/fr/conseils/assurance-auto-nouveaux-arrivants-canada.html","type":"official-insurer","title":"Assurance auto pour les nouveaux arrivants au Canada","publisher":"Desjardins","dataYear":2026,"metric":"Reconnaissance potentielle de l’expérience étrangère","lastCheckedAt":"2026-07-22","robotsChecked":true,"status":"accessible"},
+    {"id":"aviva-out-country","insurerIds":["aviva-ca"],"url":"https://www.aviva.ca/en/direct/","type":"official-insurer","title":"Expérience de conduite hors pays — validation par téléphone","publisher":"Aviva Canada","dataYear":2026,"metric":"Processus de validation de l’expérience étrangère","lastCheckedAt":"2026-07-22","robotsChecked":true,"status":"accessible"}
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "schemaVersion":"4.0.0","entity":"insuranceCompany","updatedAt":"2026-07-22",
   "records":[
-    {"id":"pirez-assurance","name":"Pirez Assurance","country":"FR","countries":["FR","CA","BE"],"logo":"./assets/logos/insurers/pirez-assurance.svg","description":"Identité fictive pour tester la reconnaissance transfrontalière.","verified":false,"status":"demo"},
-    {"id":"jeremy-assurance","name":"Jérémy Assurance","country":"BE","countries":["BE","FR","LU"],"logo":"./assets/logos/insurers/jeremy-assurance.svg","description":"Identité fictive pour les parcours européens.","verified":false,"status":"demo"},
-    {"id":"julia-assurance","name":"Julia Assurance","country":"CA","countries":["CA","FR","GB"],"logo":"./assets/logos/insurers/julia-assurance.svg","description":"Identité fictive pour les parcours vers le Canada.","verified":false,"status":"demo"},
+    {"id":"pirez-assurance","name":"Profil Pirez","country":"FR","countries":["FR","CA","BE"],"logo":"./assets/logos/insurers/pirez-assurance.svg","description":"Profil familial fictif pour tester la reconnaissance transfrontalière ; ce n’est pas un assureur.","verified":false,"status":"demo"},
+    {"id":"jeremy-assurance","name":"Profil Jérémy","country":"BE","countries":["BE","FR","LU"],"logo":"./assets/logos/insurers/jeremy-assurance.svg","description":"Profil familial fictif pour les parcours européens ; ce n’est pas un assureur.","verified":false,"status":"demo"},
+    {"id":"julia-assurance","name":"Profil Julia","country":"CA","countries":["CA","FR","GB"],"logo":"./assets/logos/insurers/julia-assurance.svg","description":"Profil familial fictif pour les parcours vers le Canada ; ce n’est pas un assureur.","verified":false,"status":"demo"},
     {"id":"horizon-assurance","name":"Horizon Assurance","country":"FR","countries":["FR","ES","PT"],"logo":"./assets/logos/insurers/horizon-assurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
     {"id":"nova-insurance","name":"Nova Insurance","country":"GB","countries":["GB","CA","IE"],"logo":"./assets/logos/insurers/nova-insurance.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},
     {"id":"global-cover","name":"Global Cover","country":"US","countries":["US","CA","AU","NZ"],"logo":"./assets/logos/insurers/global-cover.svg","description":"Assureur fictif de démonstration.","verified":false,"status":"demo"},

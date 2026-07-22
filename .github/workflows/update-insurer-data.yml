@@ -1,0 +1,55 @@
+name: Update sourced insurer data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 1 * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: insurer-data-update
+  cancel-in-progress: false
+
+jobs:
+  collect-and-report:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect public source fingerprints
+        continue-on-error: true
+        env:
+          BONUSBRIDGE_SCRAPING_ENABLED: 'true'
+          BONUSBRIDGE_RATE_LIMIT_MS: '3000'
+          BONUSBRIDGE_TIMEOUT_MS: '12000'
+          BONUSBRIDGE_MAX_ATTEMPTS: '2'
+        run: node scripts/collect-public-insurer-data.js
+      - name: Normalize without lowering verification
+        run: node scripts/normalize-insurer-data.js
+      - name: Validate JSON and provenance
+        run: node scripts/validate-insurer-sources.js
+      - name: Generate source report
+        if: always()
+        run: node scripts/generate-source-report.js
+      - name: Upload collection report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bonusbridge-source-report
+          path: reports/source-report.md
+      - name: Commit changed metadata only
+        run: |
+          if git diff --quiet -- data/insurers.json data/scraping-status.json reports/source-report.md; then
+            echo "No data changes"
+            exit 0
+          fi
+          git config user.name "bonusbridge-data-bot"
+          git config user.email "bonusbridge-data-bot@users.noreply.github.com"
+          git add data/insurers.json data/scraping-status.json reports/source-report.md
+          git commit -m "data: refresh public insurer source status"
+          git push

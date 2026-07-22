@@ -1,11 +1,13 @@
 const KEY='bonusbridge-v3';
 const demoProfiles=[
+  {id:'pirez',name:'Pirez',originCountry:'FR',destinationCountry:'CA',role:'Identité familiale',insuredYears:null,status:'Profil de démonstration',demo:true},
   {id:'jeremy',name:'Jérémy',originCountry:'FR',destinationCountry:'CA',role:'Conducteur principal',insuredYears:8,status:'Dossier en préparation',demo:true},
   {id:'julia',name:'Julia',originCountry:'CA',destinationCountry:'FR',role:'Profil familial',insuredYears:null,status:'Documents à préparer',demo:true}
 ];
 const jeremyDocuments={experience:'available',information:'available',licence:'available',claims:'missing',translation:'translation',address:'available',policy:'available'};
 const juliaDocuments={experience:'missing',information:'missing',licence:'available',claims:'missing',translation:'translation',address:'missing',policy:'missing'};
-const defaults={theme:'dark',themePreference:'dark',history:[],favorites:[],savedComparisons:[],localRuleEdits:[],profiles:demoProfiles,activeProfileId:'jeremy',documentsByProfile:{jeremy:jeremyDocuments,julia:juliaDocuments},profile:{name:'Jérémy',country:'FR',currency:'EUR',language:'fr'}};
+const pirezDocuments={experience:'missing',information:'missing',licence:'missing',claims:'missing',translation:'missing',address:'missing',policy:'missing'};
+const defaults={theme:'dark',themePreference:'dark',history:[],favorites:[],savedComparisons:[],localRuleEdits:[],profiles:demoProfiles,activeProfileId:'jeremy',documentsByProfile:{pirez:pirezDocuments,jeremy:jeremyDocuments,julia:juliaDocuments},profile:{name:'Jérémy',country:'FR',currency:'EUR',language:'fr'}};
 const cleanArray=value=>Array.isArray(value)?value:[];
 const clone=value=>structuredClone(value);
 export function loadState(){try{const saved=JSON.parse(localStorage.getItem(KEY)||'{}');const profiles=cleanArray(saved.profiles).length?saved.profiles:clone(demoProfiles);return{...clone(defaults),...saved,history:cleanArray(saved.history).slice(0,5),favorites:cleanArray(saved.favorites),savedComparisons:cleanArray(saved.savedComparisons),localRuleEdits:cleanArray(saved.localRuleEdits),profiles,activeProfileId:profiles.some(item=>item.id===saved.activeProfileId)?saved.activeProfileId:profiles[0].id,documentsByProfile:{...clone(defaults.documentsByProfile),...(saved.documentsByProfile||{})},profile:{...defaults.profile,...saved.profile}}}catch{return clone(defaults)}}
